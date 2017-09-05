@@ -1,0 +1,98 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/templateBase.xhtml">
+
+	<ui:define name="body">
+
+		<center>
+
+			<h:panelGrid styleClass="areaLogin textoEsquerda">
+
+				<p:messages id="messages" showDetail="true" showSummary="false"
+					autoUpdate="true" />
+
+			</h:panelGrid>
+
+			<h:form>
+
+
+				<span class="fonteTitulo">Alterar senha</span>
+				<br></br>
+				<br></br>
+
+				<p:fieldset styleClass="areaLogin">
+
+					<div align="left">
+						<h:outputText value="Regras para definição de nova senha:"
+							styleClass="fonteTitulo" />
+						<br></br>
+						<h:outputText value="#{usuarioVisao.feedbackSenha}" escape="false"
+							styleClass="fonteNormal" />
+						<br></br>
+					</div>
+
+					<h:panelGrid id="senhaPanelGrid" cellspacing="2" cellpadding="2"
+						columns="2"
+						columnClasses="textoDireita, textoEsquerda">
+
+						<h:outputLabel for="senha_atual" value="Senha atual:"
+							styleClass="fonteNormal" />
+
+						<p:password feedback="false" id="senha_atual"
+							styleClass="inputTextSenha" value="#{usuarioVisao.usuario.senha}"
+							required="true" minLength="8" size="25"
+							requiredMessage="Senha atual obrigatória." />
+
+						<h:outputLabel for="senha_nov" value="Nova senha:"
+							styleClass="fonteNormal" />
+
+						<p:password id="senha_nov" styleClass="inputTextSenha"
+							required="true" size="25" minLength="8" value="#{usuarioVisao.usuario.senhaNova}"
+							promptLabel="Digite a senha" weakLabel="Fraca" goodLabel="Média"
+							strongLabel="Forte" requiredMessage="Nova senha obrigatória." />
+
+						<h:outputLabel for="confirma_senha" value="Confirma senha:"
+							styleClass="fonteNormal" />
+
+						<p:password id="confirma_senha" feedback="false"
+							styleClass="inputTextSenha" label="confirma_senha" minLength="8" 
+							value="#{usuarioVisao.usuario.confirmaSenha}" size="25"
+							required="true" requiredMessage="Confirma senha obrigatória." />
+
+					</h:panelGrid>
+
+
+					<br></br>
+
+					<p:commandButton value="" styleClass="botaoAlterar"
+						update="senhaPanelGrid"
+						actionListener="#{usuarioVisao.alterarSenha}" />
+
+					<p:spacer width="10" />
+
+					<p:commandButton value="" styleClass="botaoCancelar"
+						onclick="location.href='../template/apresentacao.jsf'" />
+
+					<br></br>
+
+
+				</p:fieldset>
+
+			</h:form>
+
+		</center>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+
+
+

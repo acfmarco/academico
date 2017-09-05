@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.iasc</groupId>
+  <artifactId>Academico</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Academico</name>
+  
+  <modules>
+  	<module>seguranca-core</module>
+  	<module>academico-core</module>  	
+  	<module>academico-web</module>
+  	
+  	<module>../tesouraria</module>
+  </modules>
+</project>

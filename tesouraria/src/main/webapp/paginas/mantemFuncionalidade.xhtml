@@ -1,0 +1,222 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/template/templateBase.xhtml">
+
+	<ui:define name="body">
+
+		<h:form id="form1">
+
+			<p:confirmDialog id="confirmationExcluir" styleClass="fonteNormal"
+				message="Deseja realmente excluir este registo?" header="Aviso"
+				severity="alert" widgetVar="confirmationExcluir" width="300">
+				<center>
+					<p:commandButton
+						actionListener="#{funcionalidadeVisao.removerFuncionalidade}"
+						oncomplete="confirmationExcluir.hide()" value="" immediate="true"
+						styleClass="botaoSim" update="form1" />
+					<p:spacer width="10" />
+					<p:commandButton oncomplete="confirmationExcluir.hide()" value="" immediate="true"	styleClass="botaoNao" />
+				</center>
+			</p:confirmDialog>
+
+			<p:confirmDialog id="confirmationAlterar" styleClass="fonteNormal"
+				message="Deseja realmente alterar este registo?" header="Aviso"
+				severity="alert" widgetVar="confirmationAlterar" width="300">
+				<center>
+					<p:commandButton
+						actionListener="#{funcionalidadeVisao.alterarFuncionalidade}"
+						oncomplete="confirmationAlterar.hide()" value="" 
+						styleClass="botaoSim" update="form1" />
+					<p:spacer width="10" />
+					<p:commandButton oncomplete="confirmationAlterar.hide()" value="" styleClass="botaoNao" />
+				</center>
+			</p:confirmDialog>
+
+			<center>
+
+				<h:panelGrid styleClass="areaFuncionalidade textoEsquerda" columns="1">
+
+					<p:messages id="info" showDetail="true" showSummary="false"
+						autoUpdate="true" />
+
+				</h:panelGrid>
+
+			</center>
+
+
+			<div align="center">
+
+				<span class="fonteTitulo">Cadastro de Funcionalidades de Sistemas</span> <br></br>
+				<br></br>
+
+				<p:fieldset styleClass="areaFuncionalidade">
+
+					<br></br>
+					
+					<table align="center">
+						<tr>
+							<td align="right">
+								<h:outputText value="Sistema:" styleClass="fonteNormal negrito" />
+							</td>
+							<td>
+								<p:selectOneMenu value="#{funcionalidadeVisao.funcionalidade.sistema}" styleClass="selectOneMenuSistemaFuncionalidade"	id="sistema" converter="entityConverter" required="true" requiredMessage="O campo sistema deve ser informado">
+									<f:selectItem itemLabel="Selecione..." itemValue="" />
+									<f:selectItems value="#{funcionalidadeVisao.listaSistema}"	var="sistema" itemLabel="#{sistema.nome}" itemValue="#{sistema}" />
+									<f:ajax render="ltFuncionalidade" event="change" listener="#{funcionalidadeVisao.atualizarListaFuncionalidadePorSistema}" update="nome , descricao"/>
+								</p:selectOneMenu>
+							</td>
+						</tr>
+						<tr>
+							<td align="right">
+								<h:outputText value="Nome:" styleClass="fonteNormal" />
+							</td>
+							<td>
+								<p:inputText id="nome"
+									value="#{funcionalidadeVisao.funcionalidade.nome}" maxlength="30"
+									required="true"
+									requiredMessage="O campo nome deve ser informado."
+									styleClass="inputTextNomeFuncionalidade" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right">
+								<h:outputText value="Descrição:" styleClass="fonteNormal" />
+							</td>
+							<td>
+								<p:inputTextarea id="descricao" rows="5"
+									styleClass="textAreaDescricaoFuncionalidade"
+									value="#{funcionalidadeVisao.funcionalidade.descricao}"
+									required="true"
+									maxlength="100"
+									requiredMessage="O campo descrição deve ser informado." />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<h:outputText value="Literal a ser usado no código fonte:" styleClass="fonteNormal" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right">
+								<p:inputText id="txtLiteral" value="#{funcionalidadeVisao.funcionalidade.literal}"
+									maxlength="60" required="true"
+									requiredMessage="O campo literal deve ser informado."
+									disabled="#{funcionalidadeVisao.funcionalidade.codigo != null}"
+									styleClass="inputTextNomeSistema" />
+							</td>
+						</tr>
+					</table>
+						
+					<br></br>
+
+					<c:if test="${funcionalidadeVisao.acaoAlterar == 'true'}">
+
+						<p:commandButton value=""
+							oncomplete="handleRequest(xhr, status, args)" update="form1"
+							styleClass="botaoAlterar" />
+
+					</c:if>
+
+					<c:if test="${funcionalidadeVisao.acaoAlterar == 'false'}">
+						<p:commandButton
+							actionListener="#{funcionalidadeVisao.salvarFuncionalidade}"
+							value="" update="nome, descricao, txtLiteral, ltFuncionalidade" styleClass="botaoSalvar" />
+
+					</c:if>
+
+					<p:spacer width="10" />
+					<p:commandButton value=""
+						onclick="location.href='../template/apresentacao.jsf' "
+						styleClass="botaoCancelar" />
+
+					<br></br>
+					<br></br>
+
+				</p:fieldset>
+
+			</div>
+
+			<br></br>
+
+			<div align="center">
+
+				<p:dataTable dynamic="false" emptyMessage="Não existem registros"
+					var="_varFuncionalidade" paginatorPosition="bottom"
+					value="#{funcionalidadeVisao.listaFuncionalidade}"
+					id="ltFuncionalidade" paginator="true" rows="5"
+					styleClass="dataTableFuncionalidade">
+					<p:column style="width:30%;">
+						<f:facet name="header">
+							<h:outputText value="Nome" styleClass="fonteNormal" />
+						</f:facet>
+						<div align="left">
+						<h:outputText value="#{_varFuncionalidade.nome}"
+							styleClass="fonteNormal" />
+						</div>
+					</p:column>
+					<p:column style="width:40%;">
+						<f:facet name="header">
+							<h:outputText value="Descrição" styleClass="fonteNormal" />
+						</f:facet>
+						<div align="left">
+						<h:outputText value="#{_varFuncionalidade.descricao}"
+							styleClass="fonteNormal" />
+						</div>
+					</p:column>
+					<p:column style="width:20%;">
+						<f:facet name="header">
+							<h:outputText value="Literal" styleClass="fonteNormal" />
+						</f:facet>
+						<div align="left">
+						<h:outputText value="#{_varFuncionalidade.literal}"
+							styleClass="fonteNormal" />
+						</div>
+					</p:column>
+					<p:column styleClass="textoCentralizado" style="width:20%;">
+						<f:facet name="header">
+							<h:outputText value="Ações" styleClass="fonteNormal" />
+						</f:facet>
+
+						<h:commandButton title="Editar Funcionalidade"
+							action="#{funcionalidadeVisao.consultarFuncionalidadePorCodigo}"
+							image="/imagens/editar.gif" value="Alterar" immediate="true" />
+
+						<p:spacer width="10" />
+						<p:commandLink id="removeButton" process="@this" title="Excluir Funcionalidade"
+							oncomplete="confirmationExcluir.show()" immediate="true">
+							<p:graphicImage value="/imagens/excluir.gif"></p:graphicImage>
+							<f:setPropertyActionListener value="#{_varFuncionalidade}"
+								target="#{funcionalidadeVisao.funcionalidadeExc}" />
+						</p:commandLink>
+					</p:column>
+
+				</p:dataTable>
+			</div>
+
+		</h:form>
+		<script type="text/javascript">  
+    function handleRequest(xhr, status, args) {  
+        
+       if (!args.validationFailed){
+           confirmationAlterar.show()
+       }
+    }  
+	</script>
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

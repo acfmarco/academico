@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+            
+	<security:global-method-security secured-annotations="enabled" jsr250-annotations="enabled"/>
+
+	<security:http use-expressions="true">
+
+		<!-- Os usuarios nao logados nao podem acessar nada na pasta paginas, template e relatorios -->
+		<!-- <intercept-url pattern="/login.jsf*" access="permitAll" /> -->
+		<!-- <intercept-url pattern="/alteraSenhaEsquecida.jsf*" access="permitAll" /> -->
+		
+		<security:intercept-url pattern="/js/*" access="permitAll"/>
+		<security:intercept-url pattern="/css/*" access="permitAll"/>
+		<security:intercept-url pattern="/template/*" access="isFullyAuthenticated()"/>
+		<security:intercept-url pattern="/paginas/*" access="isFullyAuthenticated()"/>
+		<security:intercept-url pattern="/relatorios/*" access="isFullyAuthenticated()"/>
+		<security:intercept-url pattern="/**/*.xhtml" access="denyAll"/>
+		<security:intercept-url pattern="/**" access="permitAll"/>
+		
+		<security:form-login login-processing-url="/security_check" login-page="/login.jsf" default-target-url="/template/apresentacao.jsf" authentication-failure-url="/erroLogin.jsf"/>
+		
+		<security:logout logout-url="/logout" invalidate-session="true" logout-success-url="/login.jsf"/>
+		
+	</security:http>
+	
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider ref="authenticationService"/>
+	</security:authentication-manager>
+	
+	<!-- Automatically receives AuthenticationEvent messages -->
+	<bean id="loggerListener" class="org.springframework.security.authentication.event.LoggerListener"></bean>
+		
+</beans>		

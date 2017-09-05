@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html" contentType="text/html">
+
+	<br></br>
+
+	<div id="rodape">
+		<div class="rodape" align="center">
+			<span style="cursor: pointer;">				
+			</span>
+		</div>
+		<div class="rodapeCinza" id="rodapeCinza" align="center">
+			<h:outputText value="Sistema Acadêmico - Versão #{loginInternoController.versaoSistema}" rendered="#{loginInternoController.versaoSistema != null}" />
+		</div>
+	</div>
+
+</ui:composition>

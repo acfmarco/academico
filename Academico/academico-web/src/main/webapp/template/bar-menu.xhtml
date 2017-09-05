@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+	<!-- Ações dos Menus -->
+	<h:form>
+		<p:remoteCommand name="sair" action="#{usuarioVisao.deslogarUsuario}" />
+		<p:remoteCommand name="cadAluno" action="#{alunoVisao.iniciarPesquisarAluno}" /> 		
+	</h:form>
+	
+    <!-- main menu-->
+    <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+      <div class="main-menu-content">
+        <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+          <li class="nav-item"><a href="#"><i class="icon-address-book"></i><span class="menu-title">Cadastro</span></a>
+            <ul class="menu-content">
+              <li style="display: true">
+              	<a href="#" class="menu-item" onclick="cadAluno()">Aluno</a>
+              </li>              
+            </ul>
+          </li>          
+        </ul>
+      </div>
+     </div>
+	
+</ui:composition>

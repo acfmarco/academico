@@ -1,0 +1,207 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/template/templateBase.xhtml">
+
+	<ui:define name="body" >
+
+		<h:form id="form1">
+
+			<center>
+				<h:panelGrid styleClass="areaSistema textoEsquerda" columns="1">
+					<p:messages id="info" showDetail="true" showSummary="false" autoUpdate="true" />
+				</h:panelGrid>
+			</center>
+
+			<p:confirmDialog id="confirmationAlterar" styleClass="fonteNormal"
+				message="Deseja realmente alterar este registo?" header="Aviso"
+				severity="alert" widgetVar="confirmationAlterar" width="300">
+				<center>
+					<p:commandButton oncomplete="confirmationAlterar.hide()" value=""
+						styleClass="botaoSim"
+						actionListener="#{sistemaVisao.alterarSistema}" update="ltSistema, nome, descricao, txtxLiteral, perfil, :formTopo:sistemaLogado" />
+					<p:spacer width="10" />
+					<p:commandButton oncomplete="confirmationAlterar.hide()" value=""
+						styleClass="botaoNao" />
+				</center>
+			</p:confirmDialog>
+
+			<div align="center">
+
+				<span class="fonteTitulo">Cadastro de Sistemas</span> <br></br> <br></br>
+
+
+				<p:fieldset styleClass="areaSistema">
+
+					<br></br>
+					
+					<table align="center">
+						<tr>
+							<td align="right">
+								<h:outputText value="Nome:" styleClass="fonteNormal" />
+							</td>
+							<td>
+								<p:inputText id="nome" value="#{sistemaVisao.sistema.nome}"
+									maxlength="30" required="true"
+									requiredMessage="Campo nome de preenchimento obrigatório."
+									styleClass="inputTextNomeSistema" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right">
+								<h:outputText value="Descrição:" styleClass="fonteNormal" />
+							</td>
+							<td>
+								<p:inputTextarea id="descricao" rows="5"
+									styleClass="textAreaDescricaoSistema" maxlength="60"
+									value="#{sistemaVisao.sistema.descricao}" required="true"
+									requiredMessage="Campo descrição de preenchimento obrigatório." />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<h:outputText value="Literal a ser usado no código fonte:" styleClass="fonteNormal" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right">
+								<p:inputText id="txtxLiteral" value="#{sistemaVisao.sistema.literal}"
+									maxlength="60" required="true"
+									requiredMessage="Campo literal de preenchimento obrigatório."
+									disabled="#{sistemaVisao.sistema.codigo != null}"
+									styleClass="inputTextNomeSistema" />
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2" align="right">
+								<p:pickList id="perfil"
+											value="#{sistemaVisao.perfilDualListModel}" 
+											var="perfil"
+											converter="entityConverter" 
+											itemValue="#{perfil}"
+											styleClass="fonteNormal">
+									<f:facet name="sourceCaption">Perfis Cadastrados</f:facet>
+									<f:facet name="targetCaption">Perfis do Sistema</f:facet>
+									<p:column style="width:75%">
+										<h:outputText value="#{perfil.nome}" styleClass="fonteNormal" />
+									</p:column>
+								</p:pickList>
+							</td>
+						</tr>
+					</table>
+					
+					
+					<br></br>
+
+					<c:if test="${sistemaVisao.acaoAlterar == 'true'}">
+
+						<p:commandButton value=""
+							onclick="confirmationAlterar.show(); return false"
+							styleClass="botaoAlterar" immediate="true" update="nome, descricao, perfil" />
+
+					</c:if>
+
+					<c:if test="${sistemaVisao.acaoAlterar == 'false'}">
+						<p:commandButton actionListener="#{sistemaVisao.salvarSistema}"
+							value="" update="ltSistema, nome, descricao, txtxLiteral, perfil"
+							styleClass="botaoSalvar" />
+					</c:if>
+
+					<p:spacer width="10" />
+
+					<p:commandButton value="" styleClass="botaoCancelar"
+						onclick="location.href='../template/apresentacao.jsf' " />
+
+					<br></br>
+					<br></br>
+
+				</p:fieldset>
+
+			</div>
+
+			<br></br>
+
+			<div id="grid" align="center">
+
+				<p:dataTable dynamic="true" emptyMessage="Não existem registros"
+					var="_varSistema" paginatorPosition="bottom"
+					value="#{sistemaVisao.listaSistema}" id="ltSistema"
+					paginator="true" rows="5" styleClass="dataTableSistema">
+					<p:column style="width:30%;">
+						<f:facet name="header">
+							<h:outputText value="Nome" styleClass="fonteNormal" />
+						</f:facet>
+						<div align="left">
+							<h:outputText value="#{_varSistema.nome}" styleClass="fonteNormal" />
+						</div>
+					</p:column>
+					<p:column style="width:40%;">
+						<f:facet name="header">
+							<h:outputText value="Descrição" styleClass="fonteNormal" />
+						</f:facet>
+						<div align="left">
+							<h:outputText value="#{_varSistema.descricao}" styleClass="fonteNormal" />
+						</div>
+					</p:column>
+					<p:column style="width:20%;">
+						<f:facet name="header">
+							<h:outputText value="Literal" styleClass="fonteNormal" />
+						</f:facet>
+						<div align="left">
+							<h:outputText value="#{_varSistema.literal}" styleClass="fonteNormal" />
+						</div>
+					</p:column>
+					<p:column styleClass="textoCentralizado" style="width:20%;">
+						<f:facet name="header">
+							<h:outputText value="Ações" styleClass="fonteNormal" />
+						</f:facet>
+						
+						<h:commandButton
+							action="#{sistemaVisao.consultarSistemaPorCodigo}"
+							image="/imagens/editar.gif" styleClass="bt_excluir"
+							value="Alterar" immediate="true" title="Editar Sistema"/>
+						<p:spacer width="10" />
+						<p:commandLink id="removeButton" title="Excluir Sistema"
+							update=":form1:confirmation" oncomplete="confirmation.show()"
+							immediate="true">
+							<p:graphicImage value="/imagens/excluir.gif"></p:graphicImage>
+							<f:setPropertyActionListener value="#{_varSistema}"
+								target="#{sistemaVisao.sistema}" />
+						</p:commandLink>
+					</p:column>
+
+
+				</p:dataTable>
+
+				<p:confirmDialog id="confirmation"
+					message="Deseja realmente excluir este registo?"
+					styleClass="fonteNormal" header="Aviso" severity="alert"
+					widgetVar="confirmation">
+					<center>
+						<p:commandButton actionListener="#{sistemaVisao.removerSistema}"
+							immediate="true" oncomplete="confirmation.hide()" value=""
+							styleClass="botaoSim" update="ltSistema" />
+						<p:spacer width="10" />
+						<p:commandButton oncomplete="confirmation.hide()" value=""
+							immediate="true" styleClass="botaoNao" />
+					</center>
+				</p:confirmDialog>
+
+			</div>
+
+		</h:form>
+
+
+
+	</ui:define>
+</ui:composition>

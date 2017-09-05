@@ -1,0 +1,99 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	
+
+	<h:head>
+		<title>BB Previdência</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Language" content="pt-br" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store" />
+		<meta http-equiv="Pragma" content="no-cache, no-store" />
+		<meta http-equiv="expires" content="Mon, 06 Jan 1990 00:00:01 GMT" />
+		<meta name="robots" content="noindex,follow" />
+		
+		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/layout.css" />
+		<script type="text/javascript" src="#{request.contextPath}/js/locale.js"></script> 
+		<script type="text/javascript" src="#{request.contextPath}/js/Mascara.js"></script> 
+		<script type="text/javascript" src="#{request.contextPath}/js/util.js"></script> 
+		
+	</h:head>
+
+	<body>
+	
+	<f:view>
+		<div class="topoTirinha">
+			<div class="topoLogo"></div>
+		</div>
+		<center>
+
+			<h:panelGrid style="width:30%">
+				<p:messages id="messages" showDetail="true" showSummary="false" autoUpdate="true" />
+			</h:panelGrid>
+
+			<h:form id="form">
+
+				<span class="fonteTitulo">Solicitação de Alteração de Senha</span>
+				<br></br>
+				<br></br>
+
+				<p:fieldset style="width:40%" id="field">
+
+					<h:panelGrid id="senhaPanelGrid" columns="2" columnClasses="textoDireita, textoEsquerda" width="100%">
+
+						<h:outputLabel for="txLogin" value="Login:" styleClass="fonte12" />
+						<p:inputText id="txLogin" value="#{senhaVisao.usuario.login}" maxlength="50"  required="true"	requiredMessage="Campo Login de preenchimento obrigatório." />
+	
+						<h:outputLabel for="txtcpf" value="CPF:" styleClass="fonte12" />
+						<p:inputMask id="txtcpf" 	value="#{senhaVisao.usuario.cpf}" maxlength="12" 
+							required="true" requiredMessage="Campo CPF de preenchimento obrigatório." mask="999.999.999-99" validator="cpfcnpjjsfvalidador" />
+							
+						<h:outputLabel for="txtDataNascimento" value="Data Nascimento:" styleClass="fonte12" />
+						<p:calendar id="txtDataNascimento" 
+							yearRange="c-#{senhaVisao.faixaAno}" 
+							maxlength="10" styleClass="inputTextData" 
+							pattern="dd/MM/yyyy" navigator="true" locale="pt" showOn="button"
+							value="#{senhaVisao.usuario.dataNascimento}" 
+							mindate="#{senhaVisao.dataNascimentoMinima}" 
+							maxdate="#{senhaVisao.dataNascimentoMaxima}" 
+							onkeypress="Mascara(this,Data);" onkeydown="Mascara(this,Data);" onkeyup="Mascara(this,Data); validarData(this);"
+							required="true"	requiredMessage="Campo Data de Nascimento de preenchimento obrigatório." >
+							<p:ajax event="dateSelect"  process="txtDataNascimento" update="txtDataNascimento" />
+						</p:calendar>		
+						
+					</h:panelGrid>
+
+					<br></br>
+
+					<p:commandButton value="" styleClass="botaoSolicitar" update="txLogin,txtcpf,senhaPanelGrid,form,field"	actionListener="#{senhaVisao.gerarNovaSenha}"/>
+					<p:spacer width="10" />
+					<p:commandButton value="" styleClass="botaoCancelar" action="#{senhaVisao.cancelar}" immediate="true"/>
+					<br></br>
+
+				</p:fieldset>
+
+			</h:form>
+		<br></br>	<br></br>
+		</center>
+
+	<div class="rodape" id="rodape" align="center">
+		<span style="cursor: pointer;">
+			<a href="http://www.bbprevidencia.com.br/portal_novo_bbp/portal_novo/faleBBp.php"
+				target="_blank" style="color:#FFFFFF; text-decoration:none;">Fale com a BB Previdência</a>
+		</span>
+	</div>
+	<div class="rodapeCinza" id="rodapeCinza" align="center"></div>
+</f:view>
+</body>
+
+
+</html>
+
+
+

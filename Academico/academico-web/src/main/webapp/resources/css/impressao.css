@@ -1,0 +1,582 @@
+@CHARSET "UTF-8";
+
+@page {
+	
+	margin: 10px 30px 10px 30px;
+}
+
+table {
+	border-collapse: collapse;
+	font-weight: normal !important;
+	font-size: 9px;
+}
+body {
+	width:100%;
+
+	font-weight: normal !important;
+	font-size: 9px;
+}
+
+.panelGridConteudo {
+	border-collapse: collapse !important;
+}
+.panelGridSemBorda td {
+	border-style: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.areaMantemPropostaImpressao {
+	width: 100%;
+}
+.tituloTela {
+	text-align:center; font-size:11px; font-weight: bold;
+}
+
+.input_disabled {
+	background-color: white !important;	
+}
+
+.ui-selectonemenu-label {
+	
+}
+
+#btnRetornar {
+	display:none;
+}
+.componenteInvisivel {
+	display: none !important;
+}
+
+.tdEsquerda {
+	text-align:left;
+}
+
+.tableCabecario {
+	padding-left: 9px;
+	padding-right: 9px;
+}
+
+.propostaNacionalidade{
+	width: 60px;	
+}
+
+.tdDireita {
+	text-align: right;
+}
+
+.topoTirinha {
+    display: none;
+}
+#formMenu {
+    display: none;
+}
+#rodape {
+    display: none;
+}
+#formRetornarImpressao {
+	display:none;
+}
+.ui-selectonemenu {
+    border: 0 none !important;
+}
+.ui-selectonemenu-trigger {
+    display: none !important;
+}
+.ui-inputfield {
+    border: 0 none !important;
+    background: white !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	font-size: 9px !important;
+
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: none !important;
+    
+}
+
+.ui-fieldset{
+    border: none !important;
+	padding: 0px;
+	margin:0 !important;
+}
+
+div.ui-radiobutton > div.ui-helper-hidden {
+    display: block;
+}
+
+div.ui-chkbox > div.ui-helper-hidden {
+    display: block;
+}
+
+
+div.ui-selectonemenu > div.ui-helper-hidden {
+    display: none !important;
+}
+
+.ui-chkbox .ui-chkbox-box {
+    border-radius: 0 none;
+    float: left;
+    height: 16px;
+    margin-right: 3px;
+    width: 16px;
+}
+
+div.ui-chkbox-box {
+	
+	display:none;
+
+}
+
+
+div.ui-tooltip {
+	display:none !important;
+}
+
+div.ui-selectonemenu-panel {
+	display:none !important;
+}
+div.ui-datatable > table.tr {
+	 border: none !important;
+}
+
+div.ui-datatable > table td {
+	font-size: 9px !important; 
+}
+
+div.ui-datatable > table thead {
+	font-size: 9px !important;	  
+}
+
+div.ui-datatable > table thead tr th {
+	padding-top: 1px !important;
+	padding-bottom: 1px !important;  
+}
+
+.ui-radiobutton-box {
+    border: 0 none;
+}
+.ui-radiobutton {
+    border: 0 none;
+}
+input[type="radio"] {
+}
+input[type="radio"]:checked {
+}
+
+input[disabled='disabled'] {
+	background-color: white !important;
+	
+	
+}
+
+input[type="text"] {
+	text-align: left;
+	
+}
+
+input[type="button"] {
+	visibility: hidden;
+}
+
+input[type="submit"] {
+	visibility: hidden;
+}
+
+.ui-radiobutton .ui-radiobutton-box {
+    border-radius: 0 0 0 0;
+    bottom: 0;
+    height: 0;
+    left: 0;
+    line-height: 0;
+    position: absolute;
+    width: 0;
+    visibility: hidden;
+}
+
+.propostaCidadeNasc {
+	width:80px;
+}
+
+.propostaEstadoCivil{
+	width:80px;
+}
+
+.propostaLogo {
+ 	height: 52px;
+}
+
+.divPageBreak {
+	page-break-before: always;
+}
+
+.divPageBreakAuto {
+	page-break-before: auto;
+	page-break-after: auto;
+	page-break-inside: avoid;
+	display: block;
+	padding:5px;
+}
+
+.ui-state-disabled {
+	opacity: 100 !important;
+	-moz-opacity: 100 !important;
+	filter: alpha(opacity=100) !important;
+	font-family: Arial !important;
+	font-size: 9px !important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-color: black !important;
+	background-color: white !important;
+}
+
+hr {
+	display: none !important;
+}
+
+.ui-radiobutton-box	{
+	visibility: hidden;
+}
+
+.areaMantemProposta {
+	border: none !important;
+}
+
+label {
+	font-size: 9px !important;
+	font-weight: bold !important;
+}
+
+.ui-panel-content {
+	border:none !important;
+}
+.rodapeAssinatura{
+	width: 100%;
+}
+
+.modelo3Coluna1{
+	width: 30%;	
+}
+.modelo3Coluna2{
+	width:70%;
+	text-align: justify;	
+}
+
+.tdEsquerdaModelo3{
+	width: 60%;
+}
+.tdDireitaModelo3{
+	width: 40%;
+}
+
+.panelPatrocinadoraRodape {
+	width: 100%;
+	font-size: 9px !important;
+	border: none !important;
+}
+
+.panelPatrocinadoraRodape td {
+	border: 1px solid gray !important;
+}
+
+.panelGridRodapeAssinatura {
+	width: 100%;
+}
+
+.rodapeAssinatura{
+	width: 100%;
+}
+
+.colunaEsquerdaAssinatura{
+	width:40%;
+	text-align: center;
+}
+
+.colunaDireitaAssinatura{
+	width: 60%;
+	text-align: center;
+}
+
+.campoLocalEData {
+	 
+    background: white !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	border-bottom-width: thin!important;
+	border-bottom-style:solid !important;
+	width: 200px !important;
+	border-collapse: 0 !important;
+	border-spacing: 0 !important;
+}
+
+.campoAssinaturaParticipante {
+	 
+    background: white !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	border-bottom-width:thin !important;
+	border-bottom-style:solid !important;
+	width: 200px !important;
+	border-collapse: 0 !important;
+	border-spacing: 0 !important;
+}
+
+/** Atualização **/
+
+.ui-widget {
+	font-family: Arial !important;
+	font-size: 9px !important;
+	margin:0px !important;
+}
+.ui-fieldset, .ui-fieldset .ui-fieldset-legend {
+	padding: 0;
+	color: black !important;
+	border: none !importat;
+}
+.ui-fieldset-legend {
+	padding: 0px !important;
+}
+
+legend {
+	font-weight: bold !important;
+	font-size: 9px !important;
+	margin-left: 20px;
+}
+
+.ui-corner-all {
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border:none !important;
+}
+.ui-widget-content {
+	border: 0;
+	background: none;
+	color: black !important;
+}
+.ui-widget {
+	font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+	font-size: 9px;
+}
+
+legend {
+	display: block;
+	-webkit-padding-start: 2px;
+	-webkit-padding-end: 2px;
+	border: none !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border:0 !important;
+}
+
+
+.ui-state-default{
+	border:0px !important;
+	color: black !important;
+}
+.ui-state-disabled {
+	font-weight: normal !important;
+	font-size: 9px;
+}
+
+.ui-fieldset-content {
+	border-collapse: collapse !important;
+	margin:0px !important;
+	padding: 1px !important;
+	color: black;
+	font-size: 9px !important;
+}
+
+.asteriscoGerarFormulario {
+	display: none;
+}
+
+.fieldSetMantemProposta {
+	border: 1px solid gray !important;
+}
+
+.fieldSetMantemProposta table tr td {
+	border:none !important;
+	padding: 5px !important;
+}
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+	border: none !important;
+	border-collapse: collapse;
+}
+
+
+ui-datatable-data-empty {
+	border: none !important;
+}
+
+.ui-widget-header {
+	border: none !important;
+}
+
+.ui-fieldset, .ui-fieldset .ui-fieldset-legend {
+	padding: 0 !important;
+}
+
+.ui-radiobutton {
+	position:inherit !important;
+	margin: 0 !important;
+	width: 16px;
+	line-height: 0px !important;
+}
+.dataTableModelo3 {
+	width: 100% !important;
+}
+
+.tdEsquerda {
+	font-size: 9px !important;
+}
+
+.tdDireita {
+	font-size: 9px !important;
+}
+
+.ui-separator {
+	visibility: hidden !important;
+}
+
+.modeloGeal {
+	margin-left:3px !important;
+}
+.painelTotal {
+	width: 100% !important;
+}
+
+.regimeTributacaColEsquerda {
+	width: 40%;
+	text-align: left;
+}
+
+.regimeTributacaColDireita {
+	width: 60%;
+	text-align: justify;
+}
+
+.investimentoColEsquerda {
+	width: 40%;
+	text-align: left;
+}
+.investimentoColDireita {
+	width: 60%;
+	text-align: justify;
+}
+.formaRecolhimentoEsquerda {
+	width: 30%;
+	text-align: left;
+}
+.formaRecolhimentoDireita {
+	width: 70%;
+	text-align: justify;
+}
+
+#nacionalidade {
+	max-width: 100px !important;
+}
+
+input[name="formManterDadosCandidatoPartic:nacionalidade_editableInput"]{
+	max-width: 100px !important;
+}
+
+.separadorInfoContrib {
+	visibility:  !important;
+	background-color: blue !important;
+	height: 10px !important;
+	color:blue !important;
+}
+
+.ui-button {
+	visibility: hidden !important;	
+}
+
+element.style {
+}
+
+.ui-datatable .ui-widget .dataTableTelefone {
+	margin: 2px !important;	
+}
+
+.dataTableTelefone .ui-datatable-data td, .dataTableTelefone .ui-datatable-data-empty td {
+    padding: 1px 2px !important;
+}
+
+.dataTableDependentes .ui-datatable-data td, .dataTableDependentes .ui-datatable-data-empty td {
+    padding: 1px 2px !important;
+}
+
+.dataTableTempoServico .ui-datatable-data td, .dataTableTempoServico .ui-datatable-data-empty td {
+    padding: 1px 2px !important;
+}
+
+.dataTableCalculo .ui-datatable-data td, .dataTableCalculo .ui-datatable-data-empty td {
+    padding: 1px 2px !important;
+}
+
+.dataTableInfoContribuicoes .ui-datatable-data td, .dataTableInfoContribuicoes .ui-datatable-data-empty td {
+    padding: 1px 3px !important;
+}
+
+.dataTableInfoContribuicoes > table tbody {
+	border: none !important;
+}
+.dataTableInfoContribuicoes > table thead{
+	display: none !important;
+}
+
+.dataTableInfoContribuicoes > table tr{
+	
+}
+
+.dataTableInfoContribuicoes > table td{
+	border: none !important;
+}
+
+
+tbody.ui-datatable-data-empty ~ thead {
+	display: none;
+}
+
+.ui-panel .panelGridVazio {
+	width: 100%; 
+	text-align: center; 
+	margin: 0px !important;
+	padding: 0px !important;
+	font-size: 9px !important;
+}
+
+.formaRecolhimentoContribuicao table tbody tr td {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.panelAgenciaConta  table tbody tr td {
+	padding: 2px !important;
+}
+
+.campoContribuicao{
+	margin-left:3px !important;
+}
+
+table.pgDeclaracao tbody tr td {
+	border-spacing:0px !important; 
+	margin:0px !important;
+	padding:0px !important;
+	text-align: justify !important;
+	text-indent:40px !important;
+}
+
+table.pgDeclaracao {
+	margin:2px !important;
+}

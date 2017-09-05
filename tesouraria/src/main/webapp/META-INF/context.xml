@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/academico">
+  <ResourceLink global="jdbc/academicoDS" name="jdbc/academicoDS" type="javax.sql.DataSource"/>
+</Context>

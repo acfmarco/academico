@@ -1,0 +1,2715 @@
+/*************** Topo ****************/
+
+.topoLogo {
+	background-image: url('../resources/images/topo_novo.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	position: relative;
+	width: 473px;
+	height: 72px;
+}
+
+.topoTirinha { /*Monta o topo da página*/
+	width: 100%;
+	min-width: 800px;
+	height: 79px;
+	background-image: url(../resources/images/tirinha_nova.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+	background-color: #FFF;
+	position: relative;
+}
+
+/************** Menu ******************/
+.menu {
+	background-color: #FFFFFF;
+	background-image: url(../resources/images/SPCfundo_cinza_degrade.gif);
+	background-repeat: repeat-x;
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: #00194b;
+	width: 100%;
+	min-width: 800px;
+	height: 70px;
+	_height: 80px;
+	line-height: 70px;
+	_line-height: 40px;
+	vertical-align: bottom;
+	float: left;
+	border-bottom: 1px solid #DDD;
+}
+
+.aba {
+	background: url(../resources/images/bgMenuHorizAba.gif) repeat-x;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: center;
+	color: #000000;
+	width: 155px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: bottom;
+	float: left;
+	margin-left: 4px;
+	margin-right: 3px;
+	margin-top: 4px;
+	margin-bottom: 0px;
+	border: 1px solid #DDD;
+	_border-bottom: 1px solid #F0F0F0;
+	cursor: pointer;
+}
+
+/*************** Rodape **************/
+.rodape {
+	background-color: #0A4B81;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	width: 100%;
+	min-width: 800px;
+	height: 15px;
+	float: left;
+}
+
+.rodapeCinza {
+	background-color: #CCCCCC;
+	width: 100%;
+	min-width: 800px;
+	height: 60px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	font-weight: bold;
+	text-align: center;
+	line-height: 35px;
+}
+
+/*************** Corpo ***************/
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+img {
+	border: 0px;
+}
+
+.corPreta {
+	color: #000000;
+}
+
+/*************** Tabela ***************/
+.tabelaBordaSimples {
+	border-collapse: collapse;
+}
+
+.tabelaBordaSimples tr td {
+	border: 1px solid #CEE3F2;
+	/*E1F0FA;*/
+}
+
+/*************** Primefaces ***********/
+.ui-widget {
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.ui-icon-edit {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/editar.gif") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+.ui-icon-delete {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/excluir3.gif") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+.bt-exclui-fisicamente {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/bt_excluiFisicamente.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+.ui-icon-visualizar {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/visualizar3.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+.ui-icon-relatorio {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/gerar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+.ui-icon-gerarXls {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/excel.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+.ui-icon-gerarXls32 {
+	height: 32px !important;
+	width: 32px !important;
+	background-image: url("../resources/images/excel32.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+.ui-icon-gerarCSV32 {
+	height: 32px !important;
+	width: 32px !important;
+	background-image: url("../resources/images/CSV32.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+
+.ui-icon-gerarXML32 {
+	height: 32px !important;
+	width: 32px !important;
+	background-image: url("../resources/images/Xml32.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+
+.ui-icon-gerarPDF32 {
+	height: 32px !important;
+	width: 32px !important;
+	background-image: url("../resources/images/pdf32.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+
+.ui-icon-baixar {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/baixar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+
+
+.ui-icon-cancelar {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/bt_cancelar_mini_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	cursor: pointer;
+}
+
+.ui-state-error {
+	border: 1px solid #AED0EA !important;
+}
+
+/* 	Classe utilizada para sobrescrever (adicionar) as configurações nas mensagens
+	para que as imagens geradas pelo primefaces não apareçam sobre os menus da aplicação
+*/
+.ui-messages {
+	position: relative;
+	z-index: -1;
+}
+
+.ui-state-disabled {
+	opacity: .55 !important;
+	filter: Alpha(Opacity=55) !important;
+	background-image: none !important;
+}
+
+/*************** Fontes ***************/
+.fonteNormal {
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.fonteNormalCentro {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	align : center;
+}
+
+.negrito {
+	font-weight: bold;
+}
+
+.fonte12 {
+	font-family: Arial !important;
+	font-size: 12px !important;
+}
+
+.fonteNormalAzul {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	color: #4C8ED0 !important;
+	font-weight: bold !important;
+}
+
+.fonteTitulo {
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: #113BA1;
+}
+
+.fonteCinza {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	color: #CCCCCC !important;
+}
+
+/*************** Botões **************/
+
+/* CSS Utilizado nas áreas de botões, onde já conterão tanto o espaço entre eles como também do topo e rodapé*/
+.buttonsArea {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.buttonsArea .ui-button {
+	margin-left: 20px;
+}
+
+.buttonsArea .ui-button:first-child {
+	margin-left: 0px;
+}
+
+.botaoLogin {
+	height: 20px;
+	width: 79px;
+	background-image: url("../resources/images/login.jpg");
+	background-repeat: no-repeat;
+	background-color: #F2F5F7;
+	border: 0px
+}
+
+.botaoNovaProposta {
+	width: 98px !important;
+	height: 20px !important;
+	background-image: url("../resources/images/botaoNovaProposta.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important
+}
+
+.botaoLimpar {
+	height: 20px;
+	width: 79px;
+	background-image: url("../resources/images/limpar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important
+}
+
+.botaoSalvar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/salvar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoIncluirArq {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/botaoIncluir.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoIgnorar {
+	height: 20px !important;
+	width: 70px !important;
+	background-image: url("../resources/images/botaoIgnorar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoPendencia {
+	height: 20px !important;
+	width: 90px !important;
+	background-image: url("../resources/images/botaoPendencia.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoEnviarParaPatrocinadora {
+	height: 20px !important;
+	width: 164px !important;
+	background-image: url("../resources/images/botaoEnviarParaPatrocinadora.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoCancelar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/cancelar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoBaixar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/baixar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoAlterar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/alterar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoExcluir {
+	height: 20px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/excluir.gif") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoExcluirPadrao {
+	height: 20px !important;
+	width: 70px !important;
+	background-image: url("../resources/images/bt_excluir_padrao.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoAutorizarBoleto {
+	height: 18px !important;
+	width: 76px !important;
+	background-image: url("../resources/images/botaoAutorizarBoleto.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoPerfisAcesso {
+	height: 20px !important;
+	width: 108px !important;
+	background-image: url("../resources/images/perfis_acesso.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoSim {
+	height: 20px !important;
+	width: 52px !important;
+	background-image: url("../resources/images/sim.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoNao {
+	height: 20px !important;
+	width: 52px !important;
+	background-image: url("../resources/images/nao.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoOk {
+	height: 20px !important;
+	width: 52px !important;
+	background-image: url("../resources/images/ok.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoFechar {
+	height: 20px !important;
+	width: 80px !important;
+	background-image: url("../resources/images/fechar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoConfirmarCadastro {
+	width: 121px !important;
+	height: 20px !important;
+	background-image: url("../resources/images/botaoConfirmarCadastro.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoConfirmarAdesao {
+	width: 120px !important;
+	height: 20px !important;
+	background-image: url("../resources/images/botaoConfirmarAdesao.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoGerarSenha {
+	height: 20px !important;
+	width: 108px !important;
+	background-image: url("../resources/images/gerar_senha.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoHistorico {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/historico.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoRealizarSimulacao {
+	height: 20px !important;
+	width: 142px !important;
+	background-image: url("../resources/images/realizar_simulacao.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoVisualizarSimulador {
+	height: 20px !important;
+	width: 127px !important;
+	background-image: url("../resources/images/visualizar_simulador.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoPesquisar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/pesquisar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoImprimir {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/imprimir.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoImprimirXLS {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/imprimirXLS.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoImprimirFicha {
+	height: 20px !important;
+	width: 96px !important;
+	background-image: url("../resources/images/botaoImprimirFicha.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoCancelarProposta {
+	height: 20px !important;
+	width: 127px !important;
+	background-image: url("../resources/images/botaoCancelarProposta.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoProcessarAdesao {
+	height: 20px !important;
+	width: 117px !important;
+	background-image: url("../resources/images/processarAdesao.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoRetornar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/retornar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoEditar {
+	height: 20px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/editar.gif") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoGerar {
+	height: 20px !important;
+	width: 56px !important;
+	background-image: url("../resources/images/gerar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoIncluir {
+	height: 20px !important;
+	width: 56px !important;
+	background-image: url("../resources/images/incluir.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoSimular {
+	height: 20px !important;
+	width: 68px !important;
+	background-image: url("../resources/images/simular.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoN_UltimasSimulacoes {
+	height: 20px !important;
+	width: 142px !important;
+	background-image: url("../resources/images/n_ultimas_simulacoes.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoSalvarGrupo {
+	height: 20px !important;
+	width: 86px !important;
+	background-image: url("../resources/images/salvar_grupo.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoEmitirCertificado {
+	height: 20px !important;
+	width: 108px !important;
+	background-image: url("../resources/images/emitir_certificado.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoVisualizar {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/visualizar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoVisualizarCertificado {
+	height: 20px !important;
+	width: 148px !important;
+	background-image: url("../resources/images/visualizarCertificado.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoVisualizar2 {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/visualizar2.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoSalvarItensGrupo {
+	height: 20px !important;
+	width: 142px !important;
+	background-image: url("../resources/images/salvar_itens_grupo.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoLogotipoSuperiorEsquerda {
+	height: 16px !important;
+	width: 167px !important;
+	background-image: url("../resources/images/botaoLogoSuperiorEsquerdo.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoLogotipoSuperiorDireita {
+	height: 16px !important;
+	width: 151px !important;
+	background-image: url("../resources/images/botaoLogoSuperiorDireito.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoSolicitar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/solicitar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoGerarBoletoBancarioMapaResumoArrecadacao {
+	height: 20px !important;
+	width: 139px !important;
+	background-image: url("../resources/images/gerarBoletoBancario.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoGeraMapaResumoArrecadacao {
+	height: 20px !important;
+	width: 131px !important;
+	background-image: url("../resources/images/gerarMapaResumo.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoInsumoFolha {
+	height: 16px !important;
+	width: 115px !important;
+	background-image: url("../resources/images/botaoInsumoFolha.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoImprimirInsumo {
+	height: 16px !important;
+	width: 115px !important;
+	background-image: url("../resources/images/botaoImprimirInsumo.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoImprimirBoleto {
+	height: 16px !important;
+	width: 96px !important;
+	background-image: url("../resources/images/ImprimirBoleto.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.mapaResumo {
+	height: 16px !important;
+	width: 96px !important;
+	background-image: url("../resources/images/mapaResumo.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoSanar {
+	height: 20px !important;
+	width: 67px !important;
+	background-image: url("../resources/images/botaoSanar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoReprocessar {
+	height: 16px !important;
+	width: 94px !important;
+	background-image: url("../resources/images/botaoReprocessar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoProcessar {
+	height: 18px !important;
+	width: 76px !important;
+	background-image: url("../resources/images/botaoProcessar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoVisualizarErros {
+	height: 18px !important;
+	width: 111px !important;
+	background-image: url("../resources/images/botaoVisualizarErros.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoVisualizarCriticas {
+	height: 18px !important;
+	width: 116px !important;
+	background-image: url("../resources/images/botaoVisualizarCriticas.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.column10 {
+	width: 10%;
+}
+
+.column15 {
+	width: 15%;
+}
+
+.column20 {
+	width: 20%;
+}
+
+.column25 {
+	width: 25%;
+}
+
+.column30 {
+	width: 30%;
+}
+
+.column40 {
+	width: 40%;
+}
+
+.panelGridSemBorda td {
+	border-style: hidden !important;
+}
+
+.botaoQuitarPendenciasArrecadacao {
+	height: 20px !important;
+	width: 163px !important;
+	background-image: url("../resources/images/botaoQuitarPendenciasArrecadacao.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoIncluirTexto {
+	height: 16px !important;
+	width: 89px !important;
+	background-image: url("../resources/images/botaoIncluirTexto.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoIncluirArquivo {
+	height: 20px !important;
+	width: 110px !important;
+	background-image: url("../resources/images/botaoIncluirArquivo.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoExcluirTexto {
+	height: 16px !important;
+	width: 89px !important;
+	background-image: url("../resources/images/botaoExcluirTexto.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoEditarRegistro {
+	height: 20px !important;
+	width: 89px !important;
+	background-image: url("../resources/images/botaoEditar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoCopiarTexto {
+	height: 16px !important;
+	width: 89px !important;
+	background-image: url("../resources/images/copiarTexto.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoConfigurar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/configurar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoConcluir {
+	height: 16px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/concluir.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoParticipante {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/botaoParticipante.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoPatrocinadora {
+	height: 20px !important;
+	width: 89px !important;
+	background-image: url("../resources/images/botaoPatrocinadora.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoCandidatoParticipante {
+	height: 20px !important;
+	width: 153px !important;
+	background-image: url("../resources/images/botaoCandidatoParticipante.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoAvancar {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/botaoAvancar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoRelatorio {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/botaoRelatorio.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoRelatorioXls {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/botaoRelatorioXls.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoGerarPdf {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/botaoGerarPdf.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoGerarXls {
+	height: 20px !important;
+	width: 79px !important;
+	background-image: url("../resources/images/botaoGerarXls.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoSelecionar {
+	height: 16px !important;
+	width: 89px !important;
+	background-image: url("../resources/images/selecionar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoHelp {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/help.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoListar {
+	height: 20px !important;
+	width: 65px !important;
+	background-image: url("../resources/images/bt_listar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoValidar {
+	height: 20px !important;
+	width: 67px !important;
+	background-image: url("../resources/images/bt_validar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoRevalidar {
+	height: 20px !important;
+	width: 76px !important;
+	background-image: url("../resources/images/botaoRevalidar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoCadastrar {
+	height: 18px !important;
+	width: 80px !important;
+	background-image: url("../resources/images/botaoCadastrar.jpg") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoAtualizar {
+	height: 18px !important;
+	width: 80px !important;
+	background-image: url("../resources/images/botaoAtualizar.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoCheck {
+	height: 16px !important;
+	width: 16px !important;
+	background-image: url("../resources/images/check.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoErro {
+	width: 16px !important;
+	height: 16px !important;
+	background-image: url("../resources/images/erro.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_calculadora_mini_on {
+	width: 18px !important;
+	height: 18px !important;
+	background-image: url("../resources/images/bt_calculadora_mini_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_calculadora_mini_off {
+	width: 18px !important;
+	height: 18px !important;
+	background-image: url("../resources/images/bt_calculadora_mini_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_cancelar_mini_on {
+	width: 18px !important;
+	height: 18px !important;
+	background-image: url("../resources/images/bt_cancelar_mini_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_cancelar_mini_off {
+	width: 18px !important;
+	height: 18px !important;
+	background-image: url("../resources/images/bt_cancelar_mini_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_editar_mini_on {
+	width: 17px !important;
+	height: 17px !important;
+	cursor: pointer !important; 
+	background-image: url("../resources/images/bt_editar_mini_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_editar_mini_off {
+	width: 17px !important;
+	height: 17px !important;
+	cursor: pointer !important; 
+	background-image: url("../resources/images/bt_editar_mini_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_certificado_on {
+	width: 168px !important;
+	height: 38px !important;
+	background-image: url("../resources/images/bt_imprimir_certificado_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_certificado_off {
+	width: 168px !important;
+	height: 38px !important;
+	background-image: url("../resources/images/bt_imprimir_certificado_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_homologar_mini_on {
+	width: 18px !important;
+	height: 18px !important;
+	background-image: url("../resources/images/bt_homologar_mini_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+	cursor: pointer;
+	
+}
+
+.botao_homologar_mini_off {
+	width: 18px !important;
+	height: 18px !important;
+	background-image: url("../resources/images/bt_homologar_mini_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_impressora_mini_on {
+	width: 17px !important;
+	height: 17px !important;
+	background-image: url("../resources/images/bt_impressora_mini_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_impressora_mini_off {
+	width: 17px !important;
+	height: 17px !important;
+	background-image: url("../resources/images/bt_impressora_mini_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_confirmar_mini_on {
+	width: 18px !important;
+	height: 18px !important;
+	background-image: url("../resources/images/bt_confirmar_mini_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_confirmar_mini_off {
+	width: 18px !important;
+	height: 18px !important;
+	background-image: url("../resources/images/bt_confirmar_mini_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_legenda_on {
+	width: 76px !important;
+	height: 24px !important;
+	background-image: url("../resources/images/bt_legenda_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_legenda_off {
+	width: 76px !important;
+	height: 24px !important;
+	background-image: url("../resources/images/bt_legenda_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_cancelar_on {
+	width: 95px !important;
+	height: 32px !important;
+	background-image: url("../resources/images/bt_cancelar_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_cancelar_off {
+	width: 95px !important;
+	height: 32px !important;
+	background-image: url("../resources/images/bt_cancelar_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_confirmar_adesao_on {
+	width: 147px !important;
+	height: 32px !important;
+	background-image: url("../resources/images/bt_confirmar_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_confirmar_adesao_off {
+	width: 147px !important;
+	height: 32px !important;
+	background-image: url("../resources/images/bt_confirmar_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_imprimir_ficha_on {
+	width: 127px !important;
+	height: 32px !important;
+	background-image: url("../resources/images/bt_imprimir_ficha_on.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botao_imprimir_ficha_off {
+	width: 127px !important;
+	height: 32px !important;
+	background-image: url("../resources/images/bt_imprimir_ficha_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoGerarPendencia_on {
+	width: 120px !important;
+	height: 20px !important;
+	cursor: pointer !important;
+	background-image: url("../resources/images/botaoGerarPendencia.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoGerarPendencia_off {
+	width: 120px !important;
+	height: 20px !important;
+	cursor: pointer !important;
+	background-image: url("../resources/images/botaoGerarPendencia_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoAssumirCalculado_on {
+	width: 120px !important;
+	height: 20px !important;
+	cursor: pointer !important;
+	background-image: url("../resources/images/botaoAssumirCalculado.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoAssumirCalculado_off {
+	width: 120px !important;
+	height: 20px !important;
+	cursor: pointer !important;
+	background-image: url("../resources/images/botaoAssumirCalculado_off.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoAceitarEgerarMapa {
+	width: 152px !important;
+	height: 20px !important;
+	cursor: pointer !important;
+	background-image: url("../resources/images/botaoAceitarEgerarMapa.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoRealizarAjustes {
+	width: 152px !important;
+	height: 20px !important;
+	cursor: pointer !important;
+	background-image: url("../resources/images/botaoRealizarAjustes.png")!important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+
+
+/*************** Login ***************/
+.areaLogin {
+	width: 50%;
+}
+
+.inputTextLogin {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	color: #000000 !important;
+}
+
+/*************** Sistema ***************/
+.areaSistema {
+	width: 70%;
+}
+
+.dataTableSistema {
+	width: 70%;
+}
+
+.inputTextNomeSistema {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 400px !important;
+}
+
+.inputTextNomeAutenticacaoParticipante {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 80px !important;
+}
+
+.textAreaDescricaoSistema {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 400px !important;
+}
+
+/*************** Funcionalidade ***************/
+.areaFuncionalidade {
+	width: 95%;
+}
+
+.areaFuncionalidade2 {
+	width: 95%;
+	margin: auto;
+}
+
+.dataTableFuncionalidade {
+	width: 95%;
+}
+
+.dataTableTexto {
+	width: 100%;
+}
+
+.inputTextNomeFuncionalidade {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 400px !important;
+}
+
+.textAreaDescricaoFuncionalidade {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 400px !important;
+}
+
+.selectOneMenuSistemaFuncionalidade {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 405px !important;
+}
+
+/*************** Perfil ***************/
+.areaPerfil {
+	width: 70%;
+}
+
+.dataTablePerfil {
+	width: 70%;
+}
+
+.inputTextNomePerfil {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 400px !important;
+}
+
+.textAreaDescricaoPerfil {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 400px !important;
+}
+
+.selectOneMenuSistemaPerfil {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 405px !important;
+}
+
+/*************** Usuario ***************/
+.areaUsuario {
+	width: 95%;
+}
+
+.dataTableUsuario {
+	width: 95%;
+}
+
+.selectOneMenuTipoUsuario {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 345px !important;
+}
+
+.inputTextNomeUsuario {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 250px !important;
+}
+
+.inputTextNomeParticipante {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 400px !important;
+}
+
+.inputTextIdade {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 38px !important;
+}
+
+.inputTextDinamico {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 140px !important;
+}
+
+.inputTextDecimal {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	text-align: right;
+	width: 134px !important;
+}
+
+.inputTextLoginUsuario {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 155px !important;
+}
+
+.selectOneMenuStatusUsuario {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 175px !important;
+}
+
+.inputTextDataCriacaoUsuario {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 120px !important;
+}
+
+.inputTextUsuarioCriacao {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 120px !important;
+}
+
+.senhaUsuario {
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+#container {
+	margin: 1em auto;
+	width: 90%;
+	background: #ff;
+	border: 1px solid #fff;
+}
+
+#ladoEsquerdo {
+	float: left;
+	width: 60%;
+	margin: 0 0 0 20px;
+}
+
+#ladoDireito {
+	float: right;
+	width: 30%;
+	border-left: 1px solid #fff;
+	padding-left: 15px;
+}
+
+#areaBotoes {
+	clear: both;
+	padding: 5px;
+}
+
+#areaDataTable {
+	clear: both;
+	padding: 5px;
+}
+
+/*************** Usuario Perfil ***************/
+.areaUsuarioPerfil {
+	width: 70%;
+}
+
+.inputTextUsuarioPerfil {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 432px !important;
+}
+
+.selectOneMenuSistemaUsuarioPerfil {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 440px !important;
+}
+
+/*************** Permissao ***************/
+.areaPermissao {
+	width: 70%;
+}
+
+.selectOneMenuPerfilPermissao {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 440px !important;
+}
+
+.selectOneMenuSistemaPermissao {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 440px !important;
+}
+
+/*************** Simulação ***************/
+.areaSimulacao {
+	width: 95%;
+	position: relative;
+}
+
+.areaApresentacaoSimulacao {
+	width: 50%;
+	position: relative;
+}
+
+.panelGridSimulacao {
+	border: none;
+	border-style: none;
+	border-width: 0px;
+}
+
+.panelGridSimulacao tr {
+	border: none;
+	border-style: none;
+	border-width: 0px;
+	background-repeat: repeat;
+	background-image: url("../resources/images/fundoPanelGrid.png");
+}
+
+.panelGridSimulacao td {
+	border: none;
+	border-style: none;
+	border-width: 0px;
+}
+
+.panelGridDependentes {
+	border: none;
+	border-style: none;
+	border-width: 0px;
+}
+
+.panelGridDependentes tr {
+	border: none;
+	border-style: none;
+	border-width: 0px;
+	background-repeat: repeat;
+}
+
+.panelGridDependentes td {
+	border: none;
+	border-style: none;
+	border-width: 0px;
+}
+
+/*************** Parametros Seguranca ***************/
+.areaParametros {
+	width: 70%;
+}
+
+.inputTextParametros {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 70;
+}
+/*************** Homologar, ativar/inativar Simulador **************/
+.areaHomologarAtivarInativarSimulador {
+	width: 95%;
+}
+
+.selectOneMenuSimulador {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 250px !important;
+}
+
+.inputTextPlano {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 200px !important;
+}
+
+.inputTextDataCriacao {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 100px !important;
+}
+
+.inputTextDataStatus {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 100px !important;
+}
+
+.inputTextTipoSimulador {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 200px !important;
+}
+
+.inputTextStatusSimulador {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 140px !important;
+}
+
+.inputTextSimulador {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 150px !important;
+}
+
+.inputTextNomeSimulador {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 510px !important;
+}
+
+.inputTextareaDescricaoSimulador {
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.autoCompleteParticipante {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 200px !important;
+}
+
+.commandButtonRealizarSimulacao {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 170px !important;
+}
+
+.selectOneRadioAcao {
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.inputTextDDD {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 30px !important;
+}
+
+.inputTextData {
+	width: 60px !important;
+}
+
+.inputTextDataAutenticacaoParticipante {
+	width: 45px !important;
+}
+
+/*************** MantemProposta*************/
+#tableFormProposta td {
+	text-align: left;
+}
+
+.ulForm li {
+	list-style: none;
+	display: inline;
+	margin: 10;
+	text-align: left;
+	padding-right: 10;
+}
+
+.tableCabecario {
+	width: 99%;
+}
+
+.ulForm label {
+	
+}
+
+.labelPadrao {
+	font-weight: bold !important;
+}
+
+.ulForm {
+	list-style: none;
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+
+.ulForm table {
+	margin: 10;
+}
+
+.ulForm input {
+	
+}
+
+.areaMantemProposta {
+	width: 90%;
+	font-family: Arial !important;
+	font-size: 11px !important;
+	height: 100%;
+}
+
+.areaMantemPropostaImpressao {
+	width: 1200px;
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.panelPatrocinadoraRodape {
+	width: 98%;
+}
+
+.areaLayoutCertificadoParticipante {
+	width: 850px;
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.tituloTela {
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.tdEsquerda {
+	text-align: left;
+}
+
+td.tdDireita {
+	text-align: right !important;
+}
+
+.propostaLogo {
+	height: 52px;
+}
+
+.areaMantemTexto {
+	width: 80%;
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.panelGridConteudo {
+	text-align: left;
+}
+
+.panelGridToolTips {
+	display: none;
+}
+
+.panelGridCamposTela {
+	width: 100%;
+}
+
+.selectOneMenuEmpresa {
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.propostaNomeParticipante {
+	width: 320px;
+}
+
+.propostaCPF {
+	width: 80px;
+}
+
+.propostaData {
+	width: 400px;
+}
+
+.propostaIdentidade {
+	width: 100px;
+}
+
+.propostaSexo {
+	
+}
+
+.propostaOrgaoExpedidor {
+	width: 80px;
+}
+
+.propostaEstadoCivil {
+	width: 135px;
+}
+
+.propostaCidadeNasc {
+	width: 130px;
+}
+
+.propostaNacionalidade {
+	
+}
+
+.propostaGrauInstrucao {
+	
+}
+
+.propostaNomeMae {
+	width: 200px;
+}
+
+.propostaNomePai {
+	width: 200px;
+}
+
+.propostaNomeConjuge {
+	width: 250px;
+}
+
+.propostaEndLogradouro {
+	width: 250px;
+}
+
+.propostaEndNumero {
+	width: 40px;
+}
+
+.propostaEndComplemento {
+	width: 250px;
+}
+
+.propostaEndBairro {
+	
+}
+
+.propostaEndCidade {
+	
+}
+
+.propostaEndCEP {
+	width: 80px;
+}
+
+.propostaEndUF {
+	
+}
+
+.propostaLotacao {
+	
+}
+
+.propostaCargo {
+	
+}
+
+.propostaFuncao {
+	
+}
+
+.propostaSalario {
+	text-align: right;
+}
+
+.propostaEmail {
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-top: 5px;
+}
+
+.propostaTipoTelefone {
+	width: 100px;
+}
+
+.propostaNumeroDDD {
+	width: 35px;
+}
+
+.propostaNumeroTelefone {
+	width: 70px;
+}
+
+.propostaMatricula {
+	
+}
+
+.propostaSexoDependente {
+	width: 86px !important;
+}
+
+.propostaNomeDependente {
+	
+}
+
+.propostaValorRendimentos {
+	text-align: right;
+}
+
+.propostaValorPatrimonio {
+	text-align: right;
+}
+
+.propostaNomeEmpresa {
+	
+}
+
+.dataTableModelo3 {
+	width: 100% !important;
+}
+
+div.dataTableModelo3>table thead {
+	display: none;
+	
+}
+div.dataTableTextoModelo3 table {
+	border: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+div.dataTableTextoModelo3 table tbody tr{
+	border: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+div.dataTableTextoModelo3 table td{
+	border: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+} 
+
+.dataTableTextoModelo3 .ui-widget-content .ui-datatable-even {
+	border: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+	border-spacing: 0px !important;
+}
+
+div.divClass001 {
+	padding-left: 10px;
+	width: 90%;
+	text-align: right;
+}
+
+.modelo3Coluna1 {
+	width: 30%;
+	text-align: left;
+}
+
+.modelo3Coluna2 {
+	width: 70%;
+	text-align: justify;
+}
+
+.modelo1Coluna1 {
+	width: 5%;
+	text-align: left;
+}
+
+.modelo1Coluna2 {
+	width: 20%;
+	text-align: left;
+}
+
+.modelo1Coluna3 {
+	width: 75%;
+	text-align: justify;
+}
+
+.tdEsquerdaModelo3 {
+	width: 60%;
+}
+
+.tdDireitaModelo3 {
+	width: 40%;
+}
+
+.panelGridRodapeAssinatura {
+	width: 100%;
+}
+
+.rodapeAssinatura {
+	width: 100%;
+	margin-bottom: 0px !important;
+}
+
+.colunaEsquerdaAssinatura {
+	width: 40%;
+	text-align: center;
+}
+
+.colunaDireitaAssinatura {
+	width: 60%;
+	text-align: center;
+}
+
+.campoLocalEData {
+	border: 0 none !important;
+	background: white !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	border-bottom: thin black solid !important;
+	width: 200px;
+}
+
+.campoAssinaturaParticipante {
+	border: 0 none !important;
+	background: white !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	border-bottom: thin black solid !important;
+	width: 200px;
+}
+
+.modeloGeal {
+	margin-left: 10px !important;
+}
+
+.painelTotal {
+	width: 100% !important;
+}
+
+.regimeTributacaColEsquerda {
+	width: 30%;
+	text-align: left;
+}
+
+.regimeTributacaColDireita {
+	width: 70%;
+	text-align: justify;
+}
+
+.investimentoColEsquerda {
+	width: 40%;
+	text-align: left;
+}
+
+.investimentoColDireita {
+	width: 60%;
+	text-align: justify;
+}
+
+.formaRecolhimentoEsquerda {
+	width: 30%;
+	text-align: left;
+}
+
+.formaRecolhimentoDireita {
+	width: 70%;
+	text-align: justify;
+}
+
+.infoParticColuna1 {
+	width: 16%;
+}
+
+.tamanhoMaximo {
+	width: 100% !important;
+}
+
+.infoParticColuna2 {
+	width: 10% !important;
+}
+
+.infoParticColuna3 {
+	width: 9% !important;
+}
+
+.infoParticColuna4 {
+	width: 9% !important;
+}
+
+.infoParticColuna5 {
+	width: 10% !important;
+}
+
+.infoParticColuna6 {
+	width: 10% !important;
+}
+
+.infoParticColuna7 {
+	width: 9% !important;
+}
+
+.infoParticColuna8 {
+	width: 9% !important;
+}
+
+.infoParticColuna9 {
+	width: 10% !important;
+}
+
+.infoParticColuna10 {
+	width: 10% !important;
+}
+
+.coluna25percent {
+	width: 25% !important;
+}
+
+.coluna16percent {
+	width: 16.6% !important;
+}
+
+.coluna12percent {
+	width: 12.5% !important;
+}
+
+.dataTableSemBorda>table tbody {
+	border: none !important;
+}
+
+.dataTableSemBorda>table thead {
+	display: none !important;
+}
+
+.dataTableSemBorda>table tr {
+	
+}
+
+.dataTableSemBorda>table td {
+	border: none !important;
+}
+
+.dataTableInfoContribuicoes > table tbody {
+	border: none !important;
+}
+.dataTableInfoContribuicoes > table thead{
+	display: none !important;
+}
+
+.dataTableInfoContribuicoes > table tbody tr{
+	border:none !important;
+}
+
+.dataTableInfoContribuicoes > table td{
+	border: none !important;
+}
+/* CSS que altera o estilo do hover da wizard */
+.ui-wizard-step-title.ui-state-hover{
+	border: 1px solid #f9dd34 !important;
+	background: #ffef8f url("../resources/images/fundo_aba_selecionada.png") 50% top repeat-x !important;
+	color: #363636 !important;
+}
+/* Alteração no css da wizard para diminuir o tamanho da aba */
+.ui-wizard-step-title {
+	font-size: 15px !important;
+	margin: 0 3px 0 0;
+	padding: 0.3.6em;
+	float: left;
+}
+
+/*************** Alinhamento ***************/
+.textoCentralizado {
+	text-align: center;
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.textoEsquerda {
+	text-align: left;
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.textoDireita {
+	text-align: right;
+	font-family: Arial !important;
+	font-size: 11px !important;
+}
+
+.textoJustificado {
+	text-align: justify;
+}
+
+.corVermelha {
+	color: #FF0000;
+}
+
+.corVermelhaNegrito {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+/***************** Bordas ****************/
+table.bordaSimplesAzul tr td {
+	border: 1px solid #4C8ED0;
+}
+
+/*************** MantemLayoutFormulario ***************/
+.areaMantemLayoutProposta {
+	width: 95%;
+}
+
+.areaDatatableMantemLayoutProposta {
+	width: 95%;
+}
+
+.dataTableMantemLayoutProposta {
+	width: 99%;
+}
+
+.dataTableMantemPendenciasDispensadas {
+	width: 90%;
+}
+
+.selectOneMenulayoutFormulario {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 370px !important;
+}
+
+.selectOneMenu001 {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	min-width: 220px !important;
+	max-width: 330px !important;
+}
+
+.selectOneMenu002 {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 280px !important;
+}
+
+.selectOneMenu003 {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 100% !important;
+}
+
+.selectOneMenu004 {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 320px !important;
+}
+
+.autoCompleteLayout>input[type="text"] {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 336px !important;
+}
+
+.inputTextAreaMenulayoutFormulario {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 363px !important;
+}
+
+.selectOneMenuTipoLogin {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	min-width: 145px !important;
+}
+
+.fonteAzulDataTable {
+	font-weight: bold;
+	color: #2779aa;
+}
+
+/*************** relatorioConfiguracaoLayoutArquivo ***************/
+.selectOneMenuRelatorioConfiguracaoLayoutArquivo {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 375px !important;
+}
+
+/*************** Bordas do PanelGrid ***************/
+.semBorda tr,.semBorda td {
+	border: none !important;
+	width: 50%;
+}
+
+.botaoConfirmarProcessamento {
+	height: 20px !important;
+	width: 157px !important;
+	background-image: url("../resources/images/botaoConfirmarProcessamento.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+.botaoCancelarProcessamento {
+	height: 20px !important;
+	width: 157px !important;
+	background-image: url("../resources/images/botaoCancelarProcessamento.png") !important;
+	background-repeat: no-repeat !important;
+	background-color: #F2F5F7 !important;
+	border: 0px !important;
+}
+
+/*************** processarPropostaAdesao ***************/
+.selectOneMenuTipoLoteProcessarPropostaAdesao {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	min-width: 235px !important;
+}
+
+.panelRelatorioLoteArquivo {
+	width: 100%;
+	text-align: left;
+}
+
+.panelRelatorioLoteArquivo tr,.panelRelatorioLoteArquivo td {
+	border: none !important;
+}
+
+/*************** Campo obrigatório ********************/
+.asterisco {
+	font-size: 18px;
+	font-weight: bold;
+	padding-left: 2px;
+}
+
+.asteriscoGerarFormulario {
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 2px;
+}
+
+/*************** Arrecadacao ********************/
+.textAreaTextoAlerta {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 600px !important;
+}
+
+.selectOneMenuStatusMantemRegraAlerta {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	min-width: 195px !important;
+}
+
+.selectOneMenuCondicaoMantemRegraAlerta {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	min-width: 90px !important;
+}
+
+.selectOneMenuTeste {
+	font-family: Arial !important;
+	font-size: 11px !important;
+	min-width: 2px !important;
+}
+
+.dataTableListaArquivosUpload {
+	width: 95%;
+}
+
+/*************** Sanar Crítica Arrecadacao ********************/
+.inputTextTotalCritica {
+	font-family: Arial !important;
+	font-size: 18px !important;
+	font-weight: bold;
+	width: 60px !important;
+	height: 30px !important;
+	text-align: center !important;
+}
+
+.dataTableSanarCritica {
+	margin-left: 0px !important;
+}
+
+.dataTableMapaResumoArrecadacao {
+	margin-left: 0px !important;
+	left: -90px !important;
+	width: 95% !important;
+}
+
+.dataTableLogErroProcessamentoArquivo {
+	margin-left: 0px !important;
+	left: -90px !important;
+	width: 90% !important;
+}
+
+.dataTableArrecadacaoContribuicaoAdicionalPatrocinadora {
+	margin-left: 0px !important;
+	left: -90px !important;
+	width: 90% !important;
+}
+
+.divSanarCritica {
+	width: 95%;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.areaSanarCriticas {
+	width: 90%;
+}
+
+.divSanarCriticaPrincipal {
+	width: 80%;
+}
+
+.divEsquerdaSanarCritica {
+	float: left;
+	width: 40%;
+}
+
+.divDireitaSanarCritica {
+	float: right;
+	width: 60%;
+}
+
+.divTabelaSanarCritica {
+	float: left;
+	width: 100%;
+	height: auto;
+}
+
+.fieldArvoreCritica {
+	position: abssolut;
+	heigth: 650px !important;
+}
+
+.treeCriticas {
+	min-height: 226px;
+	height: auto;
+	width: 660px;
+}
+
+.tabelaStyle001 {
+	border: none !important;
+}
+
+.tabelaStyle001 tr,.tabelaStyle001 td {
+	text-align: left !important;
+	padding-left: 18px !important;
+}
+
+.tabelaStyle002 {
+	border: none !important;
+	width: 100% !important;
+}
+
+.tabelaStyle002 tr,.tabelaStyle002 td {
+	vertical-align: top !important;
+	text-align: left !important;
+	padding-left: 0px !important;
+}
+
+.selectManyMenuStyle001 {
+	text-align: left !important;
+	font-family: Arial !important;
+	font-size: 11px !important;
+	width: 280px !important;
+}
+
+.dataTableStyle001 {
+	width: 95%;
+	text-align: left;
+	padding-left: 5px;
+	position: relative;
+	align: center;
+}
+
+.dataTableStyle98percent {
+	width: 98%;
+	text-align: left;
+	padding-left: 5px;
+	position: relative;
+	align: center;
+}
+
+td.verticalAlignMiddle {
+	vertical-align: middle !important;
+}
+
+td.alignRight {
+	text-align: right;
+}
+
+.ui-picklist .ui-picklist-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	height: 140px;
+	width: 200px;
+}
+
+/************* Configuração para o Acesso Identificado *****************/
+/************* Configuração Acesso Identificado de Participante ********/
+.colunaAcessoIdentificado01 {
+	text-align: right;
+	width: 40%;
+}
+
+.colunaAcessoIdentificado02 {
+	text-align: left;
+	width: 20%;
+}
+
+.colunaAcessoIdentificado03 {
+	text-align: left;
+	width: 40%;
+}
+
+div.divMensagensAcessoIdentificado {
+	min-height: 90px;
+	width: 100%;
+	/* border: 3px #001200 solid; */
+}
+/************* Configuração para o Acesso Identificado *****************/
+div.div_fixa {
+	z-index: 1000;
+	width: 80%;
+	left: 10%;
+	margin: 0 auto;
+	position: fixed;
+	*position: absolute;
+	top: 5px;
+}
+
+div.fonteDica {
+	font-size: 1.0em;
+}
+
+div.div_right {
+	width: 100%;
+	text-align: right;
+	margin-right: 2px;
+}
+
+.ui-datatable-data-empty {
+	text-align: center;
+}
+
+/*********************Conversor ********************************/
+.areaMensagemConversor {
+	width: 60%;
+}
+
+.ui-selectoneradio tbody tr td {
+	border: 0px !important;	
+}
+
+/* Estilos usados pela tela de percentual de participantes */
+.painelPercentualParticipante {
+	width:50% !important;
+}
+
+.ui-datatable-scrollable-header-box {
+	width: 100% !important;
+	padding-right: 0px !important;	
+}
+
+.ui-datatable-scrollable-header table, .ui-datatable-scrollable-body table, .ui-datatable-scrollable-header-box table thead tr th div.ui-dt-c, tbody.ui-datatable-data-empty tr td div.ui-dt-c {
+	width: 100% !important;
+}
+
+.colunaPercentual > div.ui-dt-c {
+	width: 169px !important;
+}
+
+.colunaCompetencia > div.ui-dt-c {
+	width: 174px !important;
+}
+
+.colunaAcoes > div.ui-dt-c {
+	width: 96px !important;
+}
+
+.panelPesquisaLeft {
+	padding-left : 10px !important; 
+	padding-top: 10px !important; 
+	clear:left !important; 
+	float: left !important;
+	position: relative !important; 
+	display: inline !important;
+	width: 40% !important;
+}
+
+.colunaDireita{
+	-moz-text-align: left !important;
+	-moz-font-weight: bold !important;
+	-webkit-text-align: left !important;
+	-webkit-font-weight: bold !important;
+	text-align: left !important;
+	font-weight: bold !important;
+	width: 83.33333% !important;
+	box-sizing: border-box !important;
+}
+.colunaEsquerda{
+	-webkit-text-align: right !important;
+	-webkit-padding-right: 5px !important;	
+	-moz-text-align: right !important;
+	-moz-padding-right: 5px !important;	
+	text-align: right !important;
+	padding-right: 5px !important;
+	width: 16.66666% !important;	
+	box-sizing: border-box !important;
+}
+
+.selectRadio label {
+	margin-right: 10px !important;
+	vertical-align: middle !important;
+}
+
+.myFieldset .ui-fieldset, .ui-fieldset .ui-fieldset-legend {
+	background-color: transparent !important;
+	border-color: transparent !important;
+	margin: auto !important;
+	text-align: center !important;
+}
+
+footer {
+  clear: both;
+  padding: 20px 0;
+}
+
+.linkAcessoNegado {
+	color: #D51407;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.linkAcessoNegado:hover {
+	color: #0C0FDE;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.ui-selectonemenu-filter-container {
+    width: 98% !important;
+}
+
+.ui-datatable .ui-datatable-data .editCell {
+    border: 1px solid #82e0aa;
+    background-color:  #d5f5e3;
+    text-align: right;
+    font-weight: bold;
+    color:  #0e6655;
+    
+}

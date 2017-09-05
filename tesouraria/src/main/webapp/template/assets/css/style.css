@@ -1,0 +1,115 @@
+/*================================================================================
+	Item Name: Robust - Responsive Admin Theme
+	Version: 1.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+.content {
+	min-height: 0 !important;
+}
+
+.content-wrapper {
+	background-color: transparent !important;
+	margin-left: 0 !important;
+}
+
+.public-00, .public-00 .fc-event-skin, .public-00 a{ 
+	background: #3BAAE3 !important; 
+	border-color: #3BAAE3 !important;
+	color: #FFFFFF !important;
+} 
+
+.public-01, .public-01 .fc-event-skin, .public-01 a{ 
+	background: #212F3C !important; 
+	border-color: #212F3C !important; 
+	color: #FFFFFF !important;
+}
+
+.public-02, .public-02 .fc-event-skin, .public-02 a{ 
+	background: #9ca2c4 !important;
+	border-color: #9ca2c4 !important; 
+	color: #FFFFFF !important;
+}
+
+.public-03, .public-03 .fc-event-skin, .public-03 a{ 
+	background: #17A589 !important;
+	border-color: #17A589 !important; 
+	color: #FFFFFF !important;
+} 
+
+.public-04, .public-04 .fc-event-skin, .public-04 a{ 
+	background: #007efd !important;
+	border-color: #007efd !important; 
+	color: #FFFFFF !important;
+} 
+
+.public-05, .public-05 .fc-event-skin, .public-05 a{
+	background: #B7950B !important;
+	border-color: #B7950B ; !important;
+	color: #FFFFFF !important;
+} 
+
+.public-06, .public-06 .fc-event-skin, .public-06 a{ 
+	background: #E74C3C !important;
+	border-color: #E74C3C !important; 
+	color: #FFFFFF !important;
+}
+
+.public-07, .public-07 .fc-event-skin, .public-07 a{ 
+	background: #566573 !important;
+	border-color: #566573 !important; 
+	color: #FFFFFF !important;
+}
+
+.public-08, .public-08 .fc-event-skin, .public-08 a{ 
+	background: #A569BD !important;
+	border-color: #A569BD !important; 
+	color: #FFFFFF !important;
+}
+
+/*******************************organograma********************/
+.ui-organigram .ui-organigram-node.presi {
+    background: #93e7ff;
+    background: -moz-linear-gradient(top, #93e7ff 0%, #007efc 100%);
+    background: -webkit-linear-gradient(top, #93e7ff 0%,#007efc 100%);
+    background: linear-gradient(to bottom, #93e7ff 0%,#007efc 100%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+ 
+.ui-organigram .ui-organigram-node.direx {
+    background: #88c048;
+    background: -moz-linear-gradient(top, #88c048 0%, #69a038 100%);
+    background: -webkit-linear-gradient(top, #88c048 0%,#69a038 100%);
+    background: linear-gradient(to bottom, #88c048 0%,#69a038 100%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.ui-organigram .ui-organigram-node.super {
+    background: #ffb08a;
+    background: -moz-linear-gradient(top, #ffb08a 0%, #FF854D 100%);
+    background: -webkit-linear-gradient(top, #ffb08a 0%,#FF854D 100%);
+    background: linear-gradient(to bottom, #ffb08a 0%,#FF854D 100%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.ui-organigram .ui-organigram-node.gerencia {
+    background: #34495E;
+    background: -moz-linear-gradient(top, #34495E 0%, #AEB6BF 100%);
+    background: -webkit-linear-gradient(top, #34495E 0%,#AEB6BF 100%);
+    background: linear-gradient(to bottom, #34495E 0%,#AEB6BF 100%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}

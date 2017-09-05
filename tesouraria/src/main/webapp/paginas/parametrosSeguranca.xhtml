@@ -1,0 +1,157 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/template/templateBase.xhtml">
+
+	<ui:define name="body">
+		
+		<h:form id="form1">
+
+			<center>
+				<h:panelGrid styleClass="areaUsuarioPerfil textoEsquerda" columns="1">
+					<p:messages id="messages" showDetail="true" showSummary="false"	autoUpdate="true" />
+				</h:panelGrid>
+			</center>
+
+			<p:confirmDialog id="confirmDialog" message=" Registro salvo com sucesso."	header="Confirmação de Alteração" 
+					severity="info"	widgetVar="confirmation">
+				<p:commandButton id="confirm" value="" styleClass="botaoOk"	update="messages" oncomplete="confirmation.hide()" />
+			</p:confirmDialog>
+
+
+			<div align="center">
+
+				<p:confirmDialog id="confirmationAlterar" styleClass="fonteNormal"
+					message="Deseja salvar as alterações ?" header="Aviso"
+					severity="alert" widgetVar="confirmationAlterar" width="300"
+					modal="true">
+					<center>
+						<p:commandButton
+							actionListener="#{parametrosSegurancaVisao.alterarParametroSeguranca}" immediate="true"
+							oncomplete="confirmationAlterar.hide()" value=""
+							styleClass="botaoSim" />
+						<p:spacer width="10" />
+						<p:commandButton oncomplete="confirmationAlterar.hide()" value=""
+							styleClass="botaoNao" />
+					</center>
+				</p:confirmDialog>
+
+				<span class="fonteTitulo">Parâmetros de Segurança</span> <br></br> <br></br>
+
+				<p:fieldset styleClass="areaUsuarioPerfil">
+
+					<br></br>
+
+					<h:panelGrid columns="3" cellspacing="2" cellpadding="2"
+						columnClasses="textoDireita, textoEsquerda, textoEsquerda"
+						id="panelGridParametrosSeguranca">
+						<h:outputText value="Tamanho mínimo de senha:"
+							styleClass="fonteNormal" />
+
+						<h:panelGroup>
+							<p:inputMask id="tamanho_minimo_senha"
+								value="#{parametrosSegurancaVisao.parametroSeguranca.tamanhoSenha}"
+								maxlength="2" required="true"
+								requiredMessage="O campo Tamanho mínimo de senha deve ser informado."
+								styleClass="inputTextParametros" mask="9?9" />
+
+							<h:outputLabel for="tamanho_minimo_senha" value="*" />
+
+						</h:panelGroup>
+
+						<h:outputLabel value="" />
+
+						<!--  h:outputText value="Composição de senha:"
+							styleClass="fonteNormal" /-->
+
+						<p:pickList id="pickListComposicaoSenha" 
+							value="#{parametrosSegurancaVisao.listaDuplaParametros}"
+							var="parametro" itemValue="#{parametro}" itemLabel="#{parametro}"
+							styleClass="fonteNormal" label="Label" removeLabel="Remover"
+							addLabel="Adicionar" addAllLabel="Adicionar todos"
+							removeAllLabel="Remover todos" onTransfer="verificarLista();">
+							<f:facet name="sourceCaption">Itens de Composição de Senha</f:facet>
+							<f:facet name="targetCaption">Composição de Senha Atual</f:facet>
+							
+							<p:column style="width:75%">
+								<h:outputText value="#{parametro}" styleClass="fonteNormal" />
+							</p:column>
+						</p:pickList>
+
+						<h:outputLabel for="pickListComposicaoSenha" value="*" />
+
+						<h:outputText value="Intervalo de reuso de senha:"
+							styleClass="fonteNormal" />
+
+						<h:panelGroup>
+							<p:inputMask id="intervalo_reuso_senha"
+								value="#{parametrosSegurancaVisao.parametroSeguranca.quantidadeReusoSenha}"
+								maxlength="2" required="true"
+								requiredMessage="O campo Intervalo de reuso de senha deve ser informado."
+								styleClass="inputTextParametros" mask="9?9" />
+
+							<h:outputLabel for="intervalo_reuso_senha" value="*" />
+						</h:panelGroup>
+						<h:outputLabel value="" />
+
+						<h:outputText value="Expiração de senha em dias:"
+							styleClass="fonteNormal" />
+
+						<h:panelGroup>
+							<p:inputMask id="expiracao_senha_dias"
+								value="#{parametrosSegurancaVisao.parametroSeguranca.quantidadeDiasExpiraSenha}"
+								maxlength="3" required="true"
+								requiredMessage="O campo Expiração de senha em dias deve ser informado."
+								styleClass="inputTextParametros" mask="9?99" placeHolder="" />
+
+							<h:outputLabel for="expiracao_senha_dias" value="*" />
+						</h:panelGroup>
+						<h:outputLabel value="" />
+
+					</h:panelGrid>
+
+					<br></br>
+
+					<p:commandButton value="" styleClass="botaoSalvar"
+						update="panelGridParametrosSeguranca"
+						oncomplete="handleRequest(xhr, status, args)" />
+					<p:spacer width="10" />
+					<p:commandButton value="" styleClass="botaoCancelar"
+						action="#{loginVisao.autenticarUsuario}" />
+
+					<br></br>
+					<br></br>
+
+				</p:fieldset>
+
+			</div>
+			
+			<p:remoteCommand name="verificarLista" actionListener="#{parametrosSegurancaVisao.verifcarListaParametro}"	update="pickListComposicaoSenha" />
+			
+		</h:form>
+
+		<script type="text/javascript">  
+    function handleRequest(xhr, status, args) {  
+        
+       if (!args.validationFailed){
+    	   confirmationAlterar.show()
+       }
+    }  
+	</script>
+
+
+
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

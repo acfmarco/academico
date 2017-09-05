@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+        >
+
+     <ul class="sidebar-menu">
+        <li>
+            <p:link href="/index.xhtml" onclick="clearBreadCrumbs()">
+                <i class="fa fa-home"></i>
+                <span>Início</span>
+            </p:link>
+        </li>
+        <li class="header">
+            Opções
+        </li>
+        <li>
+            <p:link href="/pesquisaClientes.xhtml">
+                <i class="fa fa-users"></i>
+                <span>Clientes</span>
+            </p:link>
+        </li>
+        <li>
+            <p:link href="/cadastrarPlanos.xhtml">
+                <i class="fa fa-tasks"></i>
+                <span>Planos</span>
+            </p:link>
+        </li>
+
+    </ul>
+
+</ui:composition>

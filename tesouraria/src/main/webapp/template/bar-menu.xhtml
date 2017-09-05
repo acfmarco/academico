@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+	<!-- Ações dos Menus -->
+	<h:form>
+		<p:remoteCommand name="sair" action="#{loginInternoController.deslogarUsuario}" />
+		<p:remoteCommand name="unidOrg" action="#{unidadeOrganizacionalVisao.iniciarUnidadeOrganizacional}" /> <!-- rendered="#{loginTemporario.usuarioPossuiFuncionalidade('mantemUnidadeOrganizacional')}"/> -->
+		<p:remoteCommand name="gestFer" action="#{funcionarioUnidadeGestaoVisao.iniciarFuncionarioGestao}" /> <!-- rendered="#{loginTemporario.usuarioPossuiFuncionalidade('mantemFuncionarioUnidadeGestao')}"/> -->
+		<p:remoteCommand name="funcAss" action="#{funcionalidadeUnidFuncVisao.iniciarFuncionalidadeUnidFunc}" /> <!-- rendered="#{loginTemporario.usuarioPossuiFuncionalidade('mantemFuncioUnidOrgFuncionario')}"/> -->
+		<p:remoteCommand name="cadSolFer" action="#{funcionarioVisao.iniciarPesquisaFuncionario}" /> <!-- rendered="#{loginTemporario.usuarioPossuiFuncionalidade('pesquisaFuncionario')}"/> -->
+		<p:remoteCommand name="autFer"  action="#{funcionarioVisao.iniciarAutorizarFerias}" /> <!-- rendered="#{loginTemporario.usuarioPossuiFuncionalidade('autorizacaoFerias')}"/> -->
+		<p:remoteCommand name="calFer" action="#{calendarioFeriasVisao.iniciarCalendarioFeriasFuncionario}" /> <!-- rendered="#{loginTemporario.usuarioPossuiFuncionalidade('calendarioFerias')}"/> -->
+		<p:remoteCommand name="regAvd" action="#{feedBackView.iniciarFeedback}" />
+		<p:remoteCommand name="baseMkt"  action="#{baseEmailMarketingVisao.iniciarBaseEmailMarketing}" />
+	</h:form>
+	
+    <!-- main menu-->
+    <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+      <!-- main menu header
+      <div class="main-menu-header">
+        <input type="text" placeholder="Search" class="menu-search form-control round"/>
+      </div>
+	  -->
+      <!-- / main menu header-->
+      <!-- main menu content-->
+      <div class="main-menu-content">
+        <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+          <li class="nav-item"><a href="#"><i class="icon-address-book"></i><span class="menu-title">Cadastro</span></a>
+            <ul class="menu-content">
+              <li style="display: #{loginTemporario.usuarioPossuiFuncionalidade('mantemUnidadeOrganizacional') == 'true' ? 'inherited' : 'none'}">
+              	<a href="#" class="menu-item" onclick="unidOrg()">Unidade Organizacional</a>
+              </li>
+              <li style="display: #{loginTemporario.usuarioPossuiFuncionalidade('mantemFuncionarioUnidadeGestao') == 'true' ? 'inherited' : 'none'}">
+              	<a href="#" onclick="gestFer()" class="menu-item">Gestores de Férias</a>  
+              </li>
+              <li style="display: #{loginTemporario.usuarioPossuiFuncionalidade('mantemFuncioUnidOrgFuncionario') == 'true' ? 'inherited' : 'none'}">
+              	<a href="#" onclick="funcAss()" class="menu-item">Funcionalidade Associada</a> 
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="#"><i class="icon-airplane"></i><span class="menu-title">Férias</span></a>
+            <ul class="menu-content">
+              <li style="display: #{loginTemporario.usuarioPossuiFuncionalidade('pesquisaFuncionario') == 'true' ? 'inherited' : 'none'}">
+              	<a href="#" onclick="cadSolFer()" class="menu-item">Cadastro / Solicitação</a>  
+              </li>
+              <li style="display: #{loginTemporario.usuarioPossuiFuncionalidade('autorizacaoFerias') == 'true' ? 'inherited' : 'none'}">
+              	<a href="#" onclick="autFer()" class="menu-item">Autorização</a>
+              </li>
+              <li style="display: #{loginTemporario.usuarioPossuiFuncionalidade('calendarioFerias') == 'true' ? 'inherited' : 'none'}">
+              	<a href="#" onclick="calFer()" class="menu-item">Calendário</a>  
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="#"><i class="icon-bubbles"></i><span class="menu-title">AVD</span></a>
+            <ul class="menu-content">
+              <li>
+              	<a href="#" onclick="regAvd()" class="menu-item">Registros</a>
+              </li>
+            </ul>
+          </li>
+          <li class=" nav-item"><a href="#"><i class="icon-file-text2"></i><span class="menu-title">Relatórios</span></a>
+            <ul class="menu-content">
+              <li>
+              	<a href="#" onclick="baseMkt()" class="menu-item">E-mail Marketing</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+     </div>
+	
+</ui:composition>

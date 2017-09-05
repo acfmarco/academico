@@ -1,0 +1,131 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/templatebs.xhtml">
+	
+<ui:define name="body">
+   <h:form id="form1" prependId="false" enctype="multipart/form-data">
+   	
+   		
+		<p:messages id="messages" showDetail="true" showSummary="false" autoUpdate="true" closable="true" />
+   		
+   		<!-- Panel de pesquisa -->
+   		<p:outputPanel id="pesquisa" style="margin: auto; padding-top: 10px;">
+   			<p:panel header="Pesquisar Registros" styleClass="box-info">
+	   				<div class="row">	
+	   					<div class="col-md-12 has-error">
+	   						<div class="ui-fluid">
+	   							<label for="nomeAluno" class="control-label">Nome: </label>
+								<p:inputText id="nomeAluno" maxlength="100" size="100"
+									value="#{alunoVisao.aluno.alunNome}" styleClass="form-control"
+									>
+								</p:inputText>
+							</div>
+		   				</div>
+	   					
+	   					<div class="col-md-6 has-error">
+		   						<div class="ui-fluid">
+				   					<label for="numMatricula" class="control-label">Matrícula: </label>
+									<p:inputText id="numMatricula" maxlength="10" size="20"
+										value="#{alunoVisao.aluno.matricula}" styleClass="form-control"
+										style="width:150px;">
+									</p:inputText>
+								</div>						
+		   				</div>
+		   				
+		   				<div class="col-md-6 has-error">
+		   						<div class="ui-fluid">
+				   					<label for="numCPF" class="control-label">CPF: </label>
+									<p:inputText id="cpf" value="#{alunoVisao.aluno.alunCPF}"
+										onkeypress="Mascara(this,Cpf);" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf);" 
+										maxlength="14" styleClass="inputTextDinamico" converter="#{cpfCnpjJsfConverter}">
+										<p:ajax event="blur" process="@this" update="messages" styleClass="form-control"/>
+									</p:inputText>
+								</div>						
+		   				</div>
+
+	   				</div>
+	   				
+   				<f:facet name="footer">
+					<center>
+					    <p:commandButton value="Buscar" process="@form" update="lista_alunos" actionListener="#{alunoVisao.pesquisarAlunos}" icon="fa fa-search" styleClass="btn-success btn-sm" />
+						<p:spacer width="20"/>
+						<p:commandButton value="Limpar" update="@form" process="@this" actionListener="#{alunoVisao.limparPesquisa}" icon="fa fa-eraser" styleClass="btn-primary btn-sm"/>
+						<p:spacer width="20"/>	
+						<p:commandButton value="Retornar" update="@form" process="@this" action="#{alunoVisao.retornarTelaInicial}" icon="fa fa-eraser" styleClass="btn-primary btn-sm"/>						
+					</center>
+   				</f:facet>
+   			</p:panel>
+   		</p:outputPanel> 
+   		
+   		<p:outputPanel id="lista_alunos" style="margin: auto; padding-top: 10px;">
+   			<p:panel header="Registro de Alunos" styleClass="card">
+		   			<p:dataTable dynamic="true" 
+   						emptyMessage="Não existem registros"
+						var="aluno" 
+						paginatorPosition="top"
+						value="#{alunoVisao.listaAlunos}" 
+						id="ltAluno"
+						paginator="true" rows="10"
+						rowsPerPageTemplate="10, 20, 30, 40"
+						layout="grid" 
+						styleClass="table table-striped"
+						paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {Exporters}">
+						
+						<!-- Exportadores  -->
+						<f:facet name="{Exporters}">
+							<h:commandLink immediate="true">
+				                <p:graphicImage value="/imagens/excel32.png" alt="Exportar para Excel" width="24" style="float: right; margin-right: 5px;" />
+				                <p:dataExporter type="xlsx" encoding="iso-8859-1" target="ltAluno" fileName="alunos" />
+				            </h:commandLink>
+				 
+							<h:commandLink immediate="true">
+				                <p:graphicImage value="/imagens/pdf32.png" alt="Exportar para PDF" width="24" style="float: right; margin-right: 5px;" />
+				                <p:dataExporter type="pdf" encoding="iso-8859-1" target="ltAluno" fileName="alunos"  />
+				            </h:commandLink>
+				 
+							<h:commandLink immediate="true">
+				                <p:graphicImage value="/imagens/csv32.png" alt="Exportar para CSV" width="24" style="float: right; margin-right: 5px;" />
+				                <p:dataExporter type="csv" encoding="iso-8859-1" target="ltAluno" fileName="alunos"  />
+				            </h:commandLink>
+				 
+							<h:commandLink immediate="true">
+				                <p:graphicImage value="/imagens/xml32.png"  alt="Exportar para XML" width="24" style="float: right; margin-right: 5px;" />
+				                <p:dataExporter type="xml" encoding="iso-8859-1" target="ltAluno" fileName="alunos" />
+				            </h:commandLink>
+						</f:facet>		   				
+		                
+		                <p:column headerText="Código"  style="text-align: center; width: 10%;" sortBy="#{aluno.codigo}" >
+		                	<h:outputText value="#{aluno.codigo}"/>
+		                </p:column>
+		                
+		                <p:column headerText="Nome"  style="text-align: center; width: 30%;" sortBy="#{aluno.alunNome}" >
+		                	<h:outputText value="#{aluno.alunNome}">
+		                	</h:outputText>
+		                </p:column>
+		                
+		                <p:column headerText="CPF"  style="text-align: center; width: 10%;" sortBy="#{aluno.alunCPF}" >
+		                	<h:outputText value="#{aluno.alunCPF}">
+		                	</h:outputText>
+		                </p:column>
+		                
+		                <p:column headerText="Matricula"  style="text-align: center; width: 10%;" sortBy="#{aluno.alunMatricula}" >
+		                	<h:outputText value="#{aluno.matricula}">
+		                	</h:outputText>
+		                </p:column>
+
+		                <p:column headerText="Ações"  style="text-align: center; width: 20%;">
+		                	<h:commandButton action="#{alunoVisao.editarAluno(aluno)}" icon="fa fa-pencil" 
+								styleClass="btn btn-warning btn-xs" immediate="true" title="Visualizar Aluno"/>							
+		                </p:column>
+		          	</p:dataTable>
+		     </p:panel>
+   		</p:outputPanel>
+   		
+     </h:form>
+  
+</ui:define>	
+
+</ui:composition>

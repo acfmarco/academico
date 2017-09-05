@@ -1,0 +1,108 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/template/templateBase.xhtml">
+
+	<ui:define name="body">
+
+		<center>
+			<h:panelGrid styleClass="areaUsuarioPerfil textoEsquerda" columns="1">
+			<p:messages id="info" showDetail="true" showSummary="false"	autoUpdate="true" />
+		</h:panelGrid>
+		</center>
+		
+		<h:form id="form1" prependId="false">
+
+			<p:confirmDialog id="confirmationPerfil" styleClass="fonteNormal"
+				message="Deseja salvar os dados?" header="Aviso" severity="alert"
+				widgetVar="confirmationPerfil" width="300">
+				<center>
+					<p:commandButton actionListener="#{usuarioVisao.salvarPerfilUsuario}"
+						oncomplete="confirmationPerfil.hide()" value=""
+						styleClass="botaoSim" />
+
+					<p:spacer width="10" />
+					<p:commandButton oncomplete="confirmationPerfil.hide()" value=""
+						styleClass="botaoNao" />
+				</center>
+			</p:confirmDialog>
+
+			<div align="center">
+
+				<span class="fonteTitulo">Perfis de Usuário</span> <br></br> <br></br>
+
+				<p:fieldset styleClass="areaUsuarioPerfil">
+
+					<br></br>
+
+					<h:panelGrid columns="3" cellspacing="2" cellpadding="2"
+						columnClasses="textoDireita, textoEsquerda, textoEsquerda"
+						id="panelGridUsuarioPerfil">
+
+						<h:outputText value="Usuário:" styleClass="fonteNormal" />
+						<p:inputText id="usuario"
+							value="#{usuarioVisao.usuario.pessoa.nome}"
+							styleClass="inputTextUsuarioPerfil" disabled="true" />
+						<p:message for="usuario" />
+
+						<h:outputText value="Sistema:" styleClass="fonteNormal" />
+						<p:selectOneMenu id="sistema" value="#{usuarioVisao.sistema}"
+							converter="entityConverter"
+							styleClass="selectOneMenuSistemaUsuarioPerfil">
+							<f:selectItems value="#{usuarioVisao.listaSistema}" var="sistema"
+								itemLabel="#{sistema.nome}" itemValue="#{sistema}" />
+							<p:ajax update="perfil" event="change"
+								listener="#{usuarioVisao.handlePerfilChange}"/>
+						</p:selectOneMenu>
+						<p:message for="sistema" />
+						
+						<h:outputText value="Perfis:" styleClass="fonteNormal" />
+						<p:pickList id="perfil" value="#{usuarioVisao.perfilDualListModel}" var="pf"
+							converter="entityConverter" itemValue="#{pf}"
+							styleClass="fonteNormal" immediate="true" onTransfer="updatePerfilUsuario()">
+							<f:facet name="sourceCaption">Perfis do Sistema</f:facet>
+							<f:facet name="targetCaption">Perfis do Usuário</f:facet>
+							<p:column style="width:75%">
+								<h:outputText value="#{pf.nome}" styleClass="fonteNormal" />
+							</p:column>
+						</p:pickList>
+						<p:message for="perfil" />
+
+					</h:panelGrid>
+					
+					<p:remoteCommand name="updatePerfilUsuario" actionListener="#{usuarioVisao.sincronizarSistemaListaPerfil}" process="perfil" /> 
+
+					<br></br>
+
+					<p:commandButton value="" styleClass="botaoSalvar"
+						title="Salvar Perfil" id="cmbSalvarPerfil"
+						oncomplete="handleComplete(xhr, status, args)" />
+					<p:spacer width="10" />
+
+					<p:commandButton value="" styleClass="botaoRetornar" id="cmbCancelarPerfil" immediate="true"
+						action="#{usuarioVisao.cancelarPefil}" />
+
+					<br></br>
+					<br></br>
+
+				</p:fieldset>
+
+			</div>
+
+		</h:form>
+
+		<script type="text/javascript">    
+			function handleComplete(xhr, status, args) {    
+			    if(!args.validationFailed) {    
+			    	confirmationPerfil.show();
+			    }   
+			}    
+		</script>
+
+	</ui:define>
+</ui:composition>

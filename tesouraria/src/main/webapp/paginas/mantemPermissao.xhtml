@@ -1,0 +1,213 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/template/templateBase.xhtml">
+
+	<ui:define name="body">
+	
+		<center>
+			<h:panelGrid id="mensagens" styleClass="areaSistema textoEsquerda" columns="1">
+				<p:messages id="info" showDetail="true" showSummary="false" autoUpdate="true" />
+			</h:panelGrid>
+		</center>
+
+		<h:form id="form1" prependId="false">
+
+			<p:confirmDialog id="confirmationSalvar" styleClass="fonteNormal" message="Confirma a gravação dos dados?" header="Aviso"
+				severity="alert" widgetVar="confirmationSalvar" width="300">
+				<center>
+					<p:commandButton actionListener="#{permissaoVisao.salvarPermissao}"
+						oncomplete="confirmationSalvar.hide()" value=""	styleClass="botaoSim" update="form1"/>
+					<p:spacer width="10" />
+					<p:commandButton oncomplete="confirmationSalvar.hide()" value="" styleClass="botaoNao" />
+				</center>
+			</p:confirmDialog>
+
+			<div align="center">
+
+				<span class="fonteTitulo">Cadastro de Permissões de Perfis</span> <br></br>
+				<br></br>
+
+				<p:fieldset styleClass="areaPermissao">
+
+					<br></br>
+
+					<h:panelGrid columns="3" cellspacing="2" cellpadding="2" columnClasses="textoDireita, textoEsquerda, textoEsquerda" id="panelGridPermissao">
+
+						<h:outputText value="Sistema:" styleClass="fonteNormal negrito" />
+						<p:selectOneMenu id="sistema" required="true" value="#{permissaoVisao.sistema}" styleClass="selectOneMenuSistemaPermissao"  
+						requiredMessage="Sistema deve ser selecionado!!!" converter="entityConverter">
+							<f:selectItem itemLabel="Selecione..." itemValue="#{null}" />
+							<f:selectItems value="#{permissaoVisao.listaSistema}" var="s" itemValue="#{s}" itemLabel="#{s.nome}" />
+							<p:ajax update="perfil" event="change" listener="#{permissaoVisao.handleChangeSistema}"/>
+														
+						</p:selectOneMenu>
+						<h:outputLabel value="*" styleClass="asterisco" />
+
+						<h:outputText value="Perfil:" styleClass="fonteNormal negrito" />
+						
+						<p:selectOneMenu id="perfil" styleClass="selectOneMenuSistemaPermissao"	value="#{permissaoVisao.perfil}" 
+						required="true"  requiredMessage="Perfil deve ser selecionada!!!" converter="entityConverter">
+							<f:selectItem itemLabel="Selecione..." itemValue="#{null}" />
+							<f:selectItems value="#{permissaoVisao.listaPerfil}" var="p" itemValue="#{p}" itemLabel="#{p.nome}" />
+							<p:ajax update="funcionalidadeSelect, ltFuncionalidade" event="change" listener="#{permissaoVisao.handleChangePerfil}"/>
+							
+						</p:selectOneMenu>
+						<h:outputLabel value="*" styleClass="asterisco" />
+						
+					
+						<h:outputText value="Funcionalidade" styleClass="fonteNormal negrito" />
+						<p:selectOneMenu id="funcionalidadeSelect" styleClass="selectOneMenuSistemaPermissao"	value="#{permissaoVisao.funcionalidade}" converter="entityConverter">
+							<f:selectItem itemLabel="Selecione..." itemValue="#{null}" />
+							<f:selectItems value="#{permissaoVisao.funcionalidadesList}" var="p" itemValue="#{p}" itemLabel="#{p.nome}" />
+							<p:ajax update="ltFuncionalidade" event="change" listener="#{permissaoVisao.handleChangePerfil}"/>
+						</p:selectOneMenu>
+						
+						<p:message for="perfil" />
+						
+						<h:outputText value="Tipo Acesso" styleClass="fonteNormal negrito" />
+						<p:selectOneMenu id="tipoAcesso" styleClass="selectOneMenuSistemaPermissao"	value="#{permissaoVisao.tipoAcessoEnum}" >
+							<f:selectItem itemLabel="Selecione..." itemValue="#{null}" />
+							<f:selectItems value="#{permissaoVisao.tipoAcesso}" var="p" itemValue="#{p}" itemLabel="#{p.descricao}" />
+							<p:ajax update="ltFuncionalidade" event="change" listener="#{permissaoVisao.handleChangePerfil}"/>
+						</p:selectOneMenu>
+						
+					</h:panelGrid>
+					
+					<br />
+					<h:outputLabel value="Todos os campos são obrigatórios " style="color:red;" />
+					<h:outputLabel value="na inclusão." style="color:red;" rendered="#{permissaoVisao.acaoAlterar == false}" />
+					
+					<br></br>
+
+					<div class="buttonsArea">
+						<p:commandButton value="" styleClass="botaoSalvar"
+							action="#{permissaoVisao.salvarPermissao}"
+							update="panelGridPermissao" />
+						<p:spacer width="10" />
+						<p:commandButton value="" styleClass="botaoCancelar" action="#{permissaoVisao.cancelarPermissao}" title="Voltar para o menu principal"/>
+						<br></br>
+						<br></br>
+					</div>
+					
+						<p:dataTable
+                             id="ltFuncionalidade" 
+				             var="funcionalidade"
+				             emptyMessage="Não existem registros" 
+							 value="#{permissaoVisao.listPerfilSistemaFuncionalidade}" 
+							 widgetVar="dataTableFuncionalidade"
+							 ajax="false"
+							 paginator="true" 
+							 rows="10" 
+							 styleClass="dataTableSistema"
+							 paginatorPosition="bottom"
+							 dynamic="true"
+	 					     >
+	 					     
+					        <f:facet name="header">
+								<h:outputLabel value="Lista de Funcionalidade/Perfil/Sistema" styleClass="fonteNormal" />
+					        </f:facet>
+					        
+							<p:column styleClass="textoCentro" sortBy="#{funcionalidade.pk.funcionalidade.nome}" >
+								<f:facet name="header">
+									<h:outputLabel value="Funcionalidade" styleClass="fonteNormal" />
+								</f:facet>
+								<h:outputText value="#{funcionalidade.pk.funcionalidade.nome}" styleClass="fonteNormal" />
+							</p:column>
+							
+							<p:column styleClass="textoCentro" sortBy="#{funcionalidade.indicadorTipoAcesso}">
+								<f:facet name="header">
+									<h:outputLabel value="Tipo Acesso" styleClass="fonteNormal" />
+								</f:facet>
+								<h:outputText value="#{funcionalidade.tipoAcessoEnum.descricao}" styleClass="fonteNormal" />
+							</p:column>
+							
+							<p:column styleClass="textoCentro" >
+								<f:facet name="header">
+									<h:outputLabel value="Ação" styleClass="fonteNormal"  />
+								</f:facet>
+	                            
+	                            <p:commandButton id="BtEditar" update=":form1" value="" styleClass="ui-icon-edit" immediate="true" title="Editar Permissão Funcionalidade" action="#{permissaoVisao.editarPermissaoFuncionalidade(funcionalidade)}" />
+	                            
+	                            <p:spacer width="10" />
+								<p:commandLink id="removeButton" title="Excluir Sistema"
+									update=":form1:confirmation" oncomplete="confirmation.show()"
+									immediate="true">
+									<p:graphicImage value="/imagens/excluir.gif"></p:graphicImage>
+									<f:setPropertyActionListener value="#{funcionalidade}"
+										target="#{permissaoVisao.perfilSistemaFuncionalidade}" />
+								</p:commandLink>
+							</p:column>
+							
+						</p:dataTable>
+						
+						<p:confirmDialog id="confirmation"
+							message="Deseja realmente excluir este registo?"
+							styleClass="fonteNormal" header="Aviso" severity="alert"
+							widgetVar="confirmation">
+							<center>
+								<p:commandButton actionListener="#{permissaoVisao.removerFuncionalidadePerfilSistema}"
+									immediate="true" oncomplete="confirmation.hide()" value=""
+									styleClass="botaoSim" update="ltFuncionalidade" />
+								<p:spacer width="10" />
+								<p:commandButton oncomplete="confirmation.hide()" value=""
+									immediate="true" styleClass="botaoNao" />
+							</center>
+						</p:confirmDialog>
+					
+				</p:fieldset>
+
+
+			</div>
+
+
+		</h:form>
+		
+		<script type="text/javascript">    
+			function handleComplete(xhr, status, args) {    
+			    if(!args.validationFailed) {    
+			        confirmationSalvar.show();
+			    }   
+			}
+
+			/*
+				O evento onTransfer é executado uma vez para cada item movido.
+				Se 10 item foram selecionado enviados para a direita do picklist o p:remoteComand (updateDualListModel)
+				iria disparar 10 vezes a função javaScript updateDualListModel(); fazendo com que ouvessem dez chamadas
+				ao Java. Assim com as funções JavaScript chamaExecutarIstrucao() e executarIstrucao(boolEsperar),
+				somente a uma chamada será executada depois de 300 milisegundos, evitando assim chamadas desnecessárias
+				e contruibuido para a performace.  
+			*/
+			function chamaExecutarIstrucao(){
+				boolExecutarInstrucao = true;
+				executarIstrucao(true);
+			}
+			
+			var boolExecutarInstrucao;
+			function executarIstrucao(boolEsperar){
+				if(boolEsperar){
+					setTimeout("executarIstrucao(false)",300);
+				}else{
+					if(boolExecutarInstrucao){
+						boolExecutarInstrucao = false;						
+
+						//Chamar aqui a intrução a ser executada uma unica vez:
+						updateDualListModel();						
+					}
+				}
+			}	
+		</script>
+		
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

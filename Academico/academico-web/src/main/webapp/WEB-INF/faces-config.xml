@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+
+	<application>
+		<navigation-handler>br.com.iasc.seguranca.util.Jsf2NavigationHandler</navigation-handler>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+
+	<converter>
+		<converter-id>cpfCnpjJsfConverter</converter-id>
+		<converter-class>br.com.iasc.academico.converter.CpfCnpjJsfConverter</converter-class>
+	</converter>
+	
+	<converter>
+		<converter-id>dddConverter</converter-id>
+		<converter-class>br.com.iasc.academico.converter.DddJsfConverter</converter-class>
+	</converter>
+	
+	<converter>
+		<converter-id>telefoneConverter</converter-id>
+		<converter-class>br.com.iasc.academico.converter.TelefoneJsfConverter</converter-class>
+	</converter>
+	
+	<converter>
+		<converter-id>cepConverter</converter-id>
+		<converter-class>br.com.iasc.academico.converter.CepJsfConverter</converter-class>
+	</converter>
+	
+	
+</faces-config>

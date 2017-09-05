@@ -1,0 +1,100 @@
+package br.com.iasc.academico.controle;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import br.com.iasc.academico.Entidades.Aluno;
+import br.com.iasc.academico.bo.AlunoBO;
+import br.com.iasc.seguranca.util.FacesUtils;
+import br.com.iasc.seguranca.util.Mensagens;
+
+@Component("alunoVisao")
+@Scope("session")
+public class AlunoVisao implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	private static final String PAGINA_INICIAL = "/template/apresentacao.xhtml" + FacesUtils.PARAMETRO_JSF_REDIRECT;
+	private static final String FW_ALUNO = "/paginas/pesquisarAluno.xhtml" + FacesUtils.PARAMETRO_JSF_REDIRECT;
+	private static final String FW_MANTEM_ALUNO = "/paginas/mantemAluno.xhtml" + FacesUtils.PARAMETRO_JSF_REDIRECT;
+	
+	@Autowired
+	private AlunoBO alunoBO;
+	
+	private Aluno aluno;
+	private List<Aluno> listaAlunos = new ArrayList<Aluno>();
+	
+	private Aluno alunoSelecionado;
+	
+	public AlunoVisao() {
+		super();
+		aluno = new Aluno();		
+	}
+
+	public String iniciarPesquisarAluno(){
+		return FW_ALUNO;
+	}
+	
+	public String pesquisarAlunos(){
+		
+		if (this.aluno == null){
+			setListaAlunos(this.alunoBO.listarTodasAluno());
+		}else{
+			setListaAlunos(this.alunoBO.pesquisarAlunoNomeECpfEMatricula(aluno.getAlunNome(), aluno.getAlunCPF(), aluno.getMatricula()));
+		}
+		
+		return FW_ALUNO;
+	}
+	
+	public String limparPesquisa(){
+		setAluno(new Aluno());
+		setListaAlunos(new ArrayList<Aluno>());
+		
+		return FW_ALUNO;
+	}
+	
+	public String retornarTelaInicial(){		
+		return PAGINA_INICIAL;
+	}
+	
+	public String editarAluno(Aluno aluno){	
+		
+		if (aluno == null){		
+			Mensagens.addError("Aluno deve ser selecionado");
+			return FW_ALUNO;
+		}else{
+			setAlunoSelecionado(aluno);
+			return FW_MANTEM_ALUNO;
+		}
+		
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public List<Aluno> getListaAlunos() {
+		return listaAlunos;
+	}
+
+	public void setListaAlunos(List<Aluno> listaAlunos) {
+		this.listaAlunos = listaAlunos;
+	}
+
+	public Aluno getAlunoSelecionado() {
+		return alunoSelecionado;
+	}
+
+	public void setAlunoSelecionado(Aluno alunoSelecionado) {
+		this.alunoSelecionado = alunoSelecionado;
+	}
+	
+}
