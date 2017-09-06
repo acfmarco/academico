@@ -5,198 +5,159 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	template="/template/templatebs.xhtml">
-	
-	<ui:define name="body" >
 
-		<h:form id="form1" prependId="false" >
+
+	<ui:define name="body">
+		
+		<h:form id="form1" prependId="false">
+		
+			<p:messages id="messages" showDetail="true" showSummary="false"	autoUpdate="true" />
 			
-			<p:messages id="messages" showDetail="true" showSummary="false" autoUpdate="true" closable="true" />
-			
-			<!-- Panel de pesquisa -->
-   			<p:outputPanel id="pnlCadastro" style="margin: auto; padding-top: 10px;">
-   				<p:panel header="Gestores de Solicitação Férias" styleClass="box-info">
-	   					<div class="row">
-	   						<div class="col-md-4">
-	   							<label class="control-label" for="funcionarioBbp">Funcionário</label>
-	   							<p:selectOneMenu id="funcionarioBbp" 
-								    value="#{funcionarioUnidadeGestaoVisao.funcionarioBbp}" 
-									required="false"  
-									converter="entityConverter"
-									disabled="#{funcionarioUnidadeGestaoVisao.paginaAtual  eq 'Editar'}">
-									<f:selectItem itemLabel="Selecione... " itemValue="#{null}" />
-									<f:selectItems value="#{funcionarioUnidadeGestaoVisao.listaFuncionarioBbp}" var="funcionario" itemLabel="#{funcionario.nome}" itemValue="#{funcionario}" />
-								</p:selectOneMenu>
-	   						</div>
-	   						
-	   						<div class="col-md-4">
-	   							<label class="control-label has-error" for="unidade">Unidade Organizacional</label>
-	   							<p:selectOneMenu id="unidade" 
-								    value="#{funcionarioUnidadeGestaoVisao.unidadeOrganizacional}" 
-									required="false"  
-									requiredMessage="Unidade Organizacional deve ser selecionada!!!" 
-									converter="entityConverter"
-									disabled="#{funcionarioUnidadeGestaoVisao.paginaAtual  eq 'Editar'}">
-									<f:selectItem itemLabel="Selecione... " itemValue="#{null}" /> 
-									<f:selectItems value="#{funcionarioUnidadeGestaoVisao.listaUnidadeOrganizacional}" var="unidade" itemLabel="#{unidade.siglaUnidadeOrganizacional}" itemValue="#{unidade}" />
-								</p:selectOneMenu>
-	   						</div>
-	   						
-	   						<div class="col-md-2">
-	   							<div class="ui-fluid">
-	   								<label class="control-label" for="txtDataInicioGestao">Data de Início</label>
-	   								<p:calendar id="txtDataInicioGestao"
-									    value="#{funcionarioUnidadeGestaoVisao.dataInicio}" 
-										maxlength="10" 
-										pattern="dd/MM/yyyy" 
-										navigator="true" 
-										locale="pt" 
-										showOn="button"
-										readonlyInput="true"
-										onkeypress="Mascara(this,Data);" 
-										onkeydown="Mascara(this,Data);" 
-										onkeyup="Mascara(this,Data);"
-										required="false"	
-										requiredMessage="Campo Data de início de férias gestão é preenchimento obrigatório."
-			                            mindate="#{funcionarioUnidadeGestaoVisao.dataInicioMin}" 
-										maxdate="#{funcionarioUnidadeGestaoVisao.dataInicioMax}"
-										disabled="#{funcionarioUnidadeGestaoVisao.paginaAtual  eq 'Editar'}">
-									</p:calendar>
-	   							</div>
-	   						</div>
-	   						
-	   						<div class="col-md-2">
-	   							<div class="ui-fluid">
-	   								<label class="control-label" for="txtDataFinalGestao">Data Final</label>
-	   								<p:calendar id="txtDataFinalGestao"
-									    value="#{funcionarioUnidadeGestaoVisao.dataFinal}" 
-										maxlength="10" 
-										pattern="dd/MM/yyyy" 
-										navigator="true" 
-										locale="pt" 
-										showOn="button"
-										readonlyInput="true"
-										onkeypress="Mascara(this,Data);" 
-										onkeydown="Mascara(this,Data);" 
-										onkeyup="Mascara(this,Data);"
-										mindate="#{funcionarioUnidadeGestaoVisao.dataFinalMin}" 
-										maxdate="#{funcionarioUnidadeGestaoVisao.dataFinalMax}">
-									</p:calendar>
-	   							</div>
-	   						</div>	
-	   					</div>
-	   				
-	   				<f:facet name="footer">
-	   					<center>
-	   						<p:commandButton value="Limpar" action="#{funcionarioUnidadeGestaoVisao.limparTela}" 
-	   							id="BtLimpar" update=":form1, messages" icon="fa fa-eraser" title="Limpar" 
-	   							rendered="#{funcionarioUnidadeGestaoVisao.paginaAtual != 'Editar'}"
-	   							styleClass="btn-primary btn-sm"/>	
-	   											
-		                    <p:spacer width="10" />
-		                    
-		                    <p:commandButton value="Pesquisar" action="#{funcionarioUnidadeGestaoVisao.pesquisaFuncionarioUnidadeGestao}" 
-		                    	id="BtPesquisar" update=":form1, messages" icon="fa fa-search" title="Pesquisar" 
-		                    	rendered="#{funcionarioUnidadeGestaoVisao.paginaAtual != 'Editar'}" styleClass="btn-info btn-sm"/>		
-		                    				
-		                    <p:spacer width="10" />
-		                    
-		                    <p:commandButton value="Inserir"  action="#{funcionarioUnidadeGestaoVisao.incluirGestao}" 
-		                    	id="BtInserir" update=":form1, messages" icon="fa fa-plus" title="Inserir" 
-		                    	rendered="#{funcionarioUnidadeGestaoVisao.paginaAtual != 'Editar'}" disabled="#{!funcionarioUnidadeGestaoVisao.acessoTotal}" styleClass="btn-warning btn-sm">
-		                    	<p:confirm header="Confirmação de Inserção" message="Confirma a inserção de registro?" icon="ui-icon-alert" />
-		                    </p:commandButton>
-		                    
-		                    <p:spacer width="10" rendered="#{funcionarioUnidadeGestaoVisao.paginaAtual == 'Editar'}"/>		
-		                    			
-		                    <p:commandButton value="Salvar" action="#{funcionarioUnidadeGestaoVisao.salvarFuncinarioUnidadeGestao}"  
-		                    	id="BtSalvar" update=":form1, messages" icon=" fa fa-check" title="Salvar" 
-		                    	rendered="#{funcionarioUnidadeGestaoVisao.paginaAtual == 'Editar'}" disabled="#{!funcionarioUnidadeGestaoVisao.acessoTotal}" styleClass="btn-success btn-sm">
-		                    	<p:confirm header="Confirmação de Edição" message="Confirma a edição de registro?" icon="ui-icon-alert" />
-		                    </p:commandButton>
-		                    
-		                    <p:spacer width="10" rendered="#{funcionarioUnidadeGestaoVisao.paginaAtual == 'Editar'}"/>		
-		                    			
-		                    <p:commandButton value="Cancelar" action="#{funcionarioUnidadeGestaoVisao.limparTela}" id="BtCancelar" 
-		                    	update=":form1, messages" icon="fa fa-close" title="Cancelar" 
-		                    	rendered="#{funcionarioUnidadeGestaoVisao.paginaAtual == 'Editar'}" styleClass="btn-info btn-sm"/>
-	   					</center>
-	   				</f:facet>
-	   			</p:panel>
-	   		</p:outputPanel>				
-			
-			<!-- Panel de pesquisa -->
-   			<p:outputPanel id="pnlLista" style="margin: auto; padding-top: 10px;">
-				<p:panel header="Lista de Funcionario Unidade Gestão" styleClass="card">
-  						<p:dataTable id="ltFuncionarioUnidadeGestao" 
-				             var="funcionarioUnidadeGestao"
-				             emptyMessage="Não existem registros" 
-							 value="#{funcionarioUnidadeGestaoVisao.listaFuncionarioUnidadeSistema}" 
-							 widgetVar="dataTableFuncionarioUnidadeGestao"
-							 ajax="false"
-							 paginator="true" 
-							 rows="10" 
-							 paginatorPosition="bottom"
-							 dynamic="true"
-				             layout="grid" 
-				             rowsPerPageTemplate="10, 20, 30, 40"
-				             styleClass="table table-striped"
-				             paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {Exporters}">
-	 					     
-							<!-- Exportadores  -->
-							<f:facet name="{Exporters}">
-								<h:commandLink immediate="true">
-					                <p:graphicImage value="/imagens/excel32.png" alt="Exportar para Excel" width="24" style="float: right; margin-right: 5px;" />
-					                <p:dataExporter type="xls" encoding="iso-8859-1" target="ltFuncionarioUnidadeGestao" fileName="gestoresFerias" />
-					            </h:commandLink>
-					 
-								<h:commandLink immediate="true">
-					                <p:graphicImage value="/imagens/pdf32.png" alt="Exportar para PDF" width="24" style="float: right; margin-right: 5px;" />
-					                <p:dataExporter type="pdf" encoding="iso-8859-1" target="ltFuncionarioUnidadeGestao" fileName="gestoresFerias" />
-					            </h:commandLink>
-					 
-								<h:commandLink immediate="true">
-					                <p:graphicImage value="/imagens/csv32.png" alt="Exportar para CSV" width="24" style="float: right; margin-right: 5px;" />
-					                <p:dataExporter type="csv" encoding="iso-8859-1" target="ltFuncionarioUnidadeGestao" fileName="gestoresFerias" />
-					            </h:commandLink>
-					 
-								<h:commandLink immediate="true">
-					                <p:graphicImage value="/imagens/xml32.png"  alt="Exportar para XML" width="24" style="float: right; margin-right: 5px;" />
-					                <p:dataExporter type="xml" encoding="iso-8859-1" target="ltFuncionarioUnidadeGestao" fileName="gestoresFerias"  />
-					            </h:commandLink>
-							</f:facet>
-	 					     
-							<p:column sortBy="#{funcionarioUnidadeGestao.funcionarioBbp.nome}" style="text-align: center; width: 50%;" headerText="Funcionário">
-								<h:outputText value="#{funcionarioUnidadeGestao.funcionarioBbp.nome}" />
-							</p:column>
+	 		<p:outputPanel id="painelPesquisa" style="margin: auto; padding-top: 10px;">
+	 			<p:panel header="Cadastro de Aluno" styleClass="box-info">
+		   				<div class="row">	
+							<div class="col-md-12 has-error">	
+								<label class="control-label" for="nome">Nome *</label>
+								<p:inputText id="nome" value="#{alunoVisao.aluno.alunNome}" maxlength="100"
+											 required="true" requiredMessage="O campo 'Nome' é de preenchimento obrigatório."  styleClass="form-control">												
+								</p:inputText>
+							</div>	
 							
-							<p:column sortBy="#{funcionarioUnidadeGestao.unidadeOrganizacional.siglaUnidadeOrganizacional}" style="text-align: center; width: 10%;" headerText="Unidade">
-								<h:outputText value="#{funcionarioUnidadeGestao.unidadeOrganizacional.siglaUnidadeOrganizacional}" />
-							</p:column>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6 has-error">
+		   						<div class="ui-fluid">
+				   					<label for="numMatricula" class="control-label">Matrícula: </label>
+									<p:inputText id="numMatricula" maxlength="10" size="20"
+										value="#{alunoVisao.aluno.matricula}" styleClass="form-control"
+										style="width:150px;">
+									</p:inputText>
+								</div>						
+			   				</div>
+			   				
+			   				<div class="col-md-6 has-error">
+			   						<div class="ui-fluid">
+					   					<label for="numCPF" class="control-label">CPF: </label>
+										<p:inputText id="cpf" value="#{alunoVisao.aluno.alunCPF}"
+											onkeypress="Mascara(this,Cpf);" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf);" 
+											maxlength="14" styleClass="inputTextDinamico" converter="#{cpfCnpjJsfConverter}">
+											<p:ajax event="blur" process="@this" update="messages" styleClass="form-control"/>
+										</p:inputText>
+									</div>						
+			   				</div>
+						</div>
 							
-							<p:column sortBy="#{funcionarioUnidadeGestao.dataInicio}" style="text-align: center; width: 15%;" headerText="Início">
-								<h:outputText value="#{funcionarioUnidadeGestao.dscDataInicio}" />
-							</p:column>
+							<div class="col-md-3">	
+								<label class="control-label" for="codigoInfControle03">Inf. Controle 03</label>
+								<p:inputText id="codigoInfControle03" value="#{tipoFuncionalidadeAlcadaVisao.tipoFuncionalidadeAlcada.codigoInformacaoControle03}" maxlength="40"  styleClass="form-control"/>
+							</div>	
 							
-							<p:column sortBy="#{funcionarioUnidadeGestao.dataFinal}" style="text-align: center; width: 15%;" headerText="Final">
-								<h:outputText value="#{funcionarioUnidadeGestao.dscDataFinal}" />
-							</p:column>
+							<div class="col-md-3">
+								<label class="control-label" for="indIntOtrSist">Integração com Sistemas *</label>
+								<div class="ui-fluid">
+									<p:selectOneButton id="indIntOtrSist" value="#{tipoFuncionalidadeAlcadaVisao.tipoFuncionalidadeAlcada.integraOutroSistema}" required="true"
+										requiredMessage="O campo 'Integração com Sistemas' é de preenchimento obrigatório.">
+							            <f:selectItem itemLabel="Sim" itemValue="S" />
+							            <f:selectItem itemLabel="Não" itemValue="N" />
+							        </p:selectOneButton>
+						        </div>
+							</div>	
+						</div>
+						
+						<div class="row">	
+							<div class="col-md-12 has-error">	
+								<label class="control-label" for="dscChaveOrigem">Descrição da Chave Origem *</label>
+								<p:inputTextarea id="dscChaveOrigem" rows="5" counter="contador"
+												 value="#{tipoFuncionalidadeAlcadaVisao.tipoFuncionalidadeAlcada.descricaoChaveOrigem}" maxlength="100"
+												 required="true" counterTemplate="{0} caracteres disponíveis."
+												 requiredMessage="O campo 'Descrição de Chave Origem' é de preenchimento obrigatório."  styleClass="form-control">															
+								</p:inputTextarea>
+								<h:outputText id="contador" />	
+							</div>
+								
+						</div>	
+												
+					<f:facet name="footer">	
+						<center>
+							<p:commandButton value="Salvar" icon="fa fa-save" action="#{tipoFuncionalidadeAlcadaVisao.incluirTipoFuncionalidadeAlcada}" disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}" process="@all" update=":form1"  title="Salvar Dados" styleClass="btn-success btn-sm"/>
+							<p:spacer width="20" />
+							<p:commandButton value="Limpar" icon="fa fa-eraser" action="#{tipoFuncionalidadeAlcadaVisao.limparDadosTela}" process="@this" update=":form1"  title="Limpar dados tela" styleClass="btn-primary btn-sm"/>
+							<p:spacer width="20" />
+							<p:commandButton value="Retornar" icon="fa fa-backward" action="#{alunoVisao.retornarTelaPrincipal}" title="Voltar para o menu principal" immediate="true" styleClass="btn-info btn-sm"/>
+						</center>
+					</f:facet>
 							
-							<p:column style="text-align: center; width: 10%;" exportable="false" headerText="Ação">
-	                            <p:commandButton action="#{funcionarioUnidadeGestaoVisao.editarFuncionarioUnidadeGestao(funcionarioUnidadeGestao)}" 
-	                            	id="BtEditar" update=":form1, messages" icon="fa fa-pencil" title="Editar" disabled="#{!funcionarioUnidadeGestaoVisao.acessoTotal}" 
-	                            	styleClass="btn-warning btn-xs"/>
-							</p:column>
+				</p:panel>
+						
+				<br/>
+				
+				<p:panel header="Funcionalidades existentes no deferimento" styleClass="card">
+						<p:dataTable  id="ltTipoFuncionalidadeAlcada" 
+					             var="tipoFuncionalidadeAlcada"
+					             emptyMessage="Não existem registros para Autorização" 
+								 value="#{tipoFuncionalidadeAlcadaVisao.listaTipoFuncionalidadeAlcada}" 
+								 widgetVar="dataTableTipoFuncionalidadeAlcada"
+								 paginator="true" 
+								 rows="10" 
+								 paginatorPosition="top"
+								 dynamic="true"
+								 styleClass="table table-striped">
+		 					     
+								<p:column style="width:20%; text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.nome}" headerText="Nome">
+									<h:outputText value="#{tipoFuncionalidadeAlcada.nome}" />
+								</p:column>
+								
+								<p:column style="width:20%; text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.funcionalidade.nome}" headerText="Funcionalidade">
+									<h:outputText value="#{tipoFuncionalidadeAlcada.funcionalidade.nome}"  />
+								</p:column>
+								
+								<p:column style="text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.codigoInformacaoControle01}" headerText="Inf. Controle 1">
+									<h:outputText value="#{tipoFuncionalidadeAlcada.codigoInformacaoControle01}" />
+								</p:column>
+								
+								<p:column style="text-align: center;" sortBy="#{tipoFuncionalidadeAlcada.codigoInformacaoControle02}" headerText="Inf. Controle 2">
+									<h:outputText value="#{tipoFuncionalidadeAlcada.codigoInformacaoControle02}" />
+								</p:column>
+								
+								<p:column style="text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.codigoInformacaoControle03}" headerText="Inf. Controle 3">
+									<h:outputText value="#{tipoFuncionalidadeAlcada.codigoInformacaoControle03}"  />
+								</p:column>
+								
+								<p:column style="width:20%; text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.descricaoChaveOrigem}" headerText="Desc. Chave Origem">
+									<h:outputText value="#{tipoFuncionalidadeAlcada.descricaoChaveOrigem}"  />
+								</p:column>
+																
+								<p:column style="width:10%; text-align: center;" headerText="Ações">
+									<!-- Botão Editar -->
+									<p:commandButton icon="fa fa-edit" id="BtEditar" update=":form1" process="@this"  immediate="true" title="Editar Tipo Funcionalidade Alçada" disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}" styleClass="btn-warning btn-xs">
+										<f:setPropertyActionListener value="#{tipoFuncionalidadeAlcada}" target="#{tipoFuncionalidadeAlcadaVisao.tipoFuncionalidadeAlcada}" />
+									</p:commandButton>
+									
+									<p:spacer width="2"/>
+									
+									<!-- Botão Excluir -->
+									<p:commandButton icon="fa fa-trash" actionListener="#{tipoFuncionalidadeAlcadaVisao.removerTipoFuncionalidadeAlcada(tipoFuncionalidadeAlcada)}"  update="form1, messages"  process="@this"  immediate="true" title="Excluir Tipo Funcionalidade Alçada" disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}" styleClass="btn-danger btn-xs">
+										<p:confirm header="Confirmação de Exclusão" message="Confirma Exclusão de Tipo de Funcionalidade Alçada?" icon="ui-icon-alert" />
+									</p:commandButton>
+								
+								</p:column>
+								
 						</p:dataTable>
-  				</p:panel>
-  			</p:outputPanel>				
-  						    
-			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" severity="alert">
-				<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes btn-success btn-sm" icon="fa fa-check" />
-        		<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no btn-danger btn-sm" icon="fa fa-close" />
+					</p:panel>
+			</p:outputPanel>
+						
+			<p:confirmDialog id="confirmaExclusao" global="true" showEffect="fade" hideEffect="fade" severity="alert"
+				message="Confirma Exclusão de Tipo Funcionalidade de Alçada?" resizable="false" width="550" modal="true"
+				header="Aviso" widgetVar="confirmaExclusao">
+				<center>
+					<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes btn-success btn-sm" icon="fa fa-check" />
+			    	<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no btn-danger btn-sm" icon="fa fa-close"  />					
+				</center>
 			</p:confirmDialog>
-			
+				
 		</h:form>
-			
+
 	</ui:define>
-	
+
 </ui:composition>
