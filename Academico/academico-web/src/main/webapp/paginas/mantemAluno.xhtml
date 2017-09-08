@@ -131,7 +131,7 @@
 							
 							<div class="col-md-4 has-error">	
 								<label class="control-label" for="curso">Curso *</label>
-								<p:selectOneMenu id="curso" value="#{alunoVisao.aluno.curso}"
+								<p:selectOneMenu id="curso" value="#{alunoVisao.alunoSelecionado.curso}"
 									converter="entityConverter" required="true" requiredMessage="Curso é de preenchimento obrigatório." filter="true">
 									<f:selectItem itemLabel="Selecione... " itemValue="#{null}" />
 									<f:selectItems value="#{alunoVisao.listaCurso}" var="curso"

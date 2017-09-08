@@ -13,6 +13,9 @@ import br.com.iasc.academico.Entidades.Curso;
 import br.com.iasc.academico.Entidades.Estado;
 import br.com.iasc.academico.Entidades.Pais;
 import br.com.iasc.academico.bo.AlunoBO;
+import br.com.iasc.academico.bo.CursoBO;
+import br.com.iasc.academico.bo.EstadoBO;
+import br.com.iasc.academico.bo.PaisBO;
 import br.com.iasc.seguranca.util.FacesUtils;
 import br.com.iasc.seguranca.util.Mensagens;
 
@@ -27,6 +30,15 @@ public class AlunoVisao implements Serializable{
 	
 	@Autowired
 	private AlunoBO alunoBO;
+	
+	@Autowired
+	private CursoBO cursoBO;
+	
+	@Autowired
+	private PaisBO paisBO;
+	
+	@Autowired
+	private EstadoBO estadoBO;
 	
 	private Aluno aluno;
 	private List<Aluno> listaAlunos = new ArrayList<Aluno>();
@@ -74,7 +86,9 @@ public class AlunoVisao implements Serializable{
 			return FW_ALUNO;
 		}else{
 			setAlunoSelecionado(aluno);
-			//setListaCurso(listaCurso);
+			setListaCurso(this.cursoBO.listarTodasCurso());
+			setListaEstado(this.estadoBO.listarTodasEstado());
+			setListaPais(this.paisBO.listarTodasPais());			
 			return FW_MANTEM_ALUNO;
 		}
 		

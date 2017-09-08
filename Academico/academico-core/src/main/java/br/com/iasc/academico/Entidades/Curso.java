@@ -17,14 +17,14 @@ public class Curso implements Serializable, BaseEntity {
 	@Id
 	@SequenceGenerator(name="TAB_CURSO_GENERATOR", sequenceName="S_CURSO_01", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TAB_CURSO_GENERATOR")
-	@Column(name="CRUS_ID")
+	@Column(name="CURS_ID")
 	private Long codigo;
 
-	@Column(name="CRUS_NOM")
-	private String crusNome;
+	@Column(name="CURS_NOM")
+	private String cursNome;
 
-	@Column(name="CRUS_SIGLA")
-	private String crusSigla;
+	@Column(name="CURS_SIGLA")
+	private String cursSigla;
 
 	public Curso() {
 	}
@@ -37,20 +37,50 @@ public class Curso implements Serializable, BaseEntity {
 		this.codigo = codigo;
 	}
 
-	public String getCrusNome() {
-		return this.crusNome;
+	public String getCursNome() {
+		return cursNome;
 	}
 
-	public void setCrusNome(String crusNome) {
-		this.crusNome = crusNome;
+	public void setCursNome(String cursNome) {
+		this.cursNome = cursNome;
 	}
 
-	public String getCrusSigla() {
-		return this.crusSigla;
+	public String getCursSigla() {
+		return cursSigla;
 	}
 
-	public void setCrusSigla(String crusSigla) {
-		this.crusSigla = crusSigla;
+	public void setCursSigla(String cursSigla) {
+		this.cursSigla = cursSigla;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Curso other = (Curso) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Curso [codigo=" + codigo + ", cursNome=" + cursNome + ", cursSigla=" + cursSigla + "]";
+	}
+	
 }
