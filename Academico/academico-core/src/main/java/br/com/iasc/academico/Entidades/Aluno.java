@@ -1,14 +1,19 @@
 package br.com.iasc.academico.Entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @Entity
@@ -29,8 +34,9 @@ public class Aluno implements Serializable, BaseEntity {
 	@Column(name="ALUN_NOM")
 	private String alunNome;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name="ALUN_DAT_NASC")
-	private String alunDataNascimento;
+	private Date alunDataNascimento;
 	
 	@Column(name="ALUN_END")
 	private String alunEndereco;
@@ -44,14 +50,20 @@ public class Aluno implements Serializable, BaseEntity {
 	@Column(name="ALUN_BAIRRO")
 	private String alunBairro;
 	
-	@Column(name="ESTA_ID")
-	private String estado;
+	@Column(name="ALUN_CIDADE")
+	private String alunCidade;
 	
-	@Column(name="PAIS_ID")
-	private String pais;
+	@ManyToOne
+	@JoinColumn(name="ESTA_ID")
+	private Estado estado;
 	
-	@Column(name="CURS_ID")
-	private String curso;
+	@ManyToOne
+	@JoinColumn(name="PAIS_ID")
+	private Pais pais;
+
+	@ManyToOne
+	@JoinColumn(name="CURS_ID")
+	private Curso curso;
 	
 	@Transient
 	private String matricula;
@@ -80,11 +92,11 @@ public class Aluno implements Serializable, BaseEntity {
 		this.alunNome = alunNome;
 	}
 
-	public String getAlunDataNascimento() {
+	public Date getAlunDataNascimento() {
 		return alunDataNascimento;
 	}
 
-	public void setAlunDataNascimento(String alunDataNascimento) {
+	public void setAlunDataNascimento(Date alunDataNascimento) {
 		this.alunDataNascimento = alunDataNascimento;
 	}
 
@@ -120,27 +132,35 @@ public class Aluno implements Serializable, BaseEntity {
 		this.alunBairro = alunBairro;
 	}
 
-	public String getEstado() {
+	public String getAlunCidade() {
+		return alunCidade;
+	}
+
+	public void setAlunCidade(String alunCidade) {
+		this.alunCidade = alunCidade;
+	}
+
+	public Estado getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
 
-	public String getPais() {
+	public Pais getPais() {
 		return pais;
 	}
 
-	public void setPais(String pais) {
+	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
 
-	public String getCurso() {
+	public Curso getCurso() {
 		return curso;
 	}
 
-	public void setCurso(String curso) {
+	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
 

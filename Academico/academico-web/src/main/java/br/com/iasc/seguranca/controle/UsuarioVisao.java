@@ -171,41 +171,6 @@ public class UsuarioVisao implements Serializable {
 	}
 
 	/**
-	 * Método responsável por gerar uma nova senha para usuários que esqueceram a senha
-	 * 
-	 * @return {@link String}
-	 */
-
-	public String gerarNovaSenha() {
-		try {
-
-			Usuario usuarioValidado = usuarioBO.atualizarUsuarioPorLogin(usuario);
-
-			StringBuilder texto = new StringBuilder();
-			texto.append("Bem vindo aos sistemas da BB Previdência. ");
-			texto.append("Sua nova senha é: ");
-			texto.append("</b> " + usuarioValidado.getUsuaSenha() + "</b>");
-
-			String[] destinatarios = null;
-			if (UtilJava.isStringVazia(usuarioSessao.getUsuaEmail())) {
-				destinatarios = new String[] { "demandas.getec@bbprevidencia.com.br" };
-			} else {
-				destinatarios = new String[] { usuarioSessao.getUsuaEmail() };
-			}
-
-			//this.emailServico.enviarEmail(destinatarios, SenhaVisao.ASSUNTO_ALTERAR_SENHA, texto.toString());
-			usuario = new Usuario();
-
-			addMsgInfo("Alteração de senha enviada para o e-mail cadastrado!");
-
-		} catch (Exception e) {
-			addMsgErro("Informações incorretas. Não foi possível gerar a alteração de senha.");
-		}
-
-		return FW_ALTERAR_SENHA_ESQUICIDA;
-	}
-
-	/**
 	 * Método responsável por obter e fornecer os dados do usuário que está logado.
 	 * 
 	 * @return {@link String}

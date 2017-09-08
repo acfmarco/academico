@@ -14,6 +14,10 @@
 		
 		
 		<class>br.com.iasc.academico.Entidades.Aluno</class>
+		<class>br.com.iasc.academico.Entidades.Pais</class>
+		<class>br.com.iasc.academico.Entidades.Estado</class>
+		<class>br.com.iasc.academico.Entidades.AlunoCobranca</class>
+		<class>br.com.iasc.academico.Entidades.Curso</class>
 	
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />

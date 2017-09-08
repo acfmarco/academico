@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import br.com.iasc.academico.Entidades.Aluno;
+import br.com.iasc.academico.Entidades.Curso;
+import br.com.iasc.academico.Entidades.Estado;
+import br.com.iasc.academico.Entidades.Pais;
 import br.com.iasc.academico.bo.AlunoBO;
 import br.com.iasc.seguranca.util.FacesUtils;
 import br.com.iasc.seguranca.util.Mensagens;
@@ -27,6 +30,9 @@ public class AlunoVisao implements Serializable{
 	
 	private Aluno aluno;
 	private List<Aluno> listaAlunos = new ArrayList<Aluno>();
+	private List<Curso> listaCurso = new ArrayList<Curso>();
+	private List<Pais> listaPais = new ArrayList<Pais>();
+	private List<Estado> listaEstado = new ArrayList<Estado>();
 	
 	private Aluno alunoSelecionado;
 	
@@ -68,6 +74,7 @@ public class AlunoVisao implements Serializable{
 			return FW_ALUNO;
 		}else{
 			setAlunoSelecionado(aluno);
+			//setListaCurso(listaCurso);
 			return FW_MANTEM_ALUNO;
 		}
 		
@@ -95,6 +102,30 @@ public class AlunoVisao implements Serializable{
 
 	public void setAlunoSelecionado(Aluno alunoSelecionado) {
 		this.alunoSelecionado = alunoSelecionado;
+	}
+
+	public List<Curso> getListaCurso() {
+		return listaCurso;
+	}
+
+	public void setListaCurso(List<Curso> listaCurso) {
+		this.listaCurso = listaCurso;
+	}
+
+	public List<Pais> getListaPais() {
+		return listaPais;
+	}
+
+	public void setListaPais(List<Pais> listaPais) {
+		this.listaPais = listaPais;
+	}
+
+	public List<Estado> getListaEstado() {
+		return listaEstado;
+	}
+
+	public void setListaEstado(List<Estado> listaEstado) {
+		this.listaEstado = listaEstado;
 	}
 	
 }

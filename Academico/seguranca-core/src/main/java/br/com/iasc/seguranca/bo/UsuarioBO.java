@@ -78,38 +78,6 @@ public class UsuarioBO implements Serializable {
 	}
 
 	/**
-	 * Método responsável por alterar usuario de acordo com o login.
-	 * 
-	 * @return {@link String}
-	 */
-
-	public Usuario atualizarUsuarioPorLogin(Usuario usuario) throws AcademicoException {
-
-		String composicao = "5";
-
-		try {
-
-			Usuario usuarioVerificado = usuarioDAO.verificarUsuario(usuario);
-
-			if (usuarioVerificado != null && usuarioVerificado.getCodigo() > 0) {
-
-				usuario.setUsuaIndSts(1);
-				usuario.setUsuaSenha(GeradorSenha.gerarSenha(8, composicao));
-				usuarioVerificado.setUsuaSenha(usuario.getUsuaSenha());
-				usuario.setUsuaSenha(Criptografia.criptografar(usuario.getUsuaSenha()));
-				//this.usuarioDAO.atualizarUsuarioPorLogin(usuario);
-			}
-
-			return usuarioVerificado;
-
-		} catch (AcademicoException e) {
-			throw new AcademicoException("Não foi possível realizar está operação");
-		} catch (Exception e) {
-			throw new AcademicoException("Não foi possível realizar está operação");
-		}
-	}
-
-	/**
 	 * Método responsável por alterar a senha do usuário.
 	 * 
 	 * @author Rogerio
@@ -191,55 +159,6 @@ public class UsuarioBO implements Serializable {
 			throw new AcademicoException("Não foi possível realizar está operação");
 		}
 
-	}
-
-	/**
-	 * Método responsável por autenticar o usuário
-	 * 
-	 * @param usuário
-	 * @return br.bb.previdencia.seguranca.dto.Usuario
-	 * @throws LoginException
-	 
-	public br.bb.previdencia.seguranca.dto.Usuario autenticarUsuario(String login, String senha) throws PrevidenciaException {
-
-		try {
-			senha = Criptografia.criptografar(senha);
-			return this.usuarioDAO.autenticarUsuario(login, senha);
-
-		} catch (PrevidenciaException e) {
-			throw new PrevidenciaException("Não foi possível realizar esta operação");
-		} catch (Exception e) {
-			throw new PrevidenciaException("Não foi possível realizar autenticação");
-		}
-
-	}*/
-	
-	/**
-	 * Método responsável por fornecer um lista de objetos usuario de acordo com a origem da simulação
-	 * 
-	 * @return {@link Collection}
-	 * @throws AcademicoException
-	 */
-
-	public List<Usuario> listarPorOrigemSimulacao(long codigoOrigemSimulacao) throws AcademicoException {
-		try {
-
-			return usuarioDAO.listarPorOrigemSimulacao(codigoOrigemSimulacao);
-
-		} catch (AcademicoException e) {
-			throw new AcademicoException("Não foi possível realizar está operação");
-		}
-	}
-	
-	/**
-	 * Método que verifica se existe usuário já com o login informado.
-	 * 
-	 * @param login
-	 * @return boolean
-	 * @throws AcademicoException
-	 */
-	public boolean existeUsuarioPorLogin(String login) throws AcademicoException {
-		return this.usuarioDAO.existeUsuarioPorLogin(login);
 	}
 
 	/**
