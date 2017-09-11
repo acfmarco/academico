@@ -19,6 +19,9 @@ public class AmbienteServico {
 	
 	@Value("#{propriedades['url.academico']}")
 	private String academico;
+	
+	@Value("#{propriedades['url.tesouraria']}")
+	private String tesouraria;
 
 	public boolean isDesenvolvimento() {
 		return AMB_DESENV.equalsIgnoreCase(getAmbiente());
@@ -65,6 +68,14 @@ public class AmbienteServico {
 
 	public void setAcademico(String academico) {
 		this.academico = academico;
+	}
+
+	public String getTesouraria() {
+		return tesouraria;
+	}
+
+	public void setTesouraria(String tesouraria) {
+		this.tesouraria = tesouraria;
 	}
 	
 }

@@ -1,6 +1,8 @@
 package br.com.iasc.academico.bo;
 
 import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -29,7 +31,7 @@ public class AlunoCobrancaBO implements Serializable {
 	private static Logger log = Logger.getLogger(AlunoCobrancaBO.class);
 
 	private AlunoCobrancaDAO alunoCobrancaDAO;
-
+	
 	@Autowired
 	public void setAlunoCobrancaDAO(@Qualifier("alunoCobrancaDao") AlunoCobrancaDAO alunoCobrancaDAO) {
 		this.alunoCobrancaDAO = alunoCobrancaDAO;
@@ -123,5 +125,6 @@ public class AlunoCobrancaBO implements Serializable {
 			throw new AcademicoException("Não foi possível realizar está operaçao", e);
 		}
 	}
+	
 
 }

@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 
 import javax.persistence.*;
+
+import br.com.iasc.infra.repository.dto.ControleCobrancaDTO;
+
 import java.util.Date;
 
 
@@ -42,6 +45,9 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 	
 	@Transient
 	private String dscDataVencimento;
+	
+	@Transient
+	private ControleCobrancaDTO controleCobrancaDTO;
 
 	public Long getCodigo() {
 		return codigo;
@@ -102,4 +108,12 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 		this.dscDataVencimento = dscDataVencimento;
 	}
 
+	public ControleCobrancaDTO getControleCobrancaDTO() {
+		return controleCobrancaDTO;
+	}
+
+	public void setControleCobrancaDTO(ControleCobrancaDTO controleCobrancaDTO) {
+		this.controleCobrancaDTO = controleCobrancaDTO;
+	}
+	
 }
