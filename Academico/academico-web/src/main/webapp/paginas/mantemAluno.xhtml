@@ -8,216 +8,260 @@
 
 
 	<ui:define name="body">
-		
+
 		<h:form id="form1" prependId="false">
-		
-			<p:messages id="messages" showDetail="true" showSummary="false"	autoUpdate="true" />
-			
-	 		<p:outputPanel id="painelPesquisa" style="margin: auto; padding-top: 12px;">
-	 			<p:panel header="Cadastro de Aluno" styleClass="box-info">
-		   				<div class="row">	
-							<div class="col-md-12 has-error">	
-								<label class="control-label" for="nome">Nome *</label>
-								<p:inputText id="nome" value="#{alunoVisao.alunoSelecionado.alunNome}" maxlength="120"
-											 required="true" requiredMessage="O campo 'Nome' é de preenchimento obrigatório."  styleClass="form-control">												
-								</p:inputText>
-							</div>	
-							
-						</div>
-						
-						<div class="row">
-							<div class="col-md-4 has-error">
-		   						<div class="ui-fluid">
-				   					<label for="numMatricula" class="control-label">Matrícula: </label>
-									<p:inputText id="numMatricula" maxlength="10" size="20"
-										value="#{alunoVisao.alunoSelecionado.matricula}" styleClass="form-control"
-										style="width:200px;" readonly="true">
+
+			<p:messages id="messages" showDetail="true" showSummary="false"
+				autoUpdate="true" />
+
+			<p:tabView>
+
+				<p:tab title="Dados Pessoais">
+					<p:outputPanel id="painelPesquisa"
+						style="margin: auto; padding-top: 12px;">
+						<p:panel header="Cadastro de Aluno" styleClass="box-info">
+							<div class="row">
+								<div class="col-md-12 has-error">
+									<label class="control-label" for="nome">Nome *</label>
+									<p:inputText id="nome"
+										value="#{alunoVisao.alunoSelecionado.alunNome}"
+										maxlength="120" required="true"
+										requiredMessage="O campo 'Nome' é de preenchimento obrigatório."
+										styleClass="form-control">
 									</p:inputText>
-								</div>						
-			   				</div>
-			   				
-							<div class="col-md-4 has-error">
-			   						<div class="ui-fluid">
-					   					<label for="numCPF" class="control-label">CPF *</label>
-										<p:inputText id="cpf" value="#{alunoVisao.alunoSelecionado.alunCPF}"
-											onkeypress="Mascara(this,Cpf);" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf);" 
-											maxlength="14" styleClass="inputTextDinamico" converter="#{cpfCnpjJsfConverter}">
-											<p:ajax event="blur" process="@this" update="messages" styleClass="form-control"/>
+								</div>
+
+							</div>
+
+							<div class="row">
+								<div class="col-md-4 has-error">
+									<div class="ui-fluid">
+										<label for="numMatricula" class="control-label">Matrícula:
+										</label>
+										<p:inputText id="numMatricula" maxlength="10" size="20"
+											value="#{alunoVisao.alunoSelecionado.matricula}"
+											styleClass="form-control" style="width:200px;"
+											readonly="true">
 										</p:inputText>
-									</div>						
-			   				</div>
-			   				
-			   				<div class="col-md-4 has-error">
-		   						<div class="ui-fluid">
-		   							<label class="control-label" for="txtDataNascimento">Data Nascimento *</label>
-		   							<p:calendar id="txtDataNascimento" required="true" requiredMessage="Data de Nascimento é de preenchimento obrigatório."
-										maxlength="10" 
-										pattern="dd/MM/yyyy" 
-										navigator="true" 
-										locale="pt" 
-										showOn="button"
-										readonlyInput="true"
-										value="#{alunoVisao.alunoSelecionado.alunDataNascimento}" 
-										onkeypress="Mascara(this,Data);" 
-										onkeydown="Mascara(this,Data);" 
-										onkeyup="Mascara(this,Data);">								
-									</p:calendar>
-		   						</div>
-		   					</div>	
-						</div>
-						
-						<div class="row">	
-							<div class="col-md-8 has-error">	
-								<label class="control-label" for="endereco">Endereço *</label>
-								<p:inputText id="endereco" value="#{alunoVisao.alunoSelecionado.alunEndereco}" maxlength="120"
-											 required="true" requiredMessage="O campo 'Endereço' é de preenchimento obrigatório."  styleClass="form-control">												
-								</p:inputText>
-							</div>	
-							
-							<div class="col-md-4 has-error">	
-								<label class="control-label" for="numero">Número *</label>
-								<p:inputText id="numero" value="#{alunoVisao.alunoSelecionado.alunEnderecoNumero}" maxlength="120"
-											 required="true" requiredMessage="O campo 'Número' é de preenchimento obrigatório."  styleClass="form-control">												
-								</p:inputText>
-							</div>								
-						</div>
-						
-						<div class="row">	
-							<div class="col-md-6 has-error">	
-								<label class="control-label" for="complemento">Complemento *</label>
-								<p:inputText id="complemento" value="#{alunoVisao.alunoSelecionado.alunEnderecoComplemento}" maxlength="120"
-											 required="true" requiredMessage="O campo 'Complemento' é de preenchimento obrigatório."  styleClass="form-control">												
-								</p:inputText>
-							</div>	
-							
-							<div class="col-md-3 has-error">	
-								<label class="control-label" for="bairro">Bairro *</label>
-								<p:inputText id="bairro" value="#{alunoVisao.alunoSelecionado.alunBairro}" maxlength="50"
-											 required="true" requiredMessage="O campo 'Bairro' é de preenchimento obrigatório."  styleClass="form-control">												
-								</p:inputText>
+									</div>
+								</div>
+
+								<div class="col-md-4 has-error">
+									<div class="ui-fluid">
+										<label for="numCPF" class="control-label">CPF *</label>
+										<p:inputText id="cpf"
+											value="#{alunoVisao.alunoSelecionado.alunCPF}"
+											onkeypress="Mascara(this,Cpf);"
+											onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf);"
+											maxlength="14" styleClass="inputTextDinamico"
+											converter="#{cpfCnpjJsfConverter}">
+											<p:ajax event="blur" process="@this" update="messages"
+												styleClass="form-control" />
+										</p:inputText>
+									</div>
+								</div>
+
+								<div class="col-md-4 has-error">
+									<div class="ui-fluid">
+										<label class="control-label" for="txtDataNascimento">Data
+											Nascimento *</label>
+										<p:calendar id="txtDataNascimento" required="true"
+											requiredMessage="Data de Nascimento é de preenchimento obrigatório."
+											maxlength="10" pattern="dd/MM/yyyy" navigator="true"
+											locale="pt" showOn="button" readonlyInput="true"
+											value="#{alunoVisao.alunoSelecionado.alunDataNascimento}"
+											onkeypress="Mascara(this,Data);"
+											onkeydown="Mascara(this,Data);" onkeyup="Mascara(this,Data);">
+										</p:calendar>
+									</div>
+								</div>
 							</div>
-							
-							<div class="col-md-3 has-error">	
-								<label class="control-label" for="cidade">Cidade *</label>
-								<p:inputText id="cidade" value="#{alunoVisao.alunoSelecionado.alunCidade}" maxlength="50"
-											 required="true" requiredMessage="O campo 'Cidade' é de preenchimento obrigatório."  styleClass="form-control">												
-								</p:inputText>
-							</div>								
-						</div>	
-						
-						<div class="row">	
-							<div class="col-md-4 has-error">	
-								<label class="control-label" for="estado">Estado *</label>
-								<p:selectOneMenu id="estado" value="#{alunoVisao.alunoSelecionado.estado}"
-									converter="entityConverter" required="true" requiredMessage="Estado é de preenchimento obrigatório." filter="true">
-									<f:selectItem itemLabel="Selecione... " itemValue="#{null}" />
-									<f:selectItems value="#{alunoVisao.listaEstado}" var="estado"
-									itemLabel="#{estado.estaNome}" itemValue="#{estado}"/>								
-								<p:ajax event="change" 
-									listener="#{alunoVisao.listarPaisPorEstado(estado)}" 
-									process="@this"	update="@form" />		
-								</p:selectOneMenu>
-							</div>	
-							
-							<div class="col-md-4 has-error">	
-								<label class="control-label" for="pais">Pais *</label>
-								<p:selectOneMenu id="pais" value="#{alunoVisao.alunoSelecionado.pais}"
-									converter="entityConverter" required="true" requiredMessage="Pais é de preenchimento obrigatório." filter="true">
-									<f:selectItem itemLabel="Selecione... " itemValue="#{null}" />
-									<f:selectItems value="#{alunoVisao.listaPais}" var="pais"
-									itemLabel="#{pais.paisNome}" itemValue="#{pais}"/>									
-								</p:selectOneMenu>
+
+							<div class="row">
+								<div class="col-md-8 has-error">
+									<label class="control-label" for="endereco">Endereço *</label>
+									<p:inputText id="endereco"
+										value="#{alunoVisao.alunoSelecionado.alunEndereco}"
+										maxlength="120" required="true"
+										requiredMessage="O campo 'Endereço' é de preenchimento obrigatório."
+										styleClass="form-control">
+									</p:inputText>
+								</div>
+
+								<div class="col-md-4 has-error">
+									<label class="control-label" for="numero">Número *</label>
+									<p:inputText id="numero"
+										value="#{alunoVisao.alunoSelecionado.alunEnderecoNumero}"
+										maxlength="120" required="true"
+										requiredMessage="O campo 'Número' é de preenchimento obrigatório."
+										styleClass="form-control">
+									</p:inputText>
+								</div>
 							</div>
-							
-							<div class="col-md-4 has-error">	
-								<label class="control-label" for="curso">Curso *</label>
-								<p:selectOneMenu id="curso" value="#{alunoVisao.alunoSelecionado.curso}"
-									converter="entityConverter" required="true" requiredMessage="Curso é de preenchimento obrigatório." filter="true">
-									<f:selectItem itemLabel="Selecione... " itemValue="#{null}" />
-									<f:selectItems value="#{alunoVisao.listaCurso}" var="curso"
-									itemLabel="#{curso.cursNome}" itemValue="#{curso}"/>									
-								</p:selectOneMenu>
-							</div>								
-						</div>	
-									
-					<f:facet name="footer">	
-						<center>
-							<p:commandButton value="Salvar" icon="fa fa-save" action="#{tipoFuncionalidadeAlcadaVisao.incluirTipoFuncionalidadeAlcada}" disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}" process="@all" update=":form1"  title="Salvar Dados" styleClass="btn-success btn-sm"/>
-							<p:spacer width="20" />
-							<p:commandButton value="Limpar" icon="fa fa-eraser" action="#{tipoFuncionalidadeAlcadaVisao.limparDadosTela}" process="@this" update=":form1"  title="Limpar dados tela" styleClass="btn-primary btn-sm"/>
-							<p:spacer width="20" />
-							<p:commandButton value="Retornar" icon="fa fa-backward" action="#{alunoVisao.retornarTelaPrincipal}" title="Voltar para o menu principal" immediate="true" styleClass="btn-info btn-sm"/>
-						</center>
-					</f:facet>
-							
-				</p:panel>
+
+							<div class="row">
+								<div class="col-md-6 has-error">
+									<label class="control-label" for="complemento">Complemento
+										*</label>
+									<p:inputText id="complemento"
+										value="#{alunoVisao.alunoSelecionado.alunEnderecoComplemento}"
+										maxlength="120" required="true"
+										requiredMessage="O campo 'Complemento' é de preenchimento obrigatório."
+										styleClass="form-control">
+									</p:inputText>
+								</div>
+
+								<div class="col-md-3 has-error">
+									<label class="control-label" for="bairro">Bairro *</label>
+									<p:inputText id="bairro"
+										value="#{alunoVisao.alunoSelecionado.alunBairro}"
+										maxlength="50" required="true"
+										requiredMessage="O campo 'Bairro' é de preenchimento obrigatório."
+										styleClass="form-control">
+									</p:inputText>
+								</div>
+
+								<div class="col-md-3 has-error">
+									<label class="control-label" for="cidade">Cidade *</label>
+									<p:inputText id="cidade"
+										value="#{alunoVisao.alunoSelecionado.alunCidade}"
+										maxlength="50" required="true"
+										requiredMessage="O campo 'Cidade' é de preenchimento obrigatório."
+										styleClass="form-control">
+									</p:inputText>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4 has-error">
+									<label class="control-label" for="estado">Estado *</label>
+									<p:selectOneMenu id="estado"
+										value="#{alunoVisao.alunoSelecionado.estado}"
+										converter="entityConverter" required="true"
+										requiredMessage="Estado é de preenchimento obrigatório."
+										filter="true">
+										<f:selectItem itemLabel="Selecione... " itemValue="#{null}" />
+										<f:selectItems value="#{alunoVisao.listaEstado}" var="estado"
+											itemLabel="#{estado.estaNome}" itemValue="#{estado}" />
+										<p:ajax event="change"
+											listener="#{alunoVisao.listarPaisPorEstado(estado)}"
+											process="@this" update="@form" />
+									</p:selectOneMenu>
+								</div>
+
+								<div class="col-md-4 has-error">
+									<label class="control-label" for="pais">Pais *</label>
+									<p:selectOneMenu id="pais"
+										value="#{alunoVisao.alunoSelecionado.pais}"
+										converter="entityConverter" required="true"
+										requiredMessage="Pais é de preenchimento obrigatório."
+										filter="true">
+										<f:selectItem itemLabel="Selecione... " itemValue="#{null}" />
+										<f:selectItems value="#{alunoVisao.listaPais}" var="pais"
+											itemLabel="#{pais.paisNome}" itemValue="#{pais}" />
+									</p:selectOneMenu>
+								</div>
+
+								<div class="col-md-4 has-error">
+									<label class="control-label" for="curso">Curso *</label>
+									<p:selectOneMenu id="curso"
+										value="#{alunoVisao.alunoSelecionado.curso}"
+										converter="entityConverter" required="true"
+										requiredMessage="Curso é de preenchimento obrigatório."
+										filter="true">
+										<f:selectItem itemLabel="Selecione... " itemValue="#{null}" />
+										<f:selectItems value="#{alunoVisao.listaCurso}" var="curso"
+											itemLabel="#{curso.cursNome}" itemValue="#{curso}" />
+									</p:selectOneMenu>
+								</div>
+							</div>
+
+							<f:facet name="footer">
+								<center>
+									<p:commandButton value="Salvar" icon="fa fa-save"
+										action="#{tipoFuncionalidadeAlcadaVisao.incluirTipoFuncionalidadeAlcada}"
+										disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}"
+										process="@all" update=":form1" title="Salvar Dados"
+										styleClass="btn-success btn-sm" />
+									<p:spacer width="20" />
+									<p:commandButton value="Limpar" icon="fa fa-eraser"
+										action="#{tipoFuncionalidadeAlcadaVisao.limparDadosTela}"
+										process="@this" update=":form1" title="Limpar dados tela"
+										styleClass="btn-primary btn-sm" />
+									<p:spacer width="20" />
+									<p:commandButton value="Retornar" icon="fa fa-backward"
+										action="#{alunoVisao.retornarTelaPrincipal}"
+										title="Voltar para o menu principal" immediate="true"
+										styleClass="btn-info btn-sm" />
+								</center>
+							</f:facet>
+
+						</p:panel>
+
+						<br />
+
 						
-				<br/>
+					</p:outputPanel>
+					
+				</p:tab>
+
+				<p:tab title="Dados Financeiros">
 				
-				<p:panel header="Funcionalidades existentes no deferimento" styleClass="card">
-						<p:dataTable  id="ltTipoFuncionalidadeAlcada" 
-					             var="tipoFuncionalidadeAlcada"
-					             emptyMessage="Não existem registros para Autorização" 
-								 value="#{tipoFuncionalidadeAlcadaVisao.listaTipoFuncionalidadeAlcada}" 
-								 widgetVar="dataTableTipoFuncionalidadeAlcada"
-								 paginator="true" 
-								 rows="10" 
-								 paginatorPosition="top"
-								 dynamic="true"
-								 styleClass="table table-striped">
-		 					     
-								<p:column style="width:20%; text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.nome}" headerText="Nome">
-									<h:outputText value="#{tipoFuncionalidadeAlcada.nome}" />
+					<p:panel header="Pagamentos Efetuados"
+							styleClass="card">
+							<p:dataTable id="ltPagamentoAluno"
+								var="alunoCobranca"
+								emptyMessage="Não existem registros de Pagamentos"
+								value="#{alunoVisao.listaAlunoCobranca}"
+								widgetVar="dataTablePagAlunos" paginator="true"
+								rows="10" paginatorPosition="top" dynamic="true"
+								styleClass="table table-striped">
+
+								<p:column style="width:20%; text-align: center;"
+									sortBy="#{alunoCobranca.alcoMesReferencia}" headerText="Mês Cobrança">
+									<h:outputText value="#{alunoCobranca.alcoMesReferencia}" />
 								</p:column>
-								
-								<p:column style="width:20%; text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.funcionalidade.nome}" headerText="Funcionalidade">
-									<h:outputText value="#{tipoFuncionalidadeAlcada.funcionalidade.nome}"  />
+
+								<p:column style="width:20%; text-align: center;"
+									sortBy="#{alunoCobranca.alcoDataVencimento}"
+									headerText="Data Vencimento">
+									<h:outputText
+										value="#{alunoCobranca.dscDataVencimento}" />
 								</p:column>
-								
-								<p:column style="text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.codigoInformacaoControle01}" headerText="Inf. Controle 1">
-									<h:outputText value="#{tipoFuncionalidadeAlcada.codigoInformacaoControle01}" />
-								</p:column>
-								
-								<p:column style="text-align: center;" sortBy="#{tipoFuncionalidadeAlcada.codigoInformacaoControle02}" headerText="Inf. Controle 2">
-									<h:outputText value="#{tipoFuncionalidadeAlcada.codigoInformacaoControle02}" />
-								</p:column>
-								
-								<p:column style="text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.codigoInformacaoControle03}" headerText="Inf. Controle 3">
-									<h:outputText value="#{tipoFuncionalidadeAlcada.codigoInformacaoControle03}"  />
-								</p:column>
-								
-								<p:column style="width:20%; text-align: center;"  sortBy="#{tipoFuncionalidadeAlcada.descricaoChaveOrigem}" headerText="Desc. Chave Origem">
-									<h:outputText value="#{tipoFuncionalidadeAlcada.descricaoChaveOrigem}"  />
-								</p:column>
-																
-								<p:column style="width:10%; text-align: center;" headerText="Ações">
+
+								<p:column style="width:10%; text-align: center;"
+									headerText="Ações">
 									<!-- Botão Editar -->
-									<p:commandButton icon="fa fa-edit" id="BtEditar" update=":form1" process="@this"  immediate="true" title="Editar Tipo Funcionalidade Alçada" disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}" styleClass="btn-warning btn-xs">
-										<f:setPropertyActionListener value="#{tipoFuncionalidadeAlcada}" target="#{tipoFuncionalidadeAlcadaVisao.tipoFuncionalidadeAlcada}" />
+									<p:commandButton icon="fa fa-edit" id="BtEditar"
+										update=":form1" process="@this" immediate="true"
+										title="Editar Tipo Funcionalidade Alçada"
+										disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}"
+										styleClass="btn-warning btn-xs">
+										<f:setPropertyActionListener
+											value="#{tipoFuncionalidadeAlcada}"
+											target="#{tipoFuncionalidadeAlcadaVisao.tipoFuncionalidadeAlcada}" />
 									</p:commandButton>
-									
-									<p:spacer width="2"/>
-									
+
+									<p:spacer width="2" />
+
 									<!-- Botão Excluir -->
-									<p:commandButton icon="fa fa-trash" actionListener="#{tipoFuncionalidadeAlcadaVisao.removerTipoFuncionalidadeAlcada(tipoFuncionalidadeAlcada)}"  update="form1, messages"  process="@this"  immediate="true" title="Excluir Tipo Funcionalidade Alçada" disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}" styleClass="btn-danger btn-xs">
-										<p:confirm header="Confirmação de Exclusão" message="Confirma Exclusão de Tipo de Funcionalidade Alçada?" icon="ui-icon-alert" />
+									<p:commandButton icon="fa fa-trash"
+										actionListener="#{tipoFuncionalidadeAlcadaVisao.removerTipoFuncionalidadeAlcada(tipoFuncionalidadeAlcada)}"
+										update="form1, messages" process="@this" immediate="true"
+										title="Excluir Tipo Funcionalidade Alçada"
+										disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}"
+										styleClass="btn-danger btn-xs">
+										<p:confirm header="Confirmação de Exclusão"
+											message="Confirma Exclusão de Tipo de Funcionalidade Alçada?"
+											icon="ui-icon-alert" />
 									</p:commandButton>
-								
+
 								</p:column>
-								
-						</p:dataTable>
-					</p:panel>
-			</p:outputPanel>
-						
-			<p:confirmDialog id="confirmaExclusao" global="true" showEffect="fade" hideEffect="fade" severity="alert"
-				message="Confirma Exclusão de Tipo Funcionalidade de Alçada?" resizable="false" width="550" modal="true"
-				header="Aviso" widgetVar="confirmaExclusao">
-				<center>
-					<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes btn-success btn-sm" icon="fa fa-check" />
-			    	<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no btn-danger btn-sm" icon="fa fa-close"  />					
-				</center>
-			</p:confirmDialog>
-				
+
+							</p:dataTable>
+						</p:panel>
+				</p:tab>
+			</p:tabView>
 		</h:form>
 
 	</ui:define>

@@ -1,8 +1,9 @@
 package br.com.iasc.academico.Entidades;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -22,24 +23,25 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 	@Column(name="ALCO_ID")
 	private Long codigo;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="ALCO_DAT_VENC")
 	private Date alcoDataVencimento;
 
 	@Column(name="ALCO_MES_REF")
-	private long alcoMesReferencia;
+	private Long alcoMesReferencia;
 
 	@Column(name="ALCO_STATUS")
 	private Long alcoStatus;
 
-	@Column(name="ALUN_ID")
+	@ManyToOne
+	@JoinColumn(name="ALUN_ID")
 	private Aluno aluno;
 
 	@Column(name="COBN_ID")
-	private BigDecimal cobnId;
-
-	public AlunoCobranca() {
-	}
+	private Long cobnId;
+	
+	@Transient
+	private String dscDataVencimento;
 
 	public Long getCodigo() {
 		return codigo;
@@ -57,11 +59,11 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 		this.alcoDataVencimento = alcoDataVencimento;
 	}
 
-	public long getAlcoMesReferencia() {
+	public Long getAlcoMesReferencia() {
 		return alcoMesReferencia;
 	}
 
-	public void setAlcoMesReferencia(long alcoMesReferencia) {
+	public void setAlcoMesReferencia(Long alcoMesReferencia) {
 		this.alcoMesReferencia = alcoMesReferencia;
 	}
 
@@ -81,12 +83,23 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 		this.aluno = aluno;
 	}
 
-	public BigDecimal getCobnId() {
+	public Long getCobnId() {
 		return cobnId;
 	}
 
-	public void setCobnId(BigDecimal cobnId) {
+	public void setCobnId(Long cobnId) {
 		this.cobnId = cobnId;
+	}
+
+	public String getDscDataVencimento() {
+		if (alcoDataVencimento != null) {
+			dscDataVencimento = new SimpleDateFormat("dd/MM/yyyy").format(alcoDataVencimento);
+		}
+		return dscDataVencimento;
+	}
+
+	public void setDscDataVencimento(String dscDataVencimento) {
+		this.dscDataVencimento = dscDataVencimento;
 	}
 
 }
