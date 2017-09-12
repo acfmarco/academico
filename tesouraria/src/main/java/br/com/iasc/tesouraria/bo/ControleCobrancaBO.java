@@ -112,6 +112,9 @@ public class ControleCobrancaBO implements Serializable {
 		cobrancaDTO.setDataVencimento(cobranca.getDataVencimento());
 		cobrancaDTO.setEnderecoCobranca(cobranca.getEnderecoCobranca());
 		cobrancaDTO.setValorCobranca(cobranca.getValorCobranca());
+		cobrancaDTO.setValorJuros(cobranca.getValorJuros());
+		cobrancaDTO.setValorCorrecao(cobranca.getValorCorrecao());
+		cobrancaDTO.setValorMulta(cobranca.getValorMulta());
 		
 		return cobrancaDTO;
 	}

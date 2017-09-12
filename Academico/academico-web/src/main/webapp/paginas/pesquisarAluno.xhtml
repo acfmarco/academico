@@ -74,6 +74,17 @@
 						styleClass="table table-striped"
 						paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {Exporters}">
 						
+						<f:facet name="header">
+							<p:outputPanel style="height: 20px;">
+								<div style="float: left;">
+									<p:commandButton id="novoAluno" process="@this" update="lista_alunos"
+									   actionListener="#{alunoVisao.novoAluno}" value = "Novo Aluno"
+									   ajax="false" icon="fa fa-file-text-o">
+									</p:commandButton>
+								</div>
+							</p:outputPanel>
+						</f:facet>
+				
 						<!-- Exportadores  -->
 						<f:facet name="{Exporters}">
 							<h:commandLink immediate="true">

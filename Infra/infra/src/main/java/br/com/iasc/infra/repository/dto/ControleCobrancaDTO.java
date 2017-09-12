@@ -37,6 +37,15 @@ public class ControleCobrancaDTO  implements Serializable {
     
 	@XmlElement
 	private Date dataPagamento;
+	
+	@XmlElement
+	private Double valorJuros;
+	
+	@XmlElement
+	private Double valorMulta;
+	
+	@XmlElement
+	private Double valorCorrecao;
     
 	@XmlElement
     private String status;
@@ -108,12 +117,37 @@ public class ControleCobrancaDTO  implements Serializable {
 	public void setDataPagamento(Date dataPagamento) {
 		this.dataPagamento = dataPagamento;
 	}
+	
+	public Double getValorJuros() {
+		return valorJuros;
+	}
+
+	public void setValorJuros(Double valorJuros) {
+		this.valorJuros = valorJuros;
+	}
+
+	public Double getValorMulta() {
+		return valorMulta;
+	}
+
+	public void setValorMulta(Double valorMulta) {
+		this.valorMulta = valorMulta;
+	}
+
+	public Double getValorCorrecao() {
+		return valorCorrecao;
+	}
+
+	public void setValorCorrecao(Double valorCorrecao) {
+		this.valorCorrecao = valorCorrecao;
+	}
 
 	@Override
 	public String toString() {
-		return "ControleCobrancaDTO [dataVencimento=" + dataVencimento + ", enderecoCobranca=" + enderecoCobranca
-				+ ", nome=" + nome + ", valorCobranca=" + valorCobranca + ", dataPagamento="
-				+ dataPagamento + ", status=" + status + ", mensagem=" + mensagem + "]";
+		return "ControleCobrancaDTO [codigo=" + codigo + ", dataVencimento=" + dataVencimento + ", enderecoCobranca="
+				+ enderecoCobranca + ", nome=" + nome + ", valorCobranca=" + valorCobranca + ", dataPagamento="
+				+ dataPagamento + ", valorJuros=" + valorJuros + ", valorMulta=" + valorMulta + ", valorCorrecao="
+				+ valorCorrecao + ", status=" + status + ", mensagem=" + mensagem + "]";
 	}
 
 	public ControleCobrancaDTO(Date dataVencimento, String enderecoCobranca, String nome, Double valorCobranca,

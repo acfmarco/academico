@@ -53,6 +53,15 @@ public class ControleCobranca  implements Serializable, BaseEntity {
     @Column(name="COBN_DAT_PAG")
     private Date dataPagamento;
     
+    @Column(name="COBN_JUROS")
+    private Double valorJuros;
+    
+    @Column(name="COBN_MULTA")
+    private Double valorMulta;
+    
+    @Column(name="COBN_CORRECAO")
+    private Double valorCorrecao;
+    
 	public ControleCobranca() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -112,5 +121,38 @@ public class ControleCobranca  implements Serializable, BaseEntity {
 
 	public void setDataPagamento(Date dataPagamento) {
 		this.dataPagamento = dataPagamento;
+	}
+
+	public Double getValorJuros() {
+		return valorJuros;
+	}
+
+	public void setValorJuros(Double valorJuros) {
+		this.valorJuros = valorJuros;
+	}
+
+	public Double getValorMulta() {
+		return valorMulta;
+	}
+
+	public void setValorMulta(Double valorMulta) {
+		this.valorMulta = valorMulta;
+	}
+
+	public Double getValorCorrecao() {
+		return valorCorrecao;
+	}
+
+	public void setValorCorrecao(Double valorCorrecao) {
+		this.valorCorrecao = valorCorrecao;
+	}
+
+	@Override
+	public String toString() {
+		return "ControleCobranca [codigo=" + codigo + ", dataVencimento=" + dataVencimento + ", enderecoCobranca="
+				+ enderecoCobranca + ", nomeCobrado=" + nomeCobrado + ", valorCobranca=" + valorCobranca
+				+ ", dataPagamento=" + dataPagamento + ", valorJuros=" + valorJuros + ", valorMulta=" + valorMulta
+				+ ", valorCorrecao=" + valorCorrecao + "]";
 	} 	
+	
 }

@@ -17,6 +17,7 @@
 		<class>br.com.iasc.academico.Entidades.Pais</class>
 		<class>br.com.iasc.academico.Entidades.Estado</class>
 		<class>br.com.iasc.academico.Entidades.AlunoCobranca</class>
+		<class>br.com.iasc.academico.Entidades.StatusCobranca</class>
 		<class>br.com.iasc.academico.Entidades.Curso</class>
 	
 		<properties>

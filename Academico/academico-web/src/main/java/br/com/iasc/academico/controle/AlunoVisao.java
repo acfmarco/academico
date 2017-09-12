@@ -1,20 +1,15 @@
 package br.com.iasc.academico.controle;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.io.Serializable;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.digester.xmlrules.FromXmlRuleSet;
-import org.apache.commons.validator.Msg;
+import javax.xml.bind.JAXBContext;
+
+import javax.xml.bind.Unmarshaller;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -70,12 +65,17 @@ public class AlunoVisao implements Serializable{
 	
 	private Aluno alunoSelecionado;
 	
+	private boolean editar = false;
+	
 	public AlunoVisao() {
 		super();
 		aluno = new Aluno();		
 	}
 
 	public String iniciarPesquisarAluno(){
+		
+		limparPesquisa();
+		
 		return FW_ALUNO;
 	}
 	
@@ -101,21 +101,40 @@ public class AlunoVisao implements Serializable{
 		return PAGINA_INICIAL;
 	}
 	
+	public String retornarTelaAluno(){		
+		return FW_ALUNO;
+	}
+	
 	public String editarAluno(Aluno aluno){	
 		
 		if (aluno == null){		
 			Mensagens.addError("Aluno deve ser selecionado");
 			return FW_ALUNO;
 		}else{
+			this.editar = true;
 			setAlunoSelecionado(aluno);
-			setListaCurso(this.cursoBO.listarTodasCurso());
-			setListaEstado(this.estadoBO.listarTodasEstado());
-			setListaPais(this.paisBO.listarTodasPais());	
+			
+			montarCombos();
 			
 			setListaAlunoCobranca(this.alunoCobrancaBO.pesquisarAlunoCobrancaPorAluno(aluno));
 			setListaAlunoCobranca(pesquisarDetalheCobranca(getListaAlunoCobranca()));
 			return FW_MANTEM_ALUNO;
 		}
+		
+	}
+	
+	public String novoAluno(){	
+		
+		montarCombos();
+		
+		return FW_MANTEM_ALUNO;
+		
+	}
+	
+	public void montarCombos(){
+		setListaCurso(this.cursoBO.listarTodasCurso());
+		setListaEstado(this.estadoBO.listarTodasEstado());
+		setListaPais(this.paisBO.listarTodasPais());	
 		
 	}
 	
@@ -127,44 +146,20 @@ public class AlunoVisao implements Serializable{
 				URL urlCobranca = new URL(
 						this.ambienteServico.getTesouraria() + "dispatcher/getCobranca/" + alunoCobranca.getCobnId());
 
-				HttpURLConnection connectionCobranca = (HttpURLConnection) urlCobranca.openConnection();
-				connectionCobranca.setConnectTimeout(15000);
-				connectionCobranca.connect();
-
-				String responseJsonCobranca = inputStreamToString(connectionCobranca.getInputStream());
-
-				// alunoCobranca.setControleCobrancaDTO((ControleCobrancaDTO)
-				// responseJsonCobranca));
-
+				JAXBContext context = JAXBContext.newInstance(ControleCobrancaDTO.class);
+				Unmarshaller unmarshaller = context.createUnmarshaller();
+				ControleCobrancaDTO controleCobrancaDTO = (ControleCobrancaDTO) unmarshaller.unmarshal(urlCobranca);
+				alunoCobranca.setControleCobrancaDTO(controleCobrancaDTO);
 			}
 			
 		} catch (Exception e) {
 			Mensagens.addError("Erro ao gerar cobranças: " + e.getMessage());
 		}
+		
 		return listaAlunoCobranca;
 
 	}
 	
-	public static String inputStreamToString(InputStream is) throws IOException {
-		if (is != null) {
-			Writer writer = new StringWriter();
-
-			char[] buffer = new char[1024];
-			try {
-				Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-				int n;
-				while ((n = reader.read(buffer)) != -1) {
-					writer.write(buffer, 0, n);
-				}
-			} finally {
-				is.close();
-			}
-			return writer.toString();
-		} else {
-			return "";
-		}
-	}
-
 	public Aluno getAluno() {
 		return aluno;
 	}
@@ -219,6 +214,14 @@ public class AlunoVisao implements Serializable{
 
 	public void setListaAlunoCobranca(List<AlunoCobranca> listaAlunoCobranca) {
 		this.listaAlunoCobranca = listaAlunoCobranca;
+	}
+
+	public boolean isEditar() {
+		return editar;
+	}
+
+	public void setEditar(boolean editar) {
+		this.editar = editar;
 	}
 	
 }

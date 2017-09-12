@@ -33,8 +33,9 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 	@Column(name="ALCO_MES_REF")
 	private Long alcoMesReferencia;
 
-	@Column(name="ALCO_STATUS")
-	private Long alcoStatus;
+	@ManyToOne
+	@JoinColumn(name="STCO_ID")
+	private StatusCobranca statusCobranca;
 
 	@ManyToOne
 	@JoinColumn(name="ALUN_ID")
@@ -48,6 +49,9 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 	
 	@Transient
 	private ControleCobrancaDTO controleCobrancaDTO;
+	
+	@Transient
+	private String dscDataPagamento;
 
 	public Long getCodigo() {
 		return codigo;
@@ -72,13 +76,13 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 	public void setAlcoMesReferencia(Long alcoMesReferencia) {
 		this.alcoMesReferencia = alcoMesReferencia;
 	}
-
-	public Long getAlcoStatus() {
-		return alcoStatus;
+	
+	public StatusCobranca getStatusCobranca() {
+		return statusCobranca;
 	}
 
-	public void setAlcoStatus(Long alcoStatus) {
-		this.alcoStatus = alcoStatus;
+	public void setStatusCobranca(StatusCobranca statusCobranca) {
+		this.statusCobranca = statusCobranca;
 	}
 
 	public Aluno getAluno() {
@@ -114,6 +118,25 @@ public class AlunoCobranca implements Serializable, BaseEntity {
 
 	public void setControleCobrancaDTO(ControleCobrancaDTO controleCobrancaDTO) {
 		this.controleCobrancaDTO = controleCobrancaDTO;
+	}
+
+	public String getDscDataPagamento() {
+		if (this.controleCobrancaDTO != null && this.controleCobrancaDTO.getDataPagamento() != null) {
+			dscDataPagamento = new SimpleDateFormat("dd/MM/yyyy").format(this.controleCobrancaDTO.getDataPagamento());
+		}
+		return dscDataPagamento;
+	}
+
+	public void setDscDataPagamento(String dscDataPagamento) {
+		this.dscDataPagamento = dscDataPagamento;
+	}
+
+	@Override
+	public String toString() {
+		return "AlunoCobranca [codigo=" + codigo + ", alcoDataVencimento=" + alcoDataVencimento + ", alcoMesReferencia="
+				+ alcoMesReferencia + ", statusCobranca=" + statusCobranca + ", aluno=" + aluno + ", cobnId=" + cobnId
+				+ ", dscDataVencimento=" + dscDataVencimento + ", controleCobrancaDTO=" + controleCobrancaDTO
+				+ ", dscDataPagamento=" + dscDataPagamento + "]";
 	}
 	
 }

@@ -184,14 +184,10 @@
 										process="@all" update=":form1" title="Salvar Dados"
 										styleClass="btn-success btn-sm" />
 									<p:spacer width="20" />
-									<p:commandButton value="Limpar" icon="fa fa-eraser"
-										action="#{tipoFuncionalidadeAlcadaVisao.limparDadosTela}"
-										process="@this" update=":form1" title="Limpar dados tela"
-										styleClass="btn-primary btn-sm" />
-									<p:spacer width="20" />
+
 									<p:commandButton value="Retornar" icon="fa fa-backward"
-										action="#{alunoVisao.retornarTelaPrincipal}"
-										title="Voltar para o menu principal" immediate="true"
+										action="#{alunoVisao.retornarTelaAluno}"
+										title="Voltar para o Tela Pesquisa Aluno" immediate="true"
 										styleClass="btn-info btn-sm" />
 								</center>
 							</f:facet>
@@ -205,9 +201,9 @@
 					
 				</p:tab>
 
-				<p:tab title="Dados Financeiros">
+				<p:tab title="Dados Financeiros" rendered="#{alunoVisao.editar}">
 				
-					<p:panel header="Pagamentos Efetuados"
+					<p:panel header="Cobranças Geradas"
 							styleClass="card">
 							<p:dataTable id="ltPagamentoAluno"
 								var="alunoCobranca"
@@ -218,17 +214,61 @@
 								styleClass="table table-striped">
 
 								<p:column style="width:20%; text-align: center;"
-									sortBy="#{alunoCobranca.alcoMesReferencia}" headerText="Mês Cobrança">
+									sortBy="#{alunoCobranca.alcoMesReferencia}" headerText="Mês">
 									<h:outputText value="#{alunoCobranca.alcoMesReferencia}" />
+								</p:column>
+								
+								<p:column style="width:20%; text-align: center;"
+									sortBy="#{alunoCobranca.statusCobranca.statusNome}" headerText="Status">
+									<h:outputText value="#{alunoCobranca.statusCobranca.statusNome}" />
 								</p:column>
 
 								<p:column style="width:20%; text-align: center;"
 									sortBy="#{alunoCobranca.alcoDataVencimento}"
-									headerText="Data Vencimento">
+									headerText="Vencimento">
 									<h:outputText
 										value="#{alunoCobranca.dscDataVencimento}" />
 								</p:column>
-
+								
+								<p:column style="width:20%; text-align: center;"
+									sortBy="#{alunoCobranca.dscDataPagamento}"
+									headerText="Pagamento">
+									<h:outputText
+										value="#{alunoCobranca.dscDataPagamento}" />
+								</p:column>
+								
+								<p:column style="width:20%; text-align: center;"
+									sortBy="#{alunoCobranca.controleCobrancaDTO.valorCobranca}"
+									headerText="Val. Cobrança">
+									<h:outputText value="#{alunoCobranca.controleCobrancaDTO.valorCobranca}">
+										<f:convertNumber locale="pt_BR" type="currency" maxFractionDigits="2"/>
+									</h:outputText>
+								</p:column>
+								
+								<p:column style="width:20%; text-align: center;"
+									sortBy="#{alunoCobranca.controleCobrancaDTO.valorJuros}"
+									headerText="Juros">
+									<h:outputText value="#{alunoCobranca.controleCobrancaDTO.valorJuros}">
+										<f:convertNumber locale="pt_BR" type="currency" maxFractionDigits="2"/> 
+									</h:outputText>
+								</p:column>
+								
+								<p:column style="width:20%; text-align: center;"
+									sortBy="#{alunoCobranca.controleCobrancaDTO.valorMulta}"
+									headerText="Multa">
+									<h:outputText value="#{alunoCobranca.controleCobrancaDTO.valorMulta}">
+										<f:convertNumber locale="pt_BR" type="currency" maxFractionDigits="2"/>
+									</h:outputText>
+								</p:column>
+								
+								<p:column style="width:20%; text-align: center;"
+									sortBy="#{alunoCobranca.controleCobrancaDTO.valorCorrecao}"
+									headerText="Correção">
+									<h:outputText value="#{alunoCobranca.controleCobrancaDTO.valorCorrecao}">
+										<f:convertNumber locale="pt_BR" type="currency" maxFractionDigits="2"/>
+									</h:outputText>
+								</p:column>
+								
 								<p:column style="width:10%; text-align: center;"
 									headerText="Ações">
 									<!-- Botão Editar -->
