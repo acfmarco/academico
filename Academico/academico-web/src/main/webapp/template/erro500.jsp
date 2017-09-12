@@ -86,8 +86,9 @@
     <script src="${pageContext.request.contextPath}/template/app-assets/js/core/app-menu.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/template/app-assets/js/core/app.js" type="text/javascript"></script>
     <!-- END ROBUST JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- BEGIN PAGE LEVEL JS
     <script src="${pageContext.request.contextPath}/template/app-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
+    -->
     <!-- END PAGE LEVEL JS-->
     
     

@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,8 +39,8 @@ public class ControleCobrancaService {
 	 * Esse método cadastra uma nova pessoa
 	 * */
 	@RequestMapping(value = "/cadastrar", method = RequestMethod.POST,
-    produces = {"application/xml"})
-	public ResponseEntity<ControleCobrancaDTO> cadastrar(ControleCobrancaDTO controleCobrancaDTO){
+    produces = {"application/xml"}, consumes={"application/xml"})
+	public ResponseEntity<ControleCobrancaDTO> cadastrar(@RequestBody ControleCobrancaDTO controleCobrancaDTO){
  
 		ControleCobranca controleCobranca = new ControleCobranca(controleCobrancaDTO);
  
@@ -51,7 +53,7 @@ public class ControleCobrancaService {
 			
 		}catch (AcademicoException ex){
 			controleCobrancaDTO.setStatus("N");
-			controleCobrancaDTO.setMensagem("Erro ao tentar inserir Cobrança" + ex.getMessage());
+			controleCobrancaDTO.setMensagem("Erro ao tentar inserir Cobrança. " + ex.getMessage());
 			return new ResponseEntity<ControleCobrancaDTO>(controleCobrancaDTO, HttpStatus.NOT_FOUND);
 		} catch (Exception e) {
 			controleCobrancaDTO.setStatus("N");
@@ -66,7 +68,7 @@ public class ControleCobrancaService {
 	 * **/
 	@RequestMapping(value = "/alterar", method = RequestMethod.PUT,
     produces = {"application/xml"})
-	public ResponseEntity<ControleCobrancaDTO> alterar(ControleCobrancaDTO controleCobrancaDTO){
+	public ResponseEntity<ControleCobrancaDTO> alterar(@RequestBody ControleCobrancaDTO controleCobrancaDTO){
  
 		ControleCobranca controleCobranca = new ControleCobranca(controleCobrancaDTO);
 		 

@@ -271,30 +271,27 @@
 								
 								<p:column style="width:10%; text-align: center;"
 									headerText="Ações">
+									
 									<!-- Botão Editar -->
 									<p:commandButton icon="fa fa-edit" id="BtEditar"
 										update=":form1" process="@this" immediate="true"
-										title="Editar Tipo Funcionalidade Alçada"
-										disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}"
+										title="Verificar Baixa Pagamento"
 										styleClass="btn-warning btn-xs">
 										<f:setPropertyActionListener
-											value="#{tipoFuncionalidadeAlcada}"
-											target="#{tipoFuncionalidadeAlcadaVisao.tipoFuncionalidadeAlcada}" />
+											value="#{alunoCobranca}"
+											target="#{alunoVisao.alunoCobrancaSelecionado}" />
+									</p:commandButton>
+									
+									<!-- Botão Editar -->
+									<p:commandButton icon="fa fa-edit" id="BtEditar"
+										update=":form1" process="@this" immediate="true"
+										title="Gerar Atualização Parcela"
+										styleClass="btn-warning btn-xs">
+										<f:setPropertyActionListener
+											value="#{alunoCobranca}"
+											target="#{alunoVisao.alunoCobrancaSelecionado}" />
 									</p:commandButton>
 
-									<p:spacer width="2" />
-
-									<!-- Botão Excluir -->
-									<p:commandButton icon="fa fa-trash"
-										actionListener="#{tipoFuncionalidadeAlcadaVisao.removerTipoFuncionalidadeAlcada(tipoFuncionalidadeAlcada)}"
-										update="form1, messages" process="@this" immediate="true"
-										title="Excluir Tipo Funcionalidade Alçada"
-										disabled="#{!tipoFuncionalidadeAlcadaVisao.possuiAcessoTotal}"
-										styleClass="btn-danger btn-xs">
-										<p:confirm header="Confirmação de Exclusão"
-											message="Confirma Exclusão de Tipo de Funcionalidade Alçada?"
-											icon="ui-icon-alert" />
-									</p:commandButton>
 
 								</p:column>
 

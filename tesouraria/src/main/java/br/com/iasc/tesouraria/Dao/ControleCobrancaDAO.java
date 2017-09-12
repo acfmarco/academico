@@ -21,7 +21,6 @@ import br.com.iasc.utils.exception.AcademicoException;
  * @author  Marco Figueiredo
  * @since 29/08/2017
  * 
- *        Copyright notice (c) 2016 BBPrevidência S/A
  */
 @Repository
 @Qualifier("controleCobrancaDao")

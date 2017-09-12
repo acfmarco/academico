@@ -39,13 +39,13 @@ public class ControleCobrancaDTO  implements Serializable {
 	private Date dataPagamento;
 	
 	@XmlElement
-	private Double valorJuros;
+	private double valorJuros;
 	
 	@XmlElement
-	private Double valorMulta;
+	private double valorMulta;
 	
 	@XmlElement
-	private Double valorCorrecao;
+	private double valorCorrecao;
     
 	@XmlElement
     private String status;
@@ -118,27 +118,27 @@ public class ControleCobrancaDTO  implements Serializable {
 		this.dataPagamento = dataPagamento;
 	}
 	
-	public Double getValorJuros() {
+	public double getValorJuros() {
 		return valorJuros;
 	}
 
-	public void setValorJuros(Double valorJuros) {
+	public void setValorJuros(double valorJuros) {
 		this.valorJuros = valorJuros;
 	}
 
-	public Double getValorMulta() {
+	public double getValorMulta() {
 		return valorMulta;
 	}
 
-	public void setValorMulta(Double valorMulta) {
+	public void setValorMulta(double valorMulta) {
 		this.valorMulta = valorMulta;
 	}
 
-	public Double getValorCorrecao() {
+	public double getValorCorrecao() {
 		return valorCorrecao;
 	}
 
-	public void setValorCorrecao(Double valorCorrecao) {
+	public void setValorCorrecao(double valorCorrecao) {
 		this.valorCorrecao = valorCorrecao;
 	}
 

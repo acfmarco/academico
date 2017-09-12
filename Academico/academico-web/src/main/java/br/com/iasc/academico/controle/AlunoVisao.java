@@ -63,6 +63,8 @@ public class AlunoVisao implements Serializable{
 	private List<Estado> listaEstado = new ArrayList<Estado>();
 	private List<AlunoCobranca> listaAlunoCobranca = new ArrayList<AlunoCobranca>();
 	
+	private AlunoCobranca alunoCobrancaSelecionado;
+	
 	private Aluno alunoSelecionado;
 	
 	private boolean editar = false;
@@ -223,5 +225,13 @@ public class AlunoVisao implements Serializable{
 	public void setEditar(boolean editar) {
 		this.editar = editar;
 	}
-	
+
+	public AlunoCobranca getAlunoCobrancaSelecionado() {
+		return alunoCobrancaSelecionado;
+	}
+
+	public void setAlunoCobrancaSelecionado(AlunoCobranca alunoCobrancaSelecionado) {
+		this.alunoCobrancaSelecionado = alunoCobrancaSelecionado;
+	}
+
 }

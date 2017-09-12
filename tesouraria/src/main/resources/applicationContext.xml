@@ -69,7 +69,7 @@
 	</tx:advice>
 
 	<aop:config>
-		<aop:pointcut id="defaultServiceOperation" expression="execution(* br.com.iasc.seguranca.bo.*BO.*(..)) "/>
+		<aop:pointcut id="defaultServiceOperation" expression="execution(* br.com.iasc.tesouraria.bo.*BO.*(..)) "/>
 		<aop:advisor pointcut-ref="defaultServiceOperation" advice-ref="transactionAdvice" />
 	</aop:config>
  

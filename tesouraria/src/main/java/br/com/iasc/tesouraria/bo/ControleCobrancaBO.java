@@ -108,6 +108,7 @@ public class ControleCobrancaBO implements Serializable {
 	public ControleCobrancaDTO converterCobranca(ControleCobranca cobranca){
 		ControleCobrancaDTO cobrancaDTO = new ControleCobrancaDTO();
 		
+		cobrancaDTO.setNome(cobranca.getNomeCobrado());
 		cobrancaDTO.setDataPagamento(cobranca.getDataPagamento());
 		cobrancaDTO.setDataVencimento(cobranca.getDataVencimento());
 		cobrancaDTO.setEnderecoCobranca(cobranca.getEnderecoCobranca());

@@ -54,13 +54,13 @@ public class ControleCobranca  implements Serializable, BaseEntity {
     private Date dataPagamento;
     
     @Column(name="COBN_JUROS")
-    private Double valorJuros;
+    private double valorJuros;
     
     @Column(name="COBN_MULTA")
-    private Double valorMulta;
+    private double valorMulta;
     
     @Column(name="COBN_CORRECAO")
-    private Double valorCorrecao;
+    private double valorCorrecao;
     
 	public ControleCobranca() {
 		super();
@@ -73,6 +73,7 @@ public class ControleCobranca  implements Serializable, BaseEntity {
 		this.enderecoCobranca = cobrancaDTO.getEnderecoCobranca();
 		this.valorCobranca = cobrancaDTO.getValorCobranca();
 		this.dataPagamento = cobrancaDTO.getDataPagamento();
+		this.nomeCobrado = cobrancaDTO.getNome();
 	}
 
 	public Long getCodigo() {
@@ -123,27 +124,27 @@ public class ControleCobranca  implements Serializable, BaseEntity {
 		this.dataPagamento = dataPagamento;
 	}
 
-	public Double getValorJuros() {
+	public double getValorJuros() {
 		return valorJuros;
 	}
 
-	public void setValorJuros(Double valorJuros) {
+	public void setValorJuros(double valorJuros) {
 		this.valorJuros = valorJuros;
 	}
 
-	public Double getValorMulta() {
+	public double getValorMulta() {
 		return valorMulta;
 	}
 
-	public void setValorMulta(Double valorMulta) {
+	public void setValorMulta(double valorMulta) {
 		this.valorMulta = valorMulta;
 	}
 
-	public Double getValorCorrecao() {
+	public double getValorCorrecao() {
 		return valorCorrecao;
 	}
 
-	public void setValorCorrecao(Double valorCorrecao) {
+	public void setValorCorrecao(double valorCorrecao) {
 		this.valorCorrecao = valorCorrecao;
 	}
 
