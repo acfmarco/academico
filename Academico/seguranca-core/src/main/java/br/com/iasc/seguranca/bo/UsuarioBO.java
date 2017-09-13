@@ -156,7 +156,7 @@ public class UsuarioBO implements Serializable {
 			return this.usuarioDAO.autenticarUsuario(login, senha);
 
 		} catch (AcademicoException e) {
-			throw new AcademicoException("Não foi possível realizar está operação");
+			throw new AcademicoException(e);
 		}
 
 	}

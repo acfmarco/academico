@@ -107,13 +107,13 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${org.hibernate.version}</version>
-			<exclusions>
+			<!-- <exclusions>
 				<exclusion>
 					<groupId>dom4j</groupId>
 					<artifactId>dom4j</artifactId>
 				</exclusion>
 			</exclusions>
-			
+			 -->
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>

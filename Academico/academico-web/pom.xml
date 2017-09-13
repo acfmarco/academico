@@ -34,6 +34,18 @@
 
 	<dependencies>
       
+      	<!-- https://mvnrepository.com/artifact/com.fasterxml/classmate -->
+		<dependency>
+		    <groupId>com.fasterxml</groupId>
+		    <artifactId>classmate</artifactId>
+		    <version>1.0.0</version>
+		    <exclusions>
+				<exclusion>
+					<groupId>dom4j</groupId>
+					<artifactId>dom4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		
 		<dependency>
 			<groupId>br.com.iasc</groupId>

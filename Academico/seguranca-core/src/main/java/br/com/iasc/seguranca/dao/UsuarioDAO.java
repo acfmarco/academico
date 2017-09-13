@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.iasc.infra.repository.JpaDao;
 import br.com.iasc.seguranca.Entidades.Usuario;
@@ -85,7 +87,7 @@ public class UsuarioDAO extends JpaDao<Usuario> implements Serializable {
 	 * 
 	 * @return {@link String}
 	 */
-
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void atualizarUsuario(Usuario usuario) throws AcademicoException {
 
 		try {
@@ -101,7 +103,7 @@ public class UsuarioDAO extends JpaDao<Usuario> implements Serializable {
 	 * 
 	 * @return {@link String}
 	 */
-
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void salvarUsuario(Usuario usuario) throws AcademicoException {
 
 		try {
@@ -116,11 +118,11 @@ public class UsuarioDAO extends JpaDao<Usuario> implements Serializable {
 	 * 
 	 * @return {@link String}
 	 */
-
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void apagarUsuario(Usuario usuario) throws AcademicoException {
 
 		try {
-			delete(usuario);
+			delete(usuario.getCodigo());
 			getEntityManager().flush();
 		} catch (AcademicoException e) {
 			throw new AcademicoException("Não foi possível realizar está operação");
@@ -177,8 +179,8 @@ public class UsuarioDAO extends JpaDao<Usuario> implements Serializable {
 			return usuarioResultado;
 
 		}catch (NoResultException ex){
-			new AcademicoException("Não encontrado login de usuário");
-			return usuarioResultado;
+			throw new AcademicoException("Não encontrado login de usuário");
+			//return usuarioResultado;
 			
 		} catch (Exception e) {
 			throw new AcademicoException("Erro ao autenticar usuário");
