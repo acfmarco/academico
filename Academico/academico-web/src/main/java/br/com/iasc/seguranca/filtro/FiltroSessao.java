@@ -38,21 +38,21 @@ public class FiltroSessao implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
+
 		HttpServletResponse resp = (HttpServletResponse) response;
 		HttpServletRequest req = (HttpServletRequest) request;
 
 		HttpSession session = req.getSession();
-        LoginWebDTO usuario = (LoginWebDTO)session.getAttribute("login");
-        if(usuario == null){
-        	session.setAttribute("msg","Você não está logado no sistema!");
-        	String retorno = buscarRetorno(req);
-        	
-              ((HttpServletResponse)resp).sendRedirect(retorno);
-              
-        }else{
-              chain.doFilter(req, resp);
-        }
+		LoginWebDTO usuario = (LoginWebDTO) session.getAttribute("login");
+		if (usuario == null) {
+			session.setAttribute("msg", "Você não está logado no sistema!");
+			String retorno = buscarRetorno(req);
+
+			((HttpServletResponse) resp).sendRedirect(retorno);
+
+		} else {
+			chain.doFilter(req, resp);
+		}
 
 	}
 
@@ -63,7 +63,7 @@ public class FiltroSessao implements Filter {
 		AmbienteServico ambienteServico = context.getBean(AmbienteServico.class);
 
 		retorno = ambienteServico.getAcademico() + PAGINA_INICIAL;
-		
+
 		return retorno;
 	}
 

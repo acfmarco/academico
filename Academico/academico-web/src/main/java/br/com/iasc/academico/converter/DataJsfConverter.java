@@ -14,7 +14,6 @@ import br.com.iasc.seguranca.util.Mensagens;
 import br.com.iasc.utils.UtilJava;
 import br.com.iasc.utils.data.UtilData;
 
-
 /**
  * Classe de conversão de objetos em java para jsf.
  * Converte a data formatada no jsf e desconverte a mesma para o objeto java.

@@ -71,7 +71,7 @@ public class UsuarioVisao implements Serializable {
 		super();
 		this.usuarioSessao = obterNomeUsuarioSessao();
 	}
-	
+
 	/**
 	 * Adiciona a mensage informativa no faces com a mensagem de texto passado como argumento.
 	 * 
@@ -93,7 +93,7 @@ public class UsuarioVisao implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		context.addMessage(null, message);
 	}
-	
+
 	/**
 	 * Método responsável por fazer o redirect para a página de alterar senha
 	 * 
@@ -102,7 +102,7 @@ public class UsuarioVisao implements Serializable {
 	 */
 	public String iniciarAlterarSenha() {
 		Usuario usuario = UtilSession.getUsuarioSessao();
-		
+
 		return FW_ALTERAR_SENHA;
 	}
 
@@ -122,7 +122,7 @@ public class UsuarioVisao implements Serializable {
 		try {
 			String senhaCript = Criptografia.criptografar(senhaGerada);
 			usuario.setUsuaSenha(senhaCript);
-			
+
 			novoUsuario = false;
 
 			if (getUsuario().getCodigo() != UtilSession.getUsuarioSessao().getCodigo()) {
@@ -158,7 +158,6 @@ public class UsuarioVisao implements Serializable {
 			novoUsuario = true;
 		}
 	}
-
 
 	/**
 	 * Método responsável por fazer logoff do usuário logado.
@@ -253,11 +252,11 @@ public class UsuarioVisao implements Serializable {
 	}
 
 	public Usuario getUsuarioSessao() {
-		
-		if (usuarioSessao == null){
+
+		if (usuarioSessao == null) {
 			return UtilSession.getUsuarioSessao();
 		}
-		
+
 		return usuarioSessao;
 	}
 
@@ -281,5 +280,4 @@ public class UsuarioVisao implements Serializable {
 		this.gerouNovaSenha = gerouNovaSenha;
 	}
 
-	
 }

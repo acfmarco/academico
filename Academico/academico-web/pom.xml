@@ -325,10 +325,59 @@
 		       <artifactId>maven-surefire-plugin</artifactId>
 		       <version>2.18.1</version>
 		     </plugin>
+		     <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<warName>${nome.war}</warName>
+					<outputDirectory>${diretorio.war}</outputDirectory>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+						<manifestEntries>
+							<Dependencies>org.dom4j</Dependencies>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+				<artifactId>maven-java-formatter-plugin</artifactId>
+				<version>0.3.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<lineEnding>CRLF</lineEnding>
+					<configFile>${project.basedir}/JavaFormatter.xml</configFile>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		
 		<finalName>academico-web</finalName>
 
 	</build>
+	
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<nome.war>${project.artifactId}-${version}</nome.war>
+				<diretorio.war>${project.basedir}/target</diretorio.war>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>

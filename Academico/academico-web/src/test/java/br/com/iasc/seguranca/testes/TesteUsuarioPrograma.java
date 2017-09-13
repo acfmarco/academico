@@ -10,7 +10,6 @@ import br.com.iasc.seguranca.Entidades.UsuarioPrograma;
 import br.com.iasc.seguranca.bo.UsuarioProgramaBO;
 import br.com.iasc.seguranca.testes.base.TesteBase;
 
-
 /**
  * Teste unitário para verificação de métodos diversos
  *
@@ -21,7 +20,7 @@ public class TesteUsuarioPrograma extends TesteBase {
 
 	@Autowired
 	private UsuarioProgramaBO usuarioProgramaBO;
-	
+
 	/*
 	@Test
 	public void inserirUsuario() {
@@ -47,7 +46,7 @@ public class TesteUsuarioPrograma extends TesteBase {
 		}
 
 	}
-	*/
+	 */
 	/*
 	@Test
 	public void exlcuirUsuario() {
@@ -67,22 +66,21 @@ public class TesteUsuarioPrograma extends TesteBase {
 		}
 
 	}*/
-	
+
 	@Test
 	public void pesquisarUsuarioProgramaTodos() {
 
 		try {
 			List<UsuarioPrograma> listaUsuarioPrograma = new ArrayList<UsuarioPrograma>();
-			
+
 			listaUsuarioPrograma = this.usuarioProgramaBO.listarTodasUsuarioAcesso();
-			
+
 			assertNotNull(listaUsuarioPrograma);
-			
+
 			for (UsuarioPrograma usuarioPrograma : listaUsuarioPrograma) {
 				System.out.println("@Test - Usuário : " + usuarioPrograma.getUsuario().getUsuaNome());
-				System.out.println("@Test - Programa : " + usuarioPrograma.getPrograma().getProgNom());				
+				System.out.println("@Test - Programa : " + usuarioPrograma.getPrograma().getProgNom());
 			}
-						
 
 		} catch (Exception e) {
 			System.out.println("Falhou");
@@ -112,5 +110,5 @@ public class TesteUsuarioPrograma extends TesteBase {
 		}
 
 	}
-*/
+	 */
 }

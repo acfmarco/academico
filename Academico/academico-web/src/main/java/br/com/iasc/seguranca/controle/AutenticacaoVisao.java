@@ -75,15 +75,15 @@ public class AutenticacaoVisao implements Serializable {
 
 				LoginWebDTO login = new LoginWebDTO();
 				login.setUsuarioSessao(usuarioLogado);
-				
+
 				Authentication authentication = new UsernamePasswordAuthenticationToken(usuarioLogado, getPerfil(), createAuthorities(usuarioLogado));
 				Authentication result = authenticationManager.authenticate(authentication);
 
 				SecurityContextHolder.getContext().setAuthentication(result);
-				
+
 				FacesContext fc = FacesContext.getCurrentInstance();
-		        HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
-		        session.setAttribute("login", login);
+				HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
+				session.setAttribute("login", login);
 
 				return PAGINA_INICIAL;
 
@@ -148,8 +148,8 @@ public class AutenticacaoVisao implements Serializable {
 	}
 
 	public String getUsuario() {
-		
-		if (UtilSession.getUsuarioSessao() != null && (this.usuario == null || this.usuario.isEmpty())){
+
+		if (UtilSession.getUsuarioSessao() != null && (this.usuario == null || this.usuario.isEmpty())) {
 			return UtilSession.getUsuarioSessao().getUsuaNome();
 		}
 		return usuario;

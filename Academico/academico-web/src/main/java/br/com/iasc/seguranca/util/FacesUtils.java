@@ -19,8 +19,6 @@ import org.w3c.dom.NodeList;
 
 import br.com.iasc.seguranca.util.Jsf2NavigationHandler.NavigationCase;
 
-
-
 public final class FacesUtils {
 
 	private static final String FACES_REDIRECT_TRUE = "faces-redirect=true";

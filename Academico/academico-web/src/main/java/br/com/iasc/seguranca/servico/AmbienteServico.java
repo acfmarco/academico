@@ -16,10 +16,10 @@ public class AmbienteServico {
 
 	@Value("#{propriedades['url.seguranca']}")
 	private String seguranca;
-	
+
 	@Value("#{propriedades['url.academico']}")
 	private String academico;
-	
+
 	@Value("#{propriedades['url.tesouraria']}")
 	private String tesouraria;
 
@@ -45,7 +45,7 @@ public class AmbienteServico {
 	public void setAmbiente(String ambiente) {
 		this.ambiente = ambiente;
 	}
-		
+
 	public String getSeguranca() {
 		return seguranca;
 	}
@@ -77,5 +77,5 @@ public class AmbienteServico {
 	public void setTesouraria(String tesouraria) {
 		this.tesouraria = tesouraria;
 	}
-	
+
 }

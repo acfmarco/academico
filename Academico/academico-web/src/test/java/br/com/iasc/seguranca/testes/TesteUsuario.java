@@ -21,7 +21,7 @@ public class TesteUsuario extends TesteBase {
 
 	@Autowired
 	private UsuarioBO usuarioBO;
-	
+
 	@Autowired
 	private TipoAcessoBO tipoAcessoBO;
 
@@ -30,16 +30,16 @@ public class TesteUsuario extends TesteBase {
 
 		try {
 			Usuario usuario = new Usuario();
-			
+
 			usuario.setUsuaNome("Marco Antonio Figueiredo");
 			usuario.setUsuaDatNascimento(new Date());
 			usuario.setUsuaEmail("marco123@hotmail.com");
 			usuario.setUsuaLogin("marco12345");
 			usuario.setUsuaSenha(Criptografia.criptografar("123"));
 			usuario.setTipoAcesso(this.tipoAcessoBO.pesquisarTipoAcessoCodigo(1L));
-			
+
 			this.usuarioBO.salvarUsuario(usuario);
-			
+
 			assertTrue(usuario.getCodigo() != null);
 			System.out.println("@Test - Usuário inserido");
 
@@ -49,18 +49,18 @@ public class TesteUsuario extends TesteBase {
 		}
 
 	}
-	
+
 	@Test
 	public void pesquisarUsuario() {
 
 		try {
 			Usuario usuario = new Usuario();
-			
+
 			usuario = this.usuarioBO.consultarUsuarioPorCodigo(12L);
-			
+
 			assertNotNull(usuario);
-			
-			System.out.println("@Test - Usuário encontrado: " + usuario.getUsuaNome());			
+
+			System.out.println("@Test - Usuário encontrado: " + usuario.getUsuaNome());
 
 		} catch (Exception e) {
 			System.out.println("Falhou");
@@ -68,13 +68,13 @@ public class TesteUsuario extends TesteBase {
 		}
 
 	}
-	
+
 	@Test
 	public void atualizarUsuario() {
 
 		try {
 			Usuario usuario = new Usuario();
-			
+
 			//Pesquisa usuário a ser atualizado
 			usuario = this.usuarioBO.consultarUsuarioPorCodigo(12L);
 
@@ -82,10 +82,10 @@ public class TesteUsuario extends TesteBase {
 
 			usuario.setUsuaDatTrocaSenha(new Date());
 			usuario.setUsuaSenha(Criptografia.criptografar("123"));
-			
+
 			this.usuarioBO.atualizarUsuario(usuario);
-			
-			System.out.println("@Test - Usuário atualizado: " + usuario.getUsuaNome());			
+
+			System.out.println("@Test - Usuário atualizado: " + usuario.getUsuaNome());
 
 		} catch (Exception e) {
 			System.out.println("Falhou");
@@ -93,17 +93,17 @@ public class TesteUsuario extends TesteBase {
 		}
 
 	}
-	
+
 	@Test
 	public void exlcuirUsuario() {
 
 		try {
 			Usuario usuario = new Usuario();
-			
+
 			usuario = this.usuarioBO.consultarUsuarioPorCodigo(11L);
 
 			this.usuarioBO.apagarUsuario(usuario);
-			
+
 			System.out.println("@Test - Usuário excluido");
 
 		} catch (Exception e) {
