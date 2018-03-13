@@ -45,9 +45,6 @@
 
 	<bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@//172.18.228.213:1521/bbpdsv.localdomain" />
-		<property name="username" value="bbpf0351" />
-		<property name="password" value="bbpf0351" />
     </bean>
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
